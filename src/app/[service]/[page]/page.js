@@ -1,6 +1,9 @@
 import { SERVICES, CITIES } from "../../../../public/lib/constants";
 import { serviceSlug, pageSlug } from "../../../../public/lib/slug";
-import ServiceCityContent from "../../components/ServiceCities"; // client component (below)
+import ServiceCityContent from "../../components/ServiceCities"; 
+
+export const dynamic = "force-dynamic";
+
 // import { BLOGS } from "../../../../public/lib/content"; // import data
 
 // Pre-generate all combinations at build time (SSG)

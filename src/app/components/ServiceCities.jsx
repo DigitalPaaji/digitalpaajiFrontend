@@ -3,14 +3,13 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import { BLOGS } from "../../../public/lib/content";
+
 
 export default function ServiceCityContent({ serviceName, cityName }) {
-  const [selectedBlog, setSelectedBlog] = useState(0);
   const [openIndexLeft, setOpenIndexLeft] = useState(null);
 const [blog,setBlog]= useState()
 
-console.log(blog,"flff ")
+
 
 
 
@@ -38,14 +37,14 @@ useEffect(()=>{fetchBlog()},[])
 
 
 
-  if (!blog)
-    return (
- <p className="text-[#cc5f4d] h-[600px] lg:h-[600px] flex flex-col items-center justify-center merriHead text-3xl">
-   {/* content for {serviceName} {cityName}  */}
-  <span className="text-5xl font-bold mt-4">Coming Soon</span>
-</p>
+//   if (!blog)
+//     return (
+//  <p className="text-[#cc5f4d] h-[600px] lg:h-[600px] flex flex-col items-center justify-center merriHead text-3xl">
 
-    );
+//   <span className="text-5xl font-bold mt-4">Coming Soon</span>
+// </p>
+
+//     );
 
 
 
@@ -60,15 +59,15 @@ useEffect(()=>{fetchBlog()},[])
       <div className="w-full xl:w-[75%]">
         <div className="flex flex-col gap-6">
           <h1 className="servicePara text-3xl font-bold text-[#cc5f4d]">
-            {blog.title}
+            {blog?.title}
           </h1>
           <p className="text-gray-500 text-lg">
-            {blog.date} | {blog.tag}
+            {blog?.date} | {blog?.tag}
           </p>
-          <p className="text-md text-gray-700">{blog.description}</p>
+          <p className="text-md text-gray-700">{blog?.description}</p>
 
           <div className="grid grid-cols-3 gap-5 mt-4 h-auto ">
-            {blog.images.map((img, i) => (
+            {blog?.images.map((img, i) => (
               <img
                 key={i}
                 src={`${process.env.NEXT_PUBLIC_LOCAL_PORT}/uploads/${img}`}
@@ -81,7 +80,7 @@ useEffect(()=>{fetchBlog()},[])
           </div>
 
           <div className="mt-8 space-y-8">
-            {blog.sections.map((section, index) => (
+            {blog?.sections.map((section, index) => (
               <div key={index}>
                 <h2 className="servicePara text-lg font-semibold mb-4 text-[#3f3230]">
                   {section.heading}
@@ -91,10 +90,11 @@ useEffect(()=>{fetchBlog()},[])
                     <p key={i}>{para}</p>
                   ))}
                 </div>
-                {section.points && (
+                {section.points.length > 0 && (
                   <ul className="list-disc list-inside mt-3 space-y-1 text-gray-700">
-                    {section.points.map((point, i) => (
-                      <li key={i}>{point}</li>
+                    {section.points.map((point, i) => (<>
+                      {point && <li key={i}>{point}</li> }
+                    </>
                     ))}
                   </ul>
                 )}
@@ -155,20 +155,26 @@ useEffect(()=>{fetchBlog()},[])
           Frequently Asked Questions
         </h4>
         <div className=" w-full mt-8">
-          {blog.faqs?.map((faq, index) => (
-            <div key={index}>
-              <button
-                onClick={() => toggleDropdown(index)}
-                className="w-full flex justify-between py-3 text-start "
-              >
-                {faq.question}
-                {openIndexLeft === index ? <FaChevronUp /> : <FaChevronDown />}
-              </button>
-              {openIndexLeft === index && (
-                <div className="p-2 text-gray-700">{faq.answer}</div>
-              )}
-            </div>
-          ))}
+          
+        {blog?.faqs?.slice(0, -1).map((faq, index) => (
+  <div key={index}>
+    <button
+      onClick={() => toggleDropdown(index)}
+      className="w-full flex justify-between py-3 text-start"
+    >
+      <p className="w-full">
+        
+        {faq.question}
+        </p>
+      {openIndexLeft === index ? <FaChevronUp className="text-xl" /> : <FaChevronDown className="text-xl" />}
+    </button>
+
+    {openIndexLeft === index && (
+      <div className="p-2 text-gray-700">{faq.answer}</div>
+    )}
+  </div>
+))}
+
         </div>
 
         {/* Optional Recent Blogs section (kept commented like yours) */}
