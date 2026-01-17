@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function ResponsiveLayout() {
   const [show, setShow] = useState(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to track popup visibility
+  const [isMenuOpen, setIsMenuOpen] = useState(false); 
   const [openService, setOpenService] = useState(null);
 const [allservices,setAllservices]=useState(null)
 const [selectService,setSelectServices]= useState()
@@ -34,7 +34,7 @@ const [getcities,setGetCities]= useState()
 
   const fetchService= async ()=>{
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_PORT}/blogs/service`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_PORT}/api/blogs/service`);
       const data = await response.json();
       if(data.success){
 setAllservices(data.data)
@@ -50,7 +50,7 @@ setAllservices(data.data)
  const fetchCites= async (service)=>{
   try {
     
-    const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_PORT}/blogs/city/${service}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_PORT}/api/blogs/city/${service}`);
     const data = await response.json()
     if(data.success){
       
@@ -401,7 +401,7 @@ useEffect(()=>{
     {openService=="all" &&  <ul
         className="absolute -left-32 2xl:left-0   w-56 top-[90%]         z-[999999]   "
       >
-        <div  className=" top-full   bg-[#363534]      border-[#363534af] 
+        <div  className=" top-full   bg-[#363534] border     border-[#363534af] 
                    opacity-0 group-hover:opacity-100
                    transition-all duration-300 translate-y-2 "  onMouseLeave={() => setOpenService(null)} >
            

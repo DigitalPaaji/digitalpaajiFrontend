@@ -10,7 +10,7 @@ export default function ServiceCityContent({ serviceName, cityName }) {
   const [openIndexLeft, setOpenIndexLeft] = useState(null);
 const [blog,setBlog]= useState()
 
-
+console.log(blog,"flff ")
 
 
 
@@ -20,7 +20,7 @@ const [blog,setBlog]= useState()
 
 const fetchBlog= async()=>{
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_PORT}/blogs/get/${serviceName}/${cityName}`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_PORT}/api/blogs/get/${serviceName}/${cityName}`)
     const data  = await response.json();
     if(data.success){
       setBlog(data.data)
@@ -70,8 +70,8 @@ useEffect(()=>{fetchBlog()},[])
           <div className="grid grid-cols-3 gap-5 mt-4 h-auto ">
             {blog.images.map((img, i) => (
               <img
-                // key={i}
-                src={img}
+                key={i}
+                src={`${process.env.NEXT_PUBLIC_LOCAL_PORT}/uploads/${img}`}
                 alt="blog"
                 width={220}
                 height={220}

@@ -69,7 +69,7 @@ function Testimonials() {
   return (
     <div className="flex justify-center gap-8 items-center flex-wrap-reverse lg:flex-nowrap mx-4 xl:mx-20">
       {/* Left Section */}
-      <div className="py-10 px-2 w-full lg:w-1/2 bg-cover bg-center rounded-lg relative">
+      <div className="py-10 px-2 w-full lg:w-1/2 bg-cover bg-center rounded-lg relative  w-100vw overflow-hidden">
         <div className="mx-auto w-[300px] h-20">
           <Image width={300} height={80} src="/Images/logo2.webp" alt="logo" className="w-full h-full object-contain" />
         </div>

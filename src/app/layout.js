@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+
 import Image from "next/image";
-import Icons from "./components/Icons";
+
 import Head from "next/head";
 import Script from "next/script";
 import "./globals.css";
+import LayoutCompo from "./LayoutCompo";
 
 export default function RootLayout({ children }) {
     const [isLoading, setIsLoading] = useState(true);
@@ -105,7 +105,7 @@ export default function RootLayout({ children }) {
       </Script>
 
       <body>
-        {/* Google Tag Manager (noscript) */}
+        
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-KDZX87VQ"
@@ -126,10 +126,10 @@ export default function RootLayout({ children }) {
           </div>
         ) : ( 
         <>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <Icons />
+        <LayoutCompo>
+
+        {children}
+        </LayoutCompo>
         </>
            )} 
       </body>
