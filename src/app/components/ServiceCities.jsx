@@ -66,7 +66,7 @@ useEffect(()=>{fetchBlog()},[])
           </p>
           <p className="text-md text-gray-700">{blog?.description}</p>
 
-          <div className="grid grid-cols-3 gap-5 mt-4 h-auto ">
+          <div className="grid grid-cols-1 gap-5 mt-4 h-auto ">
             {blog?.images.map((img, i) => (
               <img
                 key={i}
