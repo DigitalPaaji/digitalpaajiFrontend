@@ -156,7 +156,7 @@ useEffect(()=>{fetchBlog()},[])
         </h4>
         <div className=" w-full mt-8">
           
-        {blog?.faqs?.slice(0, -1).map((faq, index) => (
+        {blog?.faqs?.map((faq, index) => (
   <div key={index}>
     <button
       onClick={() => toggleDropdown(index)}
