@@ -19,7 +19,7 @@ function Zigzag() {
     <div className='overflow-hidden'>
       <div className='bg-[#cc5f4d] py-16 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 px-8 lg:px-32 xl:px-56'>
         {features.map(({ src, title }, index) => (
-          <div key={index} className='flex items-center justify-center gap-2'>
+          <div key={index} className='flex items-center justify-center flex-wrap xl:flex-nowrap gap-2'>
             <div className='w-20 h-20'>
               <Image width={200} height={200} src={src} alt='img' className='w-full h-full object-contain' />
             </div>
