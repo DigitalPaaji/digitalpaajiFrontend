@@ -78,7 +78,7 @@ const BlogsList = () => {
   }, [fetchAllBlogs, slugToDelete]);
 
   return (
-    <div className="w-full min-h-screen bg-ede7db/30 p-6">
+    <div className="w-full min-h-screen bg-white/60 p-6">
       <style jsx global>{`
         :root {
           --cc5f4d: #cc5f4d;
@@ -116,7 +116,7 @@ const BlogsList = () => {
         {/* Header */}
         <div className="flex justify-between items-center mb-8 flex-wrap gap-4">
           <div>
-            <h2 className="text-3xl font-bold text-cc5f4d mb-2 drop-shadow-sm">
+            <h2 className=" merriHead text-[#302f2f] text-3xl  mb-2 ">
               Blog Management
             </h2>
             <p className="text-gray-600">
@@ -125,7 +125,7 @@ const BlogsList = () => {
           </div>
           <Link
             href="/admin/add"
-            className="bg-cc5f4d hover:bg-cc5f4d/90 text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 font-semibold group"
+            className="bg-[#153291]  text-white px-6 py-2  flex items-center gap-2 font-semibold group"
           >
             <FaPlus className="transition-transform duration-300 group-hover:scale-110" />
             Add New Blog
@@ -161,7 +161,7 @@ const BlogsList = () => {
         )}
 
         {/* Table Container */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+        <div className="bg-white overflow-hidden">
           {/* Table */}
           <div className="overflow-x-auto">
             {loading ? (
@@ -170,7 +170,7 @@ const BlogsList = () => {
               </div>
             ) : (
               <table className="min-w-full">
-                <thead className="bg-6db19b text-white">
+                <thead className="bg-[#153291] text-white">
                   <tr>
                     <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">
                       #
@@ -222,12 +222,12 @@ const BlogsList = () => {
                         className="hover:bg-ede7db/50 transition-all duration-200 group"
                       >
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm font-medium text-gray-900 bg-ede7db rounded-full w-8 h-8 flex items-center justify-center">
-                            {idx + 1}
+                          <div className=" font-medium text-gray-900 w-8 h-8 flex items-center justify-center">
+                            {idx + 1}.
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="w-12 h-12 rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                          <div className="w-12 h-12 overflow-hidden border border-gray-200 shadow-sm">
                             <img
                               alt={blog.title}
                               width={48}
@@ -243,7 +243,7 @@ const BlogsList = () => {
                               {blog.type}
                             </div>
                             {blog.tag && (
-                              <span className="inline-block bg-ede7db text-cc5f4d text-xs px-2 py-1 rounded-full mt-1">
+                              <span className="inline-block bg-ede7db text-cc5f4d text-xs px-2 py-1 mt-1">
                                 {blog.tag}
                               </span>
                             )}

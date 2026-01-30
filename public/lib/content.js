@@ -1091,16 +1091,17 @@ export const BLOGS = [
     ],
   },
 {
-  "id": 10,
+
   "slug": "website-development-agency-patiala",
+    "type": "company",
   "service": "website-development",
   "city": "patiala",
-  "title": "Best Website Development Agency in Patiala – Digital Paaji",
+  "title": "Best Website Development Agency in Patiala - Digital Paaji",
   "images": [
     "/Images/services/digital-paaji.png",
     "/Images/services/digital-paaji.png"
   ],
-  "date": "April 29, 2025",
+ "date": "2025-04-29",
   "tag": "Website Development",
   "description": "Digital Paaji is proud to be recognized as the best website development agency in Patiala, helping businesses of all sizes build a strong digital presence and connect with their target audience. In today’s fast-moving digital world, a website isn’t just about being online—it’s about creating a platform that drives engagement, builds trust, and delivers real business results.",
   "meta": {
@@ -3144,7 +3145,7 @@ export const BLOGS = [
     },
     {
       "heading": "Why Choose Digital Paaji for Search Engine Optimization in Chandigarh?",
-      "paragraphs": [
+      "paragraphs": [  
         "Businesses in Chandigarh trust us because we combine creativity, affordability, and proven strategies under one roof.",
         "Our focus is on delivering measurable growth while ensuring your brand voice shines through every campaign."
       ],

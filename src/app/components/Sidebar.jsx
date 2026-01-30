@@ -13,6 +13,7 @@ import {
   LogOut,
 } from 'lucide-react'
 import PopupModal from './ConfirmPopup'
+import Image from 'next/image'
 
 // Updated nav items with correct icons
 const navItems = [
@@ -104,30 +105,32 @@ const route= useRouter()
       >
         {/* Top Section */}
         <div>
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-6  ">
             {!collapsed && (
-              <Link href="/admin" className="flex-shrink-0 group font-medium text-3xl text-[#d66e6e]">
-                {/* <img
-                  src="/Images/logo.webp"
+              <Link href="/admin" className="shrink-0 group font-medium text-3xl text-[#d66e6e]">
+              <Image
+              width={20}
+              height={20}
+                  src="/Images/logo2.png"
                   alt="Logo"
-                  className="h-10 w-auto lg:h-12"
-                /> */}
-                Blogs
+                className='w-36 h-auto '
+                /> 
+                
               </Link>
             )}
 <button
   onClick={() => setCollapsed(!collapsed)}
-  className="p-2 neumorphic-btn ml-auto lg:ml-0 rounded-lg hover:bg-gray-200"
+  className={`${collapsed ? 'w-full' : 'w-fit'} p-2 rounded-lg   flex items-center justify-center`}
 >
   <Menu size={20} />
 </button>
           </div>
 
           {/* Nav Links */}
-          <nav className="space-y-2">
+          <nav className="space-y-2  ">
             {navItems.map((item) => {
               const Icon = item.icon
-              const active = pathname === item.href
+            
               return (
                 <Link
                   key={item.name}
@@ -137,16 +140,12 @@ const route= useRouter()
                     }
                   }}
                   href={item.href}
-                  className={`flex items-center gap-3 capitalize px-4 py-3 rounded-lg text-sm font-medium transition-all
-                    ${
-                      active
-                        ? 'bg-[#f3f2f1] text-[#2d2d2d] shadow-sm'
-                        : 'text-gray-600 hover:bg-[#f3f2f1] hover:text-black'
-                    }
-                  `}
+            className={`flex items-center py-3 rounded-lg text-sm font-medium transition-all merriHead text-[#302f2f]
+    ${collapsed ? 'justify-center' : 'justify-start '}
+  `}
                 >
                   <Icon size={18} />
-                  {!collapsed && <span>{item.name}</span>}
+                  {!collapsed && <span className='ml-3'>{item.name}</span>}
                 </Link>
               )
             })}
@@ -157,7 +156,7 @@ const route= useRouter()
         <div>
           <button
             onClick={() => setShowLogoutPopup(true)}
-            className="cursor-pointer flex items-center gap-3 px-4 py-3 w-full rounded-lg text-sm font-medium text-red-500 hover:bg-red-50 hover:text-red-700 transition"
+            className="bg-[#153291]  text-white px-6 py-2  shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 font-semibold group"
           >
             <LogOut size={18} />
             {!collapsed && 'Logout'}

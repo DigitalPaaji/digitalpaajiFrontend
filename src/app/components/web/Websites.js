@@ -3,17 +3,22 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Navigation } from 'swiper/modules';
 import { useState } from 'react';
-
+import Link from 'next/link'
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 
 const frames = [
-  'https://portfolio.digitalpaajiacademy.com/',
-  'https://digitalpaajiacademy.com/',
+  'https://hammerexperts.ca/',
   'https://cogan.life/',
   'https://saajriwaaj.com/',
+  'https://bynav.space/',
+  'https://fleetxlogistics.co.uk/delivery-driver-jobs-portsmouth',
+  'https://portfolio.digitalpaajiacademy.com/',
+  'https://digitalpaajiacademy.com/',
+  'https://workshop.digitalpaajiacademy.com/',
 ];
+
 
 export default function CardsSwiper() {
   // Remove TypeScript angle brackets
@@ -30,45 +35,60 @@ export default function CardsSwiper() {
   return (
     <section className="px-4 md:px-12 xl:px-52 w-full py-20">
       {/* Header */}
-      <div className="text-center mb-12">
-        <h3 className="bungeeHead text-[#cc5f4d] text-[30px] xl:text-[40px]">
-          Projects We&apos;ve Built for Our Clients
-        </h3>
-        <p className="max-w-2xl mx-auto">
-          Swipe manually — center project is highlighted
-        </p>
-      </div>
+<div className="w-full text-center mb-8 md:mb-12 lg:mb-16">
+  <h3 className="bungeeHead text-[#cc5f4d] text-[30px] xl:text-[40px]">
+    Projects We&apos;ve Built for Our Clients
+  </h3>
+  <p className="text-md md:text-md xl:text-lg mx-auto max-w-2xl mb-6">
+    Take a look at some of the creative and custom-made projects we&apos;ve developed.  
+    From sleek business websites to interactive platforms — we bring ideas to life!
+  </p>
+  <Link href={'/contact'} className=" px-6 py-4 border rounded-xl border-black bg-[#f8cb2e] hover:bg-[#cc5f4d] text-black font-medium text-lg">
+    Get Yours Customized
+  </Link>
+</div> 
+
 
       {/* Swiper */}
       <Swiper
-        effect="coverflow"
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={3}
-        spaceBetween={40}
-        loop={true}
-        navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: -80,
-          depth: 200,
-          modifier: 1,
-          slideShadows: false,
-        }}
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-          },
-          768: {
-            slidesPerView: 3,
-          },
-        }}
-        modules={[EffectCoverflow, Navigation]}
-        className="h-[75vh] relative"
-      >
+  effect="coverflow"
+  grabCursor={true}
+  centeredSlides={true}
+  loop={true}
+  spaceBetween={20}
+  navigation={{
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  }}
+  coverflowEffect={{
+    rotate: 0,
+    stretch: -80,
+    depth: 200,
+    modifier: 1,
+    slideShadows: false,
+  }}
+  breakpoints={{
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 12,
+    },
+    640: {
+      slidesPerView: 1.4,
+      spaceBetween: 16,
+    },
+    1024: {
+      slidesPerView: 2,
+      spaceBetween: 16,
+    },
+    1440:{
+      slidesPerView: 3,
+      spaceBetween: 20,
+    }
+  }}
+  modules={[EffectCoverflow, Navigation]}
+  className="h-[70vh] md:h-[75vh] relative"
+>
+
         {frames.map((src, index) => (
           <SwiperSlide key={index}>
             {({ isActive }) => (
@@ -88,10 +108,10 @@ export default function CardsSwiper() {
                   className={`transition-all duration-700 rounded-xl overflow-hidden
                     ${
                       isActive
-                        ? 'scale-100 blur-0 opacity-100'
-                        : 'scale-90 blur-[2px] opacity-90'
+                        ? 'scale-100 '
+                        : 'scale-90 '
                     }
-                    ${!loadedFrames[index] ? 'opacity-0' : 'opacity-100'}
+                    ${!loadedFrames[index] ? 'opacity-40' : 'opacity-100'}
                   `}
                 >
                   <iframe

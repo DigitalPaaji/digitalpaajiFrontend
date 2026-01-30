@@ -583,7 +583,7 @@ const handleSubmit = async (e) => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-cc5f4d mb-2 flex items-center gap-3">
+          <h1 className="merriHead text-[#302f2f] text-3xl  mb-2 flex items-center gap-3">
             <FileText className="h-8 w-8" />
             Add New Blog
           </h1>

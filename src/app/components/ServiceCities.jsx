@@ -8,15 +8,6 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 export default function ServiceCityContent({ serviceName, cityName }) {
   const [openIndexLeft, setOpenIndexLeft] = useState(null);
 const [blog,setBlog]= useState()
-
-
-
-
-
-
-
-
-
 const fetchBlog= async()=>{
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_PORT}/api/blogs/get/${serviceName}/${cityName}`)

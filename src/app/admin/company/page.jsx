@@ -78,7 +78,7 @@ const BlogsList = () => {
   }, [slugToDelete]);
 
   return (
-    <div className="w-full min-h-screen bg-ede7db/30 p-6">
+    <div className="w-full min-h-screen bg-white/60 p-6">
       <style jsx global>{`
         :root {
           --cc5f4d: #cc5f4d;
@@ -116,7 +116,7 @@ const BlogsList = () => {
         {/* Header */}
         <div className="flex justify-between items-center mb-8 flex-wrap gap-4">
           <div>
-            <h2 className="text-3xl font-bold text-cc5f4d mb-2 drop-shadow-sm">
+            <h2 className="merriHead text-[#302f2f] text-3xl  mb-2">
               Blog Management
             </h2>
             <p className="text-gray-600">
@@ -125,7 +125,7 @@ const BlogsList = () => {
           </div>
           <Link
             href="/admin/add"
-            className="bg-cc5f4d hover:bg-cc5f4d/90 text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 font-semibold group"
+            className="bg-[#153291]  text-white px-6 py-2 flex items-center gap-2 font-semibold group"
           >
             <FaPlus className="transition-transform duration-300 group-hover:scale-110" />
             Add New Blog
