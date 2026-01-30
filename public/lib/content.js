@@ -242,7 +242,7 @@ export const BLOGS = [
           "We focus on ROI, transparency, and affordability - making us the top choice for digital marketing in Chandigarh.",
       },
     ],
-  },
+  }, 
   {
     id: 3,
     slug: "digital-marketing-agency-mohali",
@@ -381,7 +381,7 @@ export const BLOGS = [
     meta: {
       title: "Best Digital Marketing Agency in Ludhiana  | Digital Paaji",
       description:
-        "Trusted by brands, Digital Paaji is the best digital marketing agency in Ludhiana, offering SEO, ads & affordable digital marketing services in Ludhiana.",
+        " ",
     },
     sections: [
       {

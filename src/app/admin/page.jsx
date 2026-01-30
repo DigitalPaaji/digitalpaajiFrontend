@@ -51,7 +51,7 @@ const BlogsList = () => {
 
   const handleDelete = (blog) => {
     setShowDeletePopup(true);
-    setSlugToDelete(blog.slug);
+    setSlugToDelete(blog._id);
     setBlogToDelete(blog.title);
   };
 
