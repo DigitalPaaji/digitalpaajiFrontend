@@ -1,12 +1,9 @@
 'use client';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Navigation } from 'swiper/modules';
-import { useState } from 'react';
-import Link from 'next/link'
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/navigation';
+import { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight, MdOpenInNew } from "react-icons/md";
+import { FaGlobe } from "react-icons/fa";
 
 const frames = [
   'https://hammerexperts.ca/',
@@ -19,265 +16,257 @@ const frames = [
   'https://workshop.digitalpaajiacademy.com/',
 ];
 
+export default function CinematicSwiper() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
-export default function CardsSwiper() {
-  // Remove TypeScript angle brackets
-  const [loadedFrames, setLoadedFrames] = useState(new Array(frames.length).fill(false));
+  // --- 1. Robust Resize Handler ---
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
-  const handleIframeLoad = (index) => {
-    setLoadedFrames(prev => {
-      const newLoaded = [...prev];
-      newLoaded[index] = true;
-      return newLoaded;
-    });
+  // --- 2. Keyboard Navigation ---
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'ArrowRight') handleNext();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentIndex]); // Dependency ensures state is fresh
+
+  // Helpers
+  const getIndex = (offset) => (currentIndex + offset + frames.length) % frames.length;
+
+  const handleNext = useCallback(() => {
+    setDirection(1);
+    setIsLoading(true);
+    setCurrentIndex((prev) => (prev + 1) % frames.length);
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    setDirection(-1);
+    setIsLoading(true);
+    setCurrentIndex((prev) => (prev - 1 + frames.length) % frames.length);
+  }, []);
+
+  // --- 3. Animation Variants (The Core Logic) ---
+  const variants = {
+    // The Active Card (Center)
+    center: {
+      x: 0,
+      scale: 1,
+      opacity: 1,
+      zIndex: 30,
+      rotateY: 0,
+      transition: { type: "spring", stiffness: 300, damping: 30 }
+    },
+    // The Next Card (Right)
+    next: {
+      x: isMobile ? "100%" : "55%", // Percentage based spacing
+      scale: 0.85,
+      opacity: 0.6,
+      zIndex: 10,
+      rotateY: -15, // Subtle 3D turn
+      transition: { type: "spring", stiffness: 300, damping: 30 }
+    },
+    // The Previous Card (Left)
+    prev: {
+      x: isMobile ? "-100%" : "-55%",
+      scale: 0.85,
+      opacity: 0.6,
+      zIndex: 10,
+      rotateY: 15,
+      transition: { type: "spring", stiffness: 300, damping: 30 }
+    },
+    // Exit animations
+    enterNext: { x: "100%", opacity: 0, scale: 0.5 },
+    enterPrev: { x: "-100%", opacity: 0, scale: 0.5 }
   };
 
   return (
-    <section className="px-4 md:px-12 xl:px-52 w-full py-20">
+    <section className="relative w-full min-h-screen bg-gray-50 flex flex-col justify-center py-20 overflow-hidden">
+      
       {/* Header */}
-<div className="w-full text-center mb-8 md:mb-12 lg:mb-16">
-  <h3 className="bungeeHead text-[#cc5f4d] text-[30px] xl:text-[40px]">
-    Projects We&apos;ve Built for Our Clients
-  </h3>
-  <p className="text-md md:text-md xl:text-lg mx-auto max-w-2xl mb-6">
-    Take a look at some of the creative and custom-made projects we&apos;ve developed.  
-    From sleek business websites to interactive platforms — we bring ideas to life!
-  </p>
-  <Link href={'/contact'} className=" px-6 py-4 border rounded-xl border-black bg-[#f8cb2e] hover:bg-[#cc5f4d] text-black font-medium text-lg">
-    Get Yours Customized
-  </Link>
-</div> 
+      <div className="container mx-auto px-4 text-center mb-12 z-20">
+        <h3 className="bungeeHead text-[#cc5f4d] text-3xl md:text-5xl font-bold mb-3 drop-shadow-sm">
+          Projects We&apos;ve Built
+        </h3>
+        <p className="text-gray-500 max-w-xl mx-auto text-lg">
+          Explore our interactive portfolio. Swipe, click, or use arrow keys.
+        </p>
+      </div>
 
+      {/* --- CAROUSEL STAGE --- */}
+      <div className="relative w-full max-w-[1400px] mx-auto h-[60vh] md:h-[70vh] flex items-center justify-center perspective-1000">
+        
+        {/* Navigation Buttons (Floating) */}
+        <NavButton direction="left" onClick={handlePrev} />
+        <NavButton direction="right" onClick={handleNext} />
 
-      {/* Swiper */}
-      <Swiper
-  effect="coverflow"
-  grabCursor={true}
-  centeredSlides={true}
-  loop={true}
-  spaceBetween={20}
-  navigation={{
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  }}
-  coverflowEffect={{
-    rotate: 0,
-    stretch: -80,
-    depth: 200,
-    modifier: 1,
-    slideShadows: false,
-  }}
-  breakpoints={{
-    0: {
-      slidesPerView: 1,
-      spaceBetween: 12,
-    },
-    640: {
-      slidesPerView: 1.4,
-      spaceBetween: 16,
-    },
-    1024: {
-      slidesPerView: 2,
-      spaceBetween: 16,
-    },
-    1440:{
-      slidesPerView: 3,
-      spaceBetween: 20,
-    }
-  }}
-  modules={[EffectCoverflow, Navigation]}
-  className="h-[70vh] md:h-[75vh] relative"
->
+        {/* RENDER STRATEGY:
+            Instead of AnimatePresence for the whole list, we render the
+            Prev, Current, and Next cards explicitly. This is more stable for iframes.
+        */}
 
-        {frames.map((src, index) => (
-          <SwiperSlide key={index}>
-            {({ isActive }) => (
-              <div className="relative rounded-xl overflow-hidden">
-                {/* Loading overlay */}
-                {!loadedFrames[index] && (
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 animate-pulse rounded-xl flex items-center justify-center z-10">
-                    <div className="flex flex-col items-center">
-                      <div className="w-12 h-12 border-4 border-[#cc5f4d]/20 border-t-[#cc5f4d] rounded-full animate-spin mb-4"></div>
-                      <span className="text-[#cc5f4d] font-medium">Loading...</span>
-                    </div>
-                  </div>
-                )}
+        {/* 1. PREVIOUS CARD (Left) */}
+        <motion.div
+          key={`prev-${getIndex(-1)}`}
+          variants={variants}
+          animate="prev"
+          initial="enterPrev"
+          className="absolute w-[85vw] md:w-[60vw] h-full cursor-pointer"
+          onClick={handlePrev}
+        >
+          <CardContent 
+            url={frames[getIndex(-1)]} 
+            type="preview" 
+            label="Previous" 
+            icon={<MdOutlineKeyboardArrowLeft />}
+            alignIcon="left"
+          />
+        </motion.div>
 
-                {/* Iframe container */}
-                <div
-                  className={`transition-all duration-700 rounded-xl overflow-hidden
-                    ${
-                      isActive
-                        ? 'scale-100 '
-                        : 'scale-90 '
-                    }
-                    ${!loadedFrames[index] ? 'opacity-40' : 'opacity-100'}
-                  `}
-                >
-                  <iframe
-                    src={src}
-                    loading="lazy"
-                    className="w-full h-[70vh] rounded-xl border transition-opacity duration-700"
-                    onLoad={() => handleIframeLoad(index)}
-                    style={{
-                      opacity: loadedFrames[index] ? 1 : 0,
-                    }}
-                    title={`Project ${index + 1}`}
-                  />
-                </div>
-              </div>
-            )}
-          </SwiperSlide>
-        ))}
+        {/* 2. NEXT CARD (Right) */}
+        <motion.div
+          key={`next-${getIndex(1)}`}
+          variants={variants}
+          animate="next"
+          initial="enterNext"
+          className="absolute w-[85vw] md:w-[60vw] h-full cursor-pointer"
+          onClick={handleNext}
+        >
+          <CardContent 
+            url={frames[getIndex(1)]} 
+            type="preview" 
+            label="Next"
+            icon={<MdOutlineKeyboardArrowRight />}
+            alignIcon="right"
+          />
+        </motion.div>
 
-        {/* Custom Navigation Buttons */}
-        <div className="swiper-button-prev !w-10 !h-10 !top-1/2 !left-4 !-translate-y-1/2 !text-[#cc5f4d] after:!text-[20px] after:!font-bold hover:!scale-110 transition-transform duration-200" />
-        <div className="swiper-button-next !w-10 !h-10 !top-1/2 !right-4 !-translate-y-1/2 !text-[#cc5f4d] after:!text-[20px] after:!font-bold hover:!scale-110 transition-transform duration-200" />
-      </Swiper>
+        {/* 3. CURRENT CARD (Center - Interactive) */}
+        {/* We use AnimatePresence here to smooth the swap of the CENTER card specifically */}
+        <motion.div
+            key={`current-${currentIndex}`}
+            variants={variants}
+            animate="center"
+            // We use a trick: initial is NOT set to allow it to "flow" from its previous position if we were tracking it,
+            // but for simplicity in this 3-card stack, we just animate to center.
+            className="absolute w-[90vw] md:w-[65vw] h-full z-30"
+          >
+            <CardContent 
+              url={frames[currentIndex]} 
+              type="active" 
+              isLoading={isLoading} 
+              onLoad={() => setIsLoading(false)}
+            />
+        </motion.div>
 
-      {/* Custom CSS for arrow styling */}
-      <style jsx global>{`
-        .swiper-button-prev,
-        .swiper-button-next {
-          background: rgba(255, 255, 255, 0.9);
-          border-radius: 50%;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-          width: 40px;
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
+      </div>
 
-        .swiper-button-prev:after,
-        .swiper-button-next:after {
-          font-size: 20px;
-          font-weight: bold;
-          color: #cc5f4d;
-        }
-
-        .swiper-button-prev:hover,
-        .swiper-button-next:hover {
-          background: white;
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        .swiper-button-disabled {
-          opacity: 0.3;
-          cursor: not-allowed;
-          pointer-events: none;
-        }
-      `}</style>
+      {/* Mobile Swipe Hint */}
+      {isMobile && (
+        <div className="text-center mt-12 text-gray-400 animate-pulse flex justify-center items-center gap-2">
+           <MdOutlineKeyboardArrowLeft /> Swipe to Navigate <MdOutlineKeyboardArrowRight />
+        </div>
+      )}
     </section>
   );
 }
 
+// --- SUB-COMPONENTS FOR CLEANER CODE ---
 
+const NavButton = ({ direction, onClick }) => (
+  <button
+    onClick={onClick}
+    className={`
+      absolute top-1/2 -translate-y-1/2 z-40 w-12 h-12 md:w-16 md:h-16 
+      bg-white/80 backdrop-blur-md rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.12)] 
+      flex items-center justify-center text-[#cc5f4d] 
+      hover:scale-110 hover:bg-white hover:shadow-[#cc5f4d]/20 hover:shadow-2xl 
+      transition-all duration-300
+      ${direction === 'left' ? 'left-4 md:left-8' : 'right-4 md:right-8'}
+    `}
+  >
+    {direction === 'left' ? <MdOutlineKeyboardArrowLeft size={30} /> : <MdOutlineKeyboardArrowRight size={30} />}
+  </button>
+);
 
-// 'use client';
-// import React from 'react';
-// import Link from 'next/link';
+const CardContent = ({ url, type, label, icon, alignIcon, isLoading, onLoad }) => {
+  const isPreview = type === 'preview';
 
-// const cardsData = [
-//   {
-//     title: 'Creekside Car Wash',
-//     description:
-//       'A full-stack MERN website featuring an online appointment booking system, gift card purchasing, and service management for a modern car wash experience.',
-//     image: '/Images/wd/creekside.webp',
-//     link: 'https://creekside-jet.vercel.app/',
-//   },
-//   {
-//     title: 'Hammer Experts',
-//     description:
-//       'A professional home improvement and renovation service website built on the MERN stack — offering seamless booking and project showcasing.',
-//     image: '/Images/wd/hammer.webp',
-//     link: 'https://hammerexperts.ca/',
-//   },
-//   {
-//     title: 'The SMS World',
-//     description:
-//       'A custom-built digital marketing and bulk messaging platform designed to deliver high-performance SMS campaigns with a user-friendly dashboard.',
-//     image: '/Images/wd/smsworld.webp',
-//     link: 'https://thesmsworld.com/',
-//   },
-//   {
-//     title: 'Digital Paaji Academy',
-//     description:
-//       'An educational platform built for Digital Paaji Academy — offering professional marketing and design courses with a sleek, interactive Next.js frontend.',
-//     image: '/Images/wd/academy.webp',
-//     link: 'https://digitalpaajiacademy.com/',
-//   },
-//   {
-//     title: 'DigiMagnifiko',
-//     description:
-//       'A PHP-based marketing website focused on brand strategy, creative campaigns, and digital growth for businesses.',
-//     image: '/Images/wd/magnifiko.webp',
-//     link: 'https://www.digimagnifiko.com/',
-//   },
-//   {
-//     title: 'Kaushalya Records',
-//     description:
-//       'A creative music production and artist management website for Kaushalya Records, designed to showcase new releases, artists, and studio services.',
-//     image: '/Images/wd/kaushalya.webp',
-//     link: 'https://kaushalyarecords.com/',
-//   },
-//   {
-//     title: 'Property Profiles',
-//     description:
-//       'A real estate website for listing and showcasing premium properties with dynamic search and user-friendly layouts.',
-//     image: '/Images/wd/property.webp',
-//     link: 'https://propertyprofiles.in/',
-//   },
-// ];
+  return (
+    <div className={`
+      w-full h-full bg-white rounded-2xl overflow-hidden border border-gray-200 
+      transition-all duration-500
+      ${isPreview ? 'shadow-xl hover:shadow-2xl' : 'shadow-[0_20px_50px_rgba(0,0,0,0.2)]'}
+    `}>
+      
+      {/* Browser Header */}
+      <div className="h-10 bg-gray-50 border-b border-gray-200 flex items-center px-4 justify-between">
+        <div className="flex gap-1.5">
+          <div className="w-3 h-3 rounded-full bg-[#ff5f57] border border-black/10" />
+          <div className="w-3 h-3 rounded-full bg-[#febc2e] border border-black/10" />
+          <div className="w-3 h-3 rounded-full bg-[#28c840] border border-black/10" />
+        </div>
+        
+        {!isPreview && (
+          <div className="flex items-center gap-2 text-gray-400 text-xs font-mono bg-white px-3 py-1 rounded border shadow-sm">
+            <FaGlobe size={10} /> {new URL(url).hostname}
+          </div>
+        )}
 
+        {/* Active: Visit Button | Preview: Label */}
+        {isPreview ? (
+          <div className="text-xs font-bold text-gray-400 uppercase tracking-wider">{label}</div>
+        ) : (
+          <a href={url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-[#cc5f4d] text-xs font-bold hover:underline">
+            Visit <MdOpenInNew />
+          </a>
+        )}
+      </div>
 
-// function Cards() {
-//   return (
-//     <section className="px-4 md:px-12 xl:px-52 py-12 w-full">
-// <div className="w-full text-center mb-8 md:mb-12 lg:mb-16">
-//   <h3 className="bungeeHead text-[#cc5f4d] text-[30px] xl:text-[40px]">
-//     Projects We&apos;ve Built for Our Clients
-//   </h3>
-//   <p className="text-md md:text-md xl:text-lg mx-auto max-w-2xl mb-6">
-//     Take a look at some of the creative and custom-made projects we&apos;ve developed.  
-//     From sleek business websites to interactive platforms — we bring ideas to life!
-//   </p>
-//   <Link href={'/contact'} className=" px-6 py-4 border rounded-xl border-black bg-[#f8cb2e] hover:bg-[#cc5f4d] text-black font-medium text-lg">
-//     Get Yours Customized
-//   </Link>
-// </div> 
+      {/* Main Content Area */}
+      <div className="relative w-full h-[calc(100%-2.5rem)] bg-white group">
+        
+        {/* Loading State (Only for Active) */}
+        {!isPreview && isLoading && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 z-20">
+            <div className="w-10 h-10 border-4 border-gray-200 border-t-[#cc5f4d] rounded-full animate-spin mb-3"></div>
+            <span className="text-gray-400 text-xs font-medium animate-pulse">Loading Preview...</span>
+          </div>
+        )}
 
+        {/* PREVIEW OVERLAY (CRITICAL): 
+           This transparent div covers the iframe on preview cards.
+           It captures the click event so the user can "swap" slides 
+           instead of interacting with the website inside.
+        */}
+        {isPreview && (
+          <div className="absolute inset-0 z-50 bg-white/20 hover:bg-white/10 backdrop-blur-[1px] transition-all flex items-center justify-center">
+             <div className={`
+                flex items-center gap-2 px-6 py-3 rounded-full bg-white/90 shadow-lg text-[#cc5f4d] font-bold transform translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300
+                ${alignIcon === 'left' ? 'flex-row-reverse' : ''}
+             `}>
+                {label} {icon}
+             </div>
+          </div>
+        )}
 
-// <div className='flex items-center justify-center gap-12'>
-// <iframe src="https://portfolio.digitalpaajiacademy.com/" frameborder="0" className='w-full h-[80vh] '></iframe>
-// <iframe src="https://portfolio.digitalpaajiacademy.com/" frameborder="0" className='w-full h-[80vh] '></iframe>
-
-// <iframe src="https://portfolio.digitalpaajiacademy.com/" frameborder="0" className='w-full h-[80vh] '></iframe>
-
-// </div>
-
-
-// {/* 
-//       <div className="w-full grid grid-cols-1 xl:grid-cols-2 gap-6">
-//         {cardsData.map((card, index) => (
-//           <Link target="_blank"
-//     rel="noopener noreferrer"
-//      href={card.link} key={index} className="card-wrap w-full">
-//             <div className="card w-full h-[280px] md:h-[400px]">
-//               <div
-//                 className="card-bg"
-//                 style={{ backgroundImage: `url(${card.image})` }}
-//               ></div>
-//               <div className="card-info">
-//                 <h1>{card.title}</h1>
-//                 <p>{card.description}</p>
-//               </div>
-//             </div>
-//           </Link>
-//         ))}
-//       </div> */}
-//     </section>
-//   );
-// }
-
-// export default Cards;
+        <iframe
+          src={url}
+          onLoad={onLoad}
+          className={`w-full h-full border-none ${isPreview ? 'pointer-events-none opacity-80 grayscale-[0.3]' : 'opacity-100'}`}
+          title="Project Preview"
+          tabIndex={isPreview ? -1 : 0}
+        />
+      </div>
+    </div>
+  );
+};

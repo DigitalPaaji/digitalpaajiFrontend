@@ -18,13 +18,13 @@ import Websites from './web/Websites';
 
 export default function About() {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true}); // Initialize AOS with desired settings
+    AOS.init({ duration: 1000, once: true}); 
   }, []);
 
   return (
     <main>
-        <Header/>
-   <div className="my-16">
+        {/* <Header/> */}
+   <div className="">
         <Websites />
       </div>
    <div className="my-16">

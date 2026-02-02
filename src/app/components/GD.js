@@ -21,8 +21,8 @@ export default function About() {
 
   return (
     <main>
-        <Header title="Graphic Designing Agency In India" content="We won't let good design go extinct!" button="Call Us"/>
-        <div className="my-16">
+        {/* <Header title="Graphic Designing Agency In India" content="We won't let good design go extinct!" button="Call Us"/> */}
+        <div className="">
         <Creatives />
       </div>
         <div className="my-16">
