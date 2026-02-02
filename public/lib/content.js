@@ -1213,7 +1213,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 11,
+     "type": "company",
+
+ 
   "slug": "website-development-agency-chandigarh",
   "service": "website-development",
   "city": "chandigarh",
@@ -1333,7 +1335,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 12,
+     "type": "company",
+
+ 
   "slug": "website-development-agency-mohali",
   "service": "website-development",
   "city": "mohali",
@@ -2264,7 +2268,9 @@ export const BLOGS = [
 
 ,
 {
-  "id": 19,
+     "type": "company",
+
+ 
   "slug": "search-engine-optimization-agency-patiala",
   "service": "search-engine-optimization",
   "city": "patiala",
@@ -2383,7 +2389,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 20,
+     "type": "company",
+
+ 
   "slug": "search-engine-optimization-agency-mohali",
   "service": "search-engine-optimization",
   "city": "mohali",
@@ -2503,7 +2511,9 @@ export const BLOGS = [
 }
 ,
 {
-  "id": 21,
+     "type": "company",
+
+ 
   "slug": "search-engine-optimization-agency-ludhiana",
   "service": "search-engine-optimization",
   "city": "ludhiana",
@@ -2622,7 +2632,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 22,
+     "type": "company",
+
+ 
   "slug": "search-engine-optimization-agency-nabha",
   "service": "search-engine-optimization",
   "city": "nabha",
@@ -2742,7 +2754,9 @@ export const BLOGS = [
 }
 ,
 {
-  "id": 23,
+     "type": "company",
+
+ 
   "slug": "search-engine-optimization-agency-rajpura",
   "service": "search-engine-optimization",
   "city": "rajpura",
@@ -2861,7 +2875,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 25,
+     "type": "company",
+
+ 
   "slug": "search-engine-optimization-agency-bathinda",
   "service": "search-engine-optimization",
   "city": "bathinda",
@@ -2980,7 +2996,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 26,
+     "type": "company",
+
+ 
   "slug": "search-engine-optimization-agency-panchkula",
   "service": "search-engine-optimization",
   "city": "panchkula",
@@ -3100,7 +3118,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 27,
+     "type": "company",
+
+ 
   "slug": "search-engine-optimization-agency-chandigarh",
   "service": "search-engine-optimization",
   "city": "chandigarh",
@@ -3220,7 +3240,9 @@ export const BLOGS = [
   ]
 },
 {
-    "id": 28,
+      "type": "company",
+ 
+ 
     "slug": "search-engine-optimization-agency-samana",
     "service": "search-engine-optimization",
     "city": "samana",
@@ -3340,7 +3362,9 @@ export const BLOGS = [
     ]
 },
 {
-  "id": 30,
+     "type": "company",
+
+ 
   "slug": "video-production-agency-chandigarh",
   "service": "video-production",
   "city": "chandigarh",
@@ -3461,7 +3485,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 31,
+     "type": "company",
+
+ 
   "slug": "video-production-agency-patiala",
   "service": "video-production",
   "city": "patiala",
@@ -3582,7 +3608,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 32,
+     "type": "company",
+
+ 
   "slug": "video-production-agency-mohali",
   "service": "video-production",
   "city": "mohali",
@@ -3703,7 +3731,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 33,
+     "type": "company",
+
+ 
   "slug": "video-production-agency-ludhiana",
   "service": "video-production",
   "city": "ludhiana",
@@ -3824,7 +3854,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 34,
+     "type": "company",
+
+ 
   "slug": "video-production-agency-nabha",
   "service": "video-production",
   "city": "nabha",
@@ -3945,7 +3977,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 35,
+     "type": "company",
+
+ 
   "slug": "video-production-agency-rajpura",
   "service": "video-production",
   "city": "rajpura",
@@ -4429,7 +4463,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 39,
+     "type": "company",
+
+ 
   "slug": "social-media-marketing-agency-patiala",
   "service": "social-media-marketing",
   "city": "patiala",
@@ -4547,7 +4583,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 40,
+     "type": "company",
+
+ 
   "slug": "social-media-marketing-agency-chandigarh",
   "service": "social-media-marketing",
   "city": "chandigarh",
@@ -4665,7 +4703,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 41,
+     "type": "company",
+
+ 
   "slug": "social-media-marketing-agency-mohali",
   "service": "social-media-marketing",
   "city": "mohali",
@@ -4783,7 +4823,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 42,
+     "type": "company",
+
+ 
   "slug": "social-media-marketing-agency-ludhiana",
   "service": "social-media-marketing",
   "city": "ludhiana",
@@ -4901,7 +4943,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 43,
+     "type": "company",
+
+ 
   "slug": "social-media-marketing-agency-nabha",
   "service": "social-media-marketing",
   "city": "nabha",
@@ -5019,7 +5063,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 44,
+     "type": "company",
+
+ 
   "slug": "social-media-marketing-agency-rajpura",
   "service": "social-media-marketing",
   "city": "rajpura",
@@ -5137,7 +5183,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 45,
+     "type": "company",
+
+ 
   "slug": "social-media-marketing-agency-samana",
   "service": "social-media-marketing",
   "city": "samana",
@@ -5255,7 +5303,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 46,
+     "type": "company",
+
+ 
   "slug": "social-media-marketing-agency-bathinda",
   "service": "social-media-marketing",
   "city": "bathinda",
@@ -5373,7 +5423,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 47,
+     "type": "company",
+
+ 
   "slug": "social-media-marketing-agency-panchkula",
   "service": "social-media-marketing",
   "city": "panchkula",
@@ -5491,7 +5543,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 48,
+     "type": "company",
+
+ 
   "slug": "graphic-design-agency-chandigarh",
   "service": "graphic-design",
   "city": "chandigarh",
@@ -5612,7 +5666,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 49,
+     "type": "company",
+
+ 
   "slug": "graphic-design-agency-patiala",
   "service": "graphic-design",
   "city": "patiala",
@@ -5733,7 +5789,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 50,
+     "type": "company",
+
+ 
   "slug": "graphic-design-agency-mohali",
   "service": "graphic-design",
   "city": "mohali",
@@ -5854,7 +5912,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 51,
+     "type": "company",
+
+ 
   "slug": "graphic-design-agency-ludhiana",
   "service": "graphic-design",
   "city": "ludhiana",
@@ -5975,7 +6035,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 52,
+     "type": "company",
+
+ 
   "slug": "graphic-design-agency-nabha",
   "service": "graphic-design",
   "city": "nabha",
@@ -6096,7 +6158,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 53,
+     "type": "company",
+
+ 
   "slug": "graphic-design-agency-rajpura",
   "service": "graphic-design",
   "city": "rajpura",
@@ -6217,7 +6281,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 54,
+     "type": "company",
+
+ 
   "slug": "graphic-design-agency-samana",
   "service": "graphic-design",
   "city": "samana",
@@ -6338,7 +6404,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 55,
+     "type": "company",
+
+ 
   "slug": "graphic-design-agency-bathinda",
   "service": "graphic-design",
   "city": "bathinda",
@@ -6459,7 +6527,9 @@ export const BLOGS = [
   ]
 },
 {
-  "id": 56,
+     "type": "company",
+
+ 
   "slug": "graphic-design-agency-panchkula",
   "service": "graphic-design",
   "city": "panchkula",

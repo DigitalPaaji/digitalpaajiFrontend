@@ -5,12 +5,12 @@ import Link from "next/link";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 
-export default function ServiceCityContent({ serviceName, cityName }) {
+export default function ServiceCityContent({  cityName }) {
   const [openIndexLeft, setOpenIndexLeft] = useState(null);
 const [blog,setBlog]= useState()
 const fetchBlog= async()=>{
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_PORT}/api/blogs/get/${serviceName}/${cityName}`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_PORT}/api/blogs/get/${cityName}`)
     const data  = await response.json();
     if(data.success){
       setBlog(data.data)
@@ -65,7 +65,7 @@ useEffect(()=>{fetchBlog()},[])
                 alt="blog"
                 width={220}
                 height={220}
-                className="w-full h-[100%] object-cover"
+                className="w-full h-[400px] object-contain"
               />
             ))} 
           </div>
