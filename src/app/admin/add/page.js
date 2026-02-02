@@ -15,16 +15,15 @@ import { toast, ToastContainer } from "react-toastify";
 
 
 const inputClasses =
-  "w-full px-4 py-3 text-gray-800 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-cc5f4d focus:border-transparent transition-all duration-200 placeholder-gray-400";
+  "w-full px-4 py-3 text-gray-800 bg-white border border-gray-300  shadow-sm focus:outline-none focus:ring-2 focus:ring-cc5f4d focus:border-transparent transition-all duration-200 placeholder-gray-400";
 const labelClasses = "block mb-2 text-sm font-semibold text-gray-700";
-const cardClasses = "bg-white p-6 rounded-2xl shadow-sm border border-gray-100";
+const cardClasses = "bg-white p-6  shadow-sm border border-gray-100";
 const buttonClasses = {
-  primary:
-    "px-6 py-3 bg-cc5f4d text-white font-semibold rounded-lg hover:bg-cc5f4d/90 transition-all duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-lg",
+  primary: "px-6 py-3  text-white font-semibold bg-[#153291] transition-all duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-lg",
   secondary:
-    "px-4 py-2 bg-6db19b text-white font-medium rounded-lg hover:bg-6db19b/90 transition-all duration-200 flex items-center justify-center gap-2",
+    "px-4 py-2 bg-6db19b text-white font-medium  hover:bg-6db19b/90 transition-all duration-200 flex items-center justify-center gap-2",
   ghost:
-    "p-2 text-gray-600 hover:text-cc5f4d hover:bg-ede7db rounded-lg transition-all duration-200",
+    "p-2 text-gray-600 hover:text-cc5f4d hover:bg-ede7db  transition-all duration-200",
 };
 
 const ImageUploader = ({ images, onUpload, onRemove, isUploading }) => {
@@ -51,7 +50,7 @@ const files = Array.from(e.target.files);
   return (
     <div className="space-y-4">
       <div
-        className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center bg-ede7db/50 hover:bg-ede7db transition-all duration-200 cursor-pointer"
+        className="border-2 border-dashed border-gray-300  p-8 text-center bg-ede7db/50 hover:bg-ede7db transition-all duration-200 cursor-pointer"
         onDrop={handleDrop}
         onDragOver={handleDragOver}
         onClick={() => inputRef.current?.click()}
@@ -95,14 +94,14 @@ const files = Array.from(e.target.files);
                   width={300}
                   height={300}
                   alt="Blog Image"
-                  className="rounded-lg object-cover w-full h-24 group-hover:scale-105 transition-transform duration-200"
+                  className=" object-cover w-full h-24 group-hover:scale-105 transition-transform duration-200"
                   // unoptimized
                 />
-                <div className="absolute inset-0 bg-black/20 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-200 rounded-lg flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/20 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-200  flex items-center justify-center">
                   <button
                     type="button"
                     onClick={() => onRemove(i)}
-                    className="opacity-0 group-hover:opacity-100 transform transition-all duration-200 bg-red-500 text-white p-1.5 rounded-full hover:bg-red-600"
+                    className="opacity-0 group-hover:opacity-100 transform transition-all duration-200 bg-red-500 text-white p-1.5  hover:bg-red-600"
                   >
                     <X size={14} />
                   </button>
@@ -144,7 +143,7 @@ const SectionCard = ({ section, index, onChange, onRemove }) => {
   };
 
   return (
-    <div className="border border-gray-200 rounded-xl p-5 mb-4 bg-white hover:border-cc5f4d/30 transition-all duration-200">
+    <div className="border border-gray-200  p-5 mb-4 bg-white hover:border-cc5f4d/30 transition-all duration-200">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
           <BookOpen className="h-5 w-5 text-6db19b" />
@@ -178,7 +177,7 @@ const SectionCard = ({ section, index, onChange, onRemove }) => {
             <button
               type="button"
               onClick={addParagraph}
-              className="text-sm bg-6db19b text-white px-3 py-1 rounded-lg hover:bg-6db19b/90 transition-colors duration-200 flex items-center gap-1"
+              className="text-sm bg-6db19b text-white px-3 py-1  hover:bg-6db19b/90 transition-colors duration-200 flex items-center gap-1"
             >
               <Plus size={14} />
               Add
@@ -218,7 +217,7 @@ const SectionCard = ({ section, index, onChange, onRemove }) => {
             <button
               type="button"
               onClick={addPoint}
-              className="text-sm bg-6db19b text-white px-3 py-1 rounded-lg hover:bg-6db19b/90 transition-colors duration-200 flex items-center gap-1"
+              className="text-sm bg-6db19b text-white px-3 py-1  hover:bg-6db19b/90 transition-colors duration-200 flex items-center gap-1"
             >
               <Plus size={14} />
               Add
@@ -227,7 +226,7 @@ const SectionCard = ({ section, index, onChange, onRemove }) => {
           <div className="space-y-2">
             {section.points.map((point, i) => (
               <div key={i} className="flex gap-2 group items-center">
-                <div className="w-2 h-2 bg-cc5f4d rounded-full flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-cc5f4d  flex-shrink-0"></div>
                 <input
                   value={point}
                   onChange={(e) => {
@@ -257,7 +256,7 @@ const SectionCard = ({ section, index, onChange, onRemove }) => {
 };
 const SectionCard2 = ({ section, index, onChange, onRemove }) => {
   return (
-    <div className="border border-gray-200 rounded-xl p-5 mb-4 bg-white hover:border-cc5f4d/30 transition-all duration-200">
+    <div className="border border-gray-200  p-5 mb-4 bg-white hover:border-cc5f4d/30 transition-all duration-200">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
           <BookOpen className="h-5 w-5 text-6db19b" />
@@ -289,7 +288,7 @@ const SectionCard2 = ({ section, index, onChange, onRemove }) => {
             <button
               type="button"
               onClick={addParagraph}
-              className="text-sm bg-6db19b text-white px-3 py-1 rounded-lg hover:bg-6db19b/90 transition-colors duration-200 flex items-center gap-1"
+              className="text-sm bg-6db19b text-white px-3 py-1  hover:bg-6db19b/90 transition-colors duration-200 flex items-center gap-1"
             >
               <Plus size={14} />
               Add
@@ -329,7 +328,7 @@ const SectionCard2 = ({ section, index, onChange, onRemove }) => {
             <button
               type="button"
               onClick={addPoint}
-              className="text-sm bg-6db19b text-white px-3 py-1 rounded-lg hover:bg-6db19b/90 transition-colors duration-200 flex items-center gap-1"
+              className="text-sm bg-6db19b text-white px-3 py-1  hover:bg-6db19b/90 transition-colors duration-200 flex items-center gap-1"
             >
               <Plus size={14} />
               Add
@@ -338,7 +337,7 @@ const SectionCard2 = ({ section, index, onChange, onRemove }) => {
           <div className="space-y-2">
             {section.points.map((point, i) => (
               <div key={i} className="flex gap-2 group items-center">
-                <div className="w-2 h-2 bg-cc5f4d rounded-full flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-cc5f4d  flex-shrink-0"></div>
                 <input
                   value={point}
                   onChange={(e) => {
@@ -534,7 +533,7 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div className="min-h-screen bg-ede7db/30 p-6">
+    <div className="min-h-screen bg-white/60 px-4 py-8 ">
       <style jsx global>{`
         :root {
           --cc5f4d: #cc5f4d;
@@ -580,11 +579,11 @@ const handleSubmit = async (e) => {
         theme="light"
       />
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="merriHead text-[#302f2f] text-3xl  mb-2 flex items-center gap-3">
-            <FileText className="h-8 w-8" />
+          <h1 className="merriHead text-[#302f2f] text-2xl  mb-2 flex items-center gap-3">
+            <FileText className="h-6 w-6" />
             Add New Blog
           </h1>
           <p className="text-gray-600">

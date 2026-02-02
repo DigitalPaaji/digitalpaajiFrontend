@@ -209,14 +209,14 @@ if(data.success){
   }
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
+    <div className="relative min-h-screen bg-gradient-to-br from-[#ede7dbb2] to-gray-100 flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-md">
         {/* Login Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-[#ede7db]  shadow-xl p-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-2xl mb-4">
-              <Lock className="w-8 h-8 text-blue-600" />
+            <div className="mx-auto w-16 h-16 mb-4">
+              <img src='/Images/logo.webp' />
             </div>
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
               Admin Portal
@@ -228,8 +228,8 @@ if(data.success){
 
           {/* Error Message */}
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
-              <div className="w-5 h-5 bg-red-500 rounded-full flex-shrink-0 mt-0.5"></div>
+            <div className="mb-6 p-4 bg-red-50 border border-red-200  flex items-start gap-3">
+              <div className="w-5 h-5 bg-red-500  flex-shrink-0 mt-0.5"></div>
               <p className="text-red-700 text-sm">{error}</p>
             </div>
           )}
@@ -250,7 +250,7 @@ if(data.success){
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                  className="pl-10 w-full px-4 py-3 border border-gray-300  focus:ring-2  outline-none transition"
                   placeholder="admin@example.com"
                   required
                   disabled={isLoading}
@@ -272,7 +272,7 @@ if(data.success){
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 pr-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                  className="pl-10 pr-10 w-full px-4 py-3 border border-gray-300  focus:ring-2  outline-none transition"
                   placeholder="••••••••"
                   required
                   disabled={isLoading}
@@ -297,7 +297,7 @@ if(data.success){
               <button
                 type="button"
                 onClick={() => setShowForgotPassword(true)}
-                className="text-sm text-blue-600 hover:text-blue-800 transition font-medium"
+                className="text-sm text-[#153291] font-medium"
                 disabled={isLoading}
               >
                 Forgot password?
@@ -308,11 +308,11 @@ if(data.success){
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed"
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#153291] disabled:bg-[#153291c7]  text-white font-medium  transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <>
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent  animate-spin"></div>
                   <span>Signing in...</span>
                 </>
               ) : (
@@ -330,7 +330,7 @@ if(data.success){
               Contact your system administrator for support
             </p>
             <p className="text-xs text-gray-400 mt-4">
-              © {new Date().getFullYear()} Admin Portal • v2.1.0
+              © {new Date().getFullYear()} Admin Portal • Digital Paaji
             </p>
           </div>
         </div>
@@ -339,12 +339,12 @@ if(data.success){
       {/* Forgot Password Modal */}
       {showForgotPassword && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-2xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
+          <div className="bg-white  shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
             {/* Modal Header */}
             <div className="p-6 border-b border-gray-200">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-blue-100  flex items-center justify-center">
                     <Shield className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
@@ -383,7 +383,7 @@ if(data.success){
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                      className="w-full px-4 py-3 border border-gray-300  focus:ring-2  outline-none transition"
                       placeholder="admin@example.com"
                       disabled={forgotPasswordLoading}
                     />
@@ -410,13 +410,13 @@ if(data.success){
                           value={digit}
                           onChange={(e) => handleOtpChange(e.target.value, index)}
                           onKeyDown={(e) => handleOtpKeyDown(e, index)}
-                          className="w-12 h-12 text-xl text-center border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition disabled:bg-gray-100"
+                          className="w-12 h-12 text-xl text-center border border-gray-300  focus:outline-none focus:ring-2  transition disabled:bg-gray-100"
                           disabled={forgotPasswordLoading}
                         />
                       ))}
                     </div>
 <div className='my-5 mx-8 '>
-  <input type="password" onChange={(e)=>setNewPassword(e.target.value)} value={newPassword}  placeholder='New Password' className='border border-gray-300 focus:ring-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500  rounded-2xl p-1 px-3 text-xl w-full' />
+  <input type="password" onChange={(e)=>setNewPassword(e.target.value)} value={newPassword}  placeholder='New Password' className='border border-gray-300 focus:ring-2 focus:outline-none    p-1 px-3 text-xl w-full' />
 </div>
 
                   </div>
@@ -432,7 +432,7 @@ if(data.success){
                     onClick={() => setVerificationStep(prev => 
                       prev === 'otp' ? 'email' : 'otp'
                     )}
-                    className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition flex-1"
+                    className="px-4 py-2 border border-gray-300 text-gray-700  hover:bg-gray-50 transition flex-1"
                     disabled={forgotPasswordLoading}
                   >
                     Back
@@ -445,11 +445,11 @@ if(data.success){
                  
                   }}
                   disabled={forgotPasswordLoading}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex-1 disabled:bg-blue-400 disabled:cursor-not-allowed"
+                  className="px-4 py-2 bg-blue-600 text-white  hover:bg-blue-700 transition flex-1 disabled:bg-blue-400 disabled:cursor-not-allowed"
                 >
                   {forgotPasswordLoading ? (
                     <div className="flex items-center justify-center gap-2">
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent  animate-spin"></div>
                       <span>Processing...</span>
                     </div>
                   ) : (

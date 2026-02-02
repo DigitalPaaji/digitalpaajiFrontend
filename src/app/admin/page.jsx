@@ -21,7 +21,9 @@ const BlogsList = () => {
   // ✅ Fetch all blogs
   const fetchAllBlogs = useCallback(async () => {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_PORT}/api/blogs`);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_LOCAL_PORT}/api/blogs`,
+      );
       const data = await res.json();
 
       if (Array.isArray(data)) {
@@ -38,7 +40,6 @@ const BlogsList = () => {
     }
   }, []);
 
-
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
@@ -46,8 +47,7 @@ const BlogsList = () => {
       setLoading(false);
     };
     loadData();
-  }, [ ]);
-
+  }, []);
 
   const handleDelete = (blog) => {
     setShowDeletePopup(true);
@@ -60,7 +60,7 @@ const BlogsList = () => {
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_LOCAL_PORT}/api/blogs/${slugToDelete}`,
-        { method: "DELETE" }
+        { method: "DELETE" },
       );
 
       if (res.ok) {
@@ -78,28 +78,52 @@ const BlogsList = () => {
   }, [fetchAllBlogs, slugToDelete]);
 
   return (
-    <div className="w-full min-h-screen bg-white/60 p-6">
+    <div className="w-full min-h-screen bg-white/60 px-4 py-8 ">
       <style jsx global>{`
         :root {
           --cc5f4d: #cc5f4d;
           --6db19b: #6db19b;
           --ede7db: #ede7db;
         }
-        .bg-cc5f4d { background-color: #cc5f4d; }
-        .bg-6db19b { background-color: #6db19b; }
-        .bg-ede7db { background-color: #ede7db; }
-        .text-cc5f4d { color: #cc5f4d; }
-        .text-6db19b { color: #6db19b; }
-        .border-cc5f4d { border-color: #cc5f4d; }
-        .border-6db19b { border-color: #6db19b; }
-        .hover\\:bg-cc5f4d:hover { background-color: #cc5f4d; }
-        .hover\\:bg-6db19b:hover { background-color: #6db19b; }
-        .hover\\:text-cc5f4d:hover { color: #cc5f4d; }
-        .hover\\:text-6db19b:hover { color: #6db19b; }
-        .focus\\:ring-cc5f4d:focus { --tw-ring-color: #cc5f4d; }
+        .bg-cc5f4d {
+          background-color: #cc5f4d;
+        }
+        .bg-6db19b {
+          background-color: #6db19b;
+        }
+        .bg-ede7db {
+          background-color: #ede7db;
+        }
+        .text-cc5f4d {
+          color: #cc5f4d;
+        }
+        .text-6db19b {
+          color: #6db19b;
+        }
+        .border-cc5f4d {
+          border-color: #cc5f4d;
+        }
+        .border-6db19b {
+          border-color: #6db19b;
+        }
+        .hover\\:bg-cc5f4d:hover {
+          background-color: #cc5f4d;
+        }
+        .hover\\:bg-6db19b:hover {
+          background-color: #6db19b;
+        }
+        .hover\\:text-cc5f4d:hover {
+          color: #cc5f4d;
+        }
+        .hover\\:text-6db19b:hover {
+          color: #6db19b;
+        }
+        .focus\\:ring-cc5f4d:focus {
+          --tw-ring-color: #cc5f4d;
+        }
       `}</style>
 
-      <ToastContainer 
+      <ToastContainer
         position="top-right"
         autoClose={3000}
         hideProgressBar={false}
@@ -116,7 +140,7 @@ const BlogsList = () => {
         {/* Header */}
         <div className="flex justify-between items-center mb-8 flex-wrap gap-4">
           <div>
-            <h2 className=" merriHead text-[#302f2f] text-3xl  mb-2 ">
+            <h2 className=" merriHead text-[#302f2f] text-2xl  mb-2 ">
               Blog Management
             </h2>
             <p className="text-gray-600">
@@ -135,25 +159,27 @@ const BlogsList = () => {
         {/* Stats Cards */}
         {!loading && (
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-            <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-200">
-              <div className="text-2xl font-bold text-cc5f4d">{blogs.length}</div>
+            <div className="bg-white  p-4 shadow-sm border border-gray-200">
+              <div className="text-2xl font-bold text-[#153291]">
+                {blogs.length}
+              </div>
               <div className="text-sm text-gray-600">Total Blogs</div>
             </div>
-            <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-200">
-              <div className="text-2xl font-bold text-6db19b">
-                {new Set(blogs.map(blog => blog.service)).size}
+            <div className="bg-white  p-4 shadow-sm border border-gray-200">
+              <div className="text-2xl font-bold text-[#153291]">
+                {new Set(blogs.map((blog) => blog.service)).size}
               </div>
               <div className="text-sm text-gray-600">Services</div>
             </div>
-            <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-200">
-              <div className="text-2xl font-bold text-cc5f4d">
-                {new Set(blogs.map(blog => blog.city)).size}
+            <div className="bg-white  p-4 shadow-sm border border-gray-200">
+              <div className="text-2xl font-bold text-[#153291]">
+                {new Set(blogs.map((blog) => blog.city)).size}
               </div>
               <div className="text-sm text-gray-600">Cities</div>
             </div>
-            <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-200">
-              <div className="text-2xl font-bold text-6db19b">
-                {blogs.filter(blog => blog.images?.length > 0).length}
+            <div className="bg-white  p-4 shadow-sm border border-gray-200">
+              <div className="text-2xl font-bold text-[#153291]">
+                {blogs.filter((blog) => blog.images?.length > 0).length}
               </div>
               <div className="text-sm text-gray-600">With Images</div>
             </div>
@@ -166,7 +192,7 @@ const BlogsList = () => {
           <div className="overflow-x-auto">
             {loading ? (
               <div className="p-6">
-                <Skeleton count={5} height={60} className="mb-3 rounded-lg" />
+                <Skeleton count={5} height={60} className="mb-3 " />
               </div>
             ) : (
               <table className="min-w-full">
@@ -175,14 +201,14 @@ const BlogsList = () => {
                     <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">
                       #
                     </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">
                       Image
-                    </th>
+                    </th> */}
                     <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">
                       type
                     </th>
                     <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">
-                      Service
+                      Image
                     </th>
                     <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">
                       City
@@ -201,14 +227,26 @@ const BlogsList = () => {
                     <tr>
                       <td colSpan={7} className="px-6 py-12 text-center">
                         <div className="text-gray-500 mb-2">
-                          <svg className="w-16 h-16 mx-auto text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                          <svg
+                            className="w-16 h-16 mx-auto text-gray-300"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={1}
+                              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                            />
                           </svg>
                         </div>
-                        <p className="text-lg font-medium text-gray-600 mb-4">No blogs found</p>
+                        <p className="text-lg font-medium text-gray-600 mb-4">
+                          No blogs found
+                        </p>
                         <Link
                           href="/admin/add"
-                          className="inline-flex items-center gap-2 bg-cc5f4d text-white px-4 py-2 rounded-lg hover:bg-cc5f4d/90 transition-colors duration-200"
+                          className="inline-flex items-center gap-2 bg-cc5f4d text-white px-4 py-2  hover:bg-cc5f4d/90 transition-colors duration-200"
                         >
                           <FaPlus />
                           Create Your First Blog
@@ -226,36 +264,40 @@ const BlogsList = () => {
                             {idx + 1}.
                           </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="w-12 h-12 overflow-hidden border border-gray-200 shadow-sm">
-                            <img
-                              alt={blog.title}
-                              width={48}
-                              height={48}
-                              src={`${process.env.NEXT_PUBLIC_LOCAL_PORT}/uploads/${blog.images?.[0]}` || "/Images/default-blog.jpg"}
-                              className="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
-                            />
-                          </div>
-                        </td>
+
                         <td className="px-6 py-4">
                           <div className="max-w-xs">
-                            <div className="text-sm font-semibold text-gray-900 group-hover:text-cc5f4d transition-colors duration-200 line-clamp-2">
+                            <div className="text-sm capitalize font-semibold text-gray-900 group-hover:text-cc5f4d transition-colors duration-200 line-clamp-2">
                               {blog.type}
                             </div>
                             {blog.tag && (
-                              <span className="inline-block bg-ede7db text-cc5f4d text-xs px-2 py-1 mt-1">
-                                {blog.tag}
+                              <span className="inline-block bg-ede7db text-[#153291] capitalize text-xs px-2 py-1 mt-1">
+                                {blog.service}
                               </span>
                             )}
                           </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-6db19b/10 text-6db19b capitalize">
+                        {/* <td className="px-6 py-4 whitespace-nowrap">
+                          <span className="inline-flex items-center px-3 py-1 text-sm font-semibold text-[#153291] capitalize">
                             {blog.service || "—"}
                           </span>
+                        </td> */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="w-fit h-12 overflow-hidden border border-gray-200 shadow-sm">
+                            <img
+                              alt={blog.title}
+                              width={48}
+                              height={48}
+                              src={
+                                `${process.env.NEXT_PUBLIC_LOCAL_PORT}/uploads/${blog.images?.[0]}` ||
+                                "/Images/default-blog.jpg"
+                              }
+                              className="w-full h-full object-contain hover:scale-105 transition-transform duration-200"
+                            />
+                          </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cc5f4d/10 text-cc5f4d capitalize">
+                          <span className="inline-flex items-center px-3 py-1 text-sm font-medium bg-cc5f4d/10 text-cc5f4d capitalize">
                             {blog.city || "—"}
                           </span>
                         </td>
@@ -266,21 +308,21 @@ const BlogsList = () => {
                           <div className="flex items-center gap-2">
                             <Link
                               href={`/admin/blogs/view/${blog.slug}`}
-                              className="p-2 text-gray-600 hover:text-6db19b hover:bg-6db19b/10 rounded-lg transition-all duration-200 group/btn"
+                              className="p-2 text-gray-600 hover:text-6db19b hover:bg-6db19b/10  transition-all duration-200 group/btn"
                               title="View Blog"
                             >
                               <FaEye className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
                             </Link>
                             <Link
                               href={`/admin/blogs/edit/${blog.slug}`}
-                              className="p-2 text-gray-600 hover:text-cc5f4d hover:bg-cc5f4d/10 rounded-lg transition-all duration-200 group/btn"
+                              className="p-2 text-gray-600 hover:text-cc5f4d hover:bg-cc5f4d/10  transition-all duration-200 group/btn"
                               title="Edit Blog"
                             >
                               <FaEdit className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
                             </Link>
                             <button
                               onClick={() => handleDelete(blog)}
-                              className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-200 group/btn"
+                              className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50  transition-all duration-200 group/btn"
                               title="Delete Blog"
                             >
                               <FaTrash className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
@@ -299,7 +341,7 @@ const BlogsList = () => {
         {/* Footer Info */}
         {!loading && blogs.length > 0 && (
           <div className="mt-4 text-center text-sm text-gray-500">
-            Showing {blogs.length} blog{blogs.length !== 1 ? 's' : ''}
+            Showing {blogs.length} blog{blogs.length !== 1 ? "s" : ""}
           </div>
         )}
       </div>

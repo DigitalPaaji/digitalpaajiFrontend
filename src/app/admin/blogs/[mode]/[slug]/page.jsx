@@ -7,16 +7,16 @@ import { toast, ToastContainer } from "react-toastify";
 const CLOUDINARY_CLOUD_NAME = "dj0z0q0ut";
 const CLOUDINARY_UPLOAD_PRESET = "saajRiwaajProducts";
 
-const inputClasses = "w-full px-4 py-3 text-gray-800 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cc5f4d focus:border-transparent transition-all duration-200 placeholder-gray-400 disabled:bg-gray-100 disabled:cursor-not-allowed";
+const inputClasses = "w-full px-4 py-3 text-gray-800 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cc5f4d focus:border-transparent transition-all duration-200 placeholder-gray-400 disabled:bg-gray-100 disabled:cursor-not-allowed";
 const labelClasses = "block mb-2 text-sm font-semibold text-gray-700 uppercase tracking-wide";
 const buttonClasses = {
-  primary: "px-6 py-3 bg-cc5f4d text-white font-semibold rounded-lg hover:bg-cc5f4d/90 transition-all duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-lg",
-  secondary: "px-4 py-2 bg-6db19b text-white font-medium rounded-lg hover:bg-6db19b/90 transition-all duration-200 flex items-center justify-center gap-2",
-  destructive: "px-4 py-2 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 transition-all duration-200 flex items-center justify-center gap-2",
-  ghost: "p-2 text-gray-600 hover:text-cc5f4d hover:bg-ede7db rounded-lg transition-all duration-200"
+  primary: "px-6 py-3  text-white font-semibold bg-[#153291] transition-all duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-lg",
+  secondary: "px-4 py-2 bg-6db19b text-white font-medium  hover:bg-6db19b/90 transition-all duration-200 flex items-center justify-center gap-2",
+  destructive: "px-4 py-2 bg-red-600 text-white font-medium  hover:bg-red-700 transition-all duration-200 flex items-center justify-center gap-2",
+  ghost: "p-2 text-gray-600 hover:text-cc5f4d hover:bg-ede7db  transition-all duration-200"
 };
-const cardClasses = "bg-white p-6 rounded-2xl shadow-sm border border-gray-200";
-const sectionClasses = "bg-ede7db/50 rounded-xl p-5 border border-gray-300 hover:border-cc5f4d/30 transition-all duration-200";
+const cardClasses = "bg-white p-6  shadow-sm border border-gray-200";
+const sectionClasses = "bg-ede7db/50 p-5 border border-gray-300 hover:border-cc5f4d/30 transition-all duration-200";
 
 const ImageUploader = ({ onUpload, onRemove, images, isUploading,newImages,onRemoveNew }) => {
   const inputRef = useRef();
@@ -34,7 +34,7 @@ const ImageUploader = ({ onUpload, onRemove, images, isUploading,newImages,onRem
   return (
     <div className="space-y-4">
       <div
-        className={`border-3 border-dashed rounded-xl p-8 text-center transition-all duration-200 ${
+        className={`border-3 border-dashed  p-8 text-center transition-all duration-200 ${
           isUploading 
             ? "border-cc5f4d bg-cc5f4d/10" 
             : "border-gray-300 hover:border-cc5f4d hover:bg-ede7db cursor-pointer"
@@ -73,7 +73,7 @@ const ImageUploader = ({ onUpload, onRemove, images, isUploading,newImages,onRem
           </h4>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {images.length > 0 &&  images.map((url, i) => (
-              <div key={i} className="relative group rounded-xl overflow-hidden border border-gray-300 shadow-sm">
+              <div key={i} className="relative group  overflow-hidden border border-gray-300 shadow-sm">
                 <img
                   src={`${process.env.NEXT_PUBLIC_LOCAL_PORT}/uploads/${url}`}
                   width={200}
@@ -85,7 +85,7 @@ const ImageUploader = ({ onUpload, onRemove, images, isUploading,newImages,onRem
                   <button
                     type="button"
                     onClick={() => onRemove(i)}
-                    className="opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-200 bg-red-600 text-white p-1.5 rounded-full hover:bg-red-700"
+                    className="opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-200 bg-red-600 text-white p-1.5 hover:bg-red-700"
                   >
                     <X className="h-3 w-3" />
                   </button>
@@ -93,7 +93,7 @@ const ImageUploader = ({ onUpload, onRemove, images, isUploading,newImages,onRem
               </div>
             ))}
              {newImages.length > 0 && newImages.map((url, i) => (
-              <div key={i} className="relative group rounded-xl overflow-hidden border border-gray-300 shadow-sm">
+              <div key={i} className="relative group  overflow-hidden border border-gray-300 shadow-sm">
                 <img
                   src={URL.createObjectURL(url)}
                   width={200}
@@ -105,7 +105,7 @@ const ImageUploader = ({ onUpload, onRemove, images, isUploading,newImages,onRem
                   <button
                     type="button"
                     onClick={() => onRemoveNew(i)}
-                    className="opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-200 bg-red-600 text-white p-1.5 rounded-full hover:bg-red-700"
+                    className="opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-200 bg-red-600 text-white p-1.5  hover:bg-red-700"
                   >
                     <X className="h-3 w-3" />
                   </button>
@@ -221,7 +221,7 @@ const SectionEditor = ({ section, index, onChange, onRemove, isViewMode }) => {
 const SectionEditor2 = ({ section, index, onChange, onRemove, isViewMode }) => {
 
  return (
-     <div className="border border-gray-200 rounded-xl p-5 mb-4 bg-white hover:border-cc5f4d/30 transition-all duration-200">
+     <div className="border border-gray-200  p-5 mb-4 bg-white hover:border-cc5f4d/30 transition-all duration-200">
        <div className="flex items-center justify-between mb-4">
          <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
            <BookOpen className="h-5 w-5 text-6db19b" />
@@ -231,7 +231,7 @@ const SectionEditor2 = ({ section, index, onChange, onRemove, isViewMode }) => {
          <button
            type="button"
            onClick={() => onRemove(index)}
-           className="text-red-500 hover:text-red-700 transition-colors duration-200 p-1 rounded"
+           className="text-red-500 hover:text-red-700 transition-colors duration-200 p-1 "
          >
            <X size={18} />
          </button>
@@ -437,7 +437,7 @@ const img = blog.images[i];
 }
 
   return (
-    <div className="min-h-screen bg-ede7db/30 p-6">
+    <div className="min-h-screen bg-white/60 px-4 py-8 ">
       <style jsx global>{`
         :root {
           --cc5f4d: #cc5f4d;
@@ -472,10 +472,10 @@ const img = blog.images[i];
       <form onSubmit={handleSave} className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className={cardClasses}>
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-cc5f4d mb-2 flex items-center gap-3">
-                <FileText className="h-8 w-8" />
+              <h1 className=" merriHead text-[#302f2f] text-2xl mb-2 flex items-center gap-3">
+                <FileText className="h-6 w-6" />
                 {isViewMode ? "View Blog" : "Edit Blog"}
               </h1>
               <p className="text-gray-600">
@@ -688,7 +688,7 @@ const img = blog.images[i];
               ) : (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                   {(blog.images || []).map((img, i) => (
-                    <div key={i} className="relative rounded-xl overflow-hidden border border-gray-300 shadow-sm">
+                    <div key={i} className="relative overflow-hidden border border-gray-300 shadow-sm">
                       <img
                         src={`${process.env.NEXT_PUBLIC_LOCAL_PORT}/uploads/${img}`}
                         width={200}
@@ -746,15 +746,15 @@ const img = blog.images[i];
               <div className="space-y-3 text-sm">
                 <div>
                   <span className="text-gray-600 block mb-1 font-medium">Title:</span>
-                  <p className="text-cc5f4d font-medium line-clamp-2 bg-ede7db p-2 rounded-lg">{blog.title || "No title"}</p>
+                  <p className="text-cc5f4d font-medium line-clamp-2 border border-ede7db p-2 ">{blog.title || "No title"}</p>
                 </div>
                 <div>
                   <span className="text-gray-600 block mb-1 font-medium">Description:</span>
-                  <p className="text-gray-700 line-clamp-3 bg-ede7db p-2 rounded-lg">{blog.description || "No description"}</p>
+                  <p className="text-gray-700 line-clamp-3 border border-ede7db p-2 ">{blog.description || "No description"}</p>
                 </div>
                 <div>
                   <span className="text-gray-600 block mb-1 font-medium">Slug:</span>
-                  <p className="text-6db19b font-mono bg-ede7db p-2 rounded-lg">/{blog.slug || "no-slug"}</p>
+                  <p className="text-6db19b font-mono  border border-ede7db p-2 ">/{blog.slug || "no-slug"}</p>
                 </div>
               </div>
             </div>
@@ -763,15 +763,15 @@ const img = blog.images[i];
             <div className={cardClasses}>
               <h3 className="text-lg font-semibold text-gray-800 mb-4">Content Stats</h3>
               <div className="grid grid-cols-2 gap-4 text-sm">
-                <div className="text-center p-3 bg-ede7db rounded-lg">
+                <div className="text-center p-3 border border-ede7db ">
                   <div className="text-2xl font-bold text-cc5f4d">{blog.sections?.length || 0}</div>
                   <div className="text-gray-600 text-xs font-medium">Sections</div>
                 </div>
-                <div className="text-center p-3 bg-ede7db rounded-lg">
+                <div className="text-center p-3 border border-ede7db ">
                   <div className="text-2xl font-bold text-6db19b">{blog.images?.length || 0}</div>
                   <div className="text-gray-600 text-xs font-medium">Images</div>
                 </div>
-                <div className="text-center p-3 bg-ede7db rounded-lg col-span-2">
+                <div className="text-center p-3 border border-ede7db  col-span-2">
                   <div className="text-2xl font-bold text-cc5f4d">
                     {blog.sections?.reduce((total, sec) => total + (sec.paragraphs?.length || 0), 0) || 0}
                   </div>

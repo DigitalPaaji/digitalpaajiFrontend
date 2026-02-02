@@ -98,7 +98,7 @@ const route= useRouter()
           sticky min-h-screen z-50 top-0 left-0
           ${collapsed ? 'w-20' : 'w-64'}
           transition-all duration-300
-          px-4 py-8 flex shadow-md flex-col justify-between
+          px-4 py-8  flex shadow-md flex-col justify-between
           bg-[#faf8f8]
           ${isMobile && !collapsed ? 'absolute' : ''}
         `}
