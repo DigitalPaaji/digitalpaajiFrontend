@@ -1,9 +1,8 @@
 'use client';
 
-import { useState, useEffect } from "react";
-import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight, MdOpenInNew } from "react-icons/md";
+import { useState, useEffect, useCallback } from "react";
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 
-// 1. Data Source
 const frames = [
   'https://hammerexperts.ca/',
   'https://cogan.life/',
@@ -28,78 +27,94 @@ export default function CinematicCarousel() {
     setItems(formattedItems);
   }, []);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (isAnimating || items.length === 0) return;
     setIsAnimating(true);
     setAnimationDirection("next");
 
-    const nextItems = [...items];
-    const firstItem = nextItems.shift();
-    const updatedItems = [...nextItems, firstItem];
-
-    // Animation duration must match CSS transition (0.8s)
     setTimeout(() => {
-      setItems(updatedItems);
+      setItems((prev) => {
+        const nextItems = [...prev];
+        const firstItem = nextItems.shift();
+        return [...nextItems, firstItem];
+      });
       setIsAnimating(false);
-    }, 800); 
-  };
+    }, 800);
+  }, [isAnimating, items.length]);
 
   const handlePrev = () => {
     if (isAnimating || items.length === 0) return;
     setIsAnimating(true);
     setAnimationDirection("prev");
 
-    const prevItems = [...items];
-    const lastItem = prevItems.pop(); 
-    const updatedItems = [lastItem, ...prevItems]; 
-
     setTimeout(() => {
-      setItems(updatedItems);
+      setItems((prev) => {
+        const prevItems = [...prev];
+        const lastItem = prevItems.pop();
+        return [lastItem, ...prevItems];
+      });
       setIsAnimating(false);
     }, 800);
+  };
+
+  // --- Smooth Autoplay Logic (3500ms) ---
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleNext();
+    }, 3500);
+    return () => clearInterval(timer); // Cleanup on unmount
+  }, [handleNext]);
+
+  const openInNewTab = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   if (items.length === 0) return <div className="h-screen flex items-center justify-center">Loading...</div>;
 
   return (
-    <section className="relative w-full min-h-screen  flex flex-col justify-center overflow-hidden px-4   md:px-20 lg:px-40 ">
+    <section className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden px-4 py-10 md:px-20 lg:px-40">
       
- 
-      
-      <div className="relative w-full h-[38rem] overflow-hidden z-10 bg-gray-100">
+      <div className="relative w-full h-[38rem] overflow-hidden z-10 bg-gray-100 rounded-2xl shadow-2xl">
         
-        {/* The container for all slides */}
         <div className={`slide w-full h-full relative ${animationDirection}-transition`}>
           {items.map((item, index) => {
-             // Logic: Index 0 is exiting, Index 1 is Active, Index 2+ are stack
              const isStack = index >= 2;
+             const isActive = index === 1; // The current main visible frame
              
              return (
               <div
                 key={item.id}
-                className={`item absolute overflow-hidden bg-white shadow-2xl border border-gray-200 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]
-                `}
+                className="item absolute overflow-hidden bg-white shadow-2xl border border-gray-200 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
               >
-                
-
                 <div className="relative w-full h-full bg-white group">
-                    <div className={`absolute inset-0 z-30 transition-all duration-300  origin-bottom-right
-                      ${index === 1 ? 'pointer-events-none' : 'bg-white/10 hover:bg-white/0 cursor-pointer backdrop-blur-[0px]'}
-                    `} 
-                    onClick={() => index >= 2 && handleNext()} 
-                    />
+                    {/* Interaction Overlay */}
+                    <div 
+                      className={`absolute inset-0 z-30 transition-all duration-300 
+                        ${isActive ? 'cursor-alias hover:bg-black/5' : 'cursor-pointer bg-white/10'}
+                      `} 
+                      onClick={() => {
+                        if (isActive) openInNewTab(item.url);
+                        else if (index >= 2) handleNext();
+                      }} 
+                    >
+                      {isActive && (
+                         <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+                            Click to visit site
+                         </div>
+                      )}
+                    </div>
                     
-                   
                     <iframe
                       src={item.url}
-                      className={`border-none bg-white transition-all duration-700 origin-top-left
+                      scrolling="no" // Prevents iframe scrolling
+                      className={`border-none bg-white transition-all duration-700 origin-top-left pointer-events-none select-none
                         ${isStack 
-                            ? 'w-[400%] h-[400%] scale-[0.25] pointer-events-none' 
-                            : 'w-full h-full scale-100   ' 
+                            ? 'w-[400%] h-[400%] scale-[0.25]' 
+                            : 'w-full h-full scale-100' 
                          }
                       `}
+                      style={{ overflow: 'hidden' }} // Extra CSS insurance
                       title={`Preview of ${item.url}`}
-                      loading="lazy"
                     />
                 </div>
               </div>
@@ -108,42 +123,37 @@ export default function CinematicCarousel() {
         </div>
 
         {/* --- Controls --- */}
-        <div className="absolute bottom-2 md:bottom-10  left-2 md:left-10 flex gap-4 z-50">
+        <div className="absolute bottom-6 left-6 flex gap-3 z-50">
           <button
             onClick={handlePrev}
             disabled={isAnimating}
-            className="w-8 h-8 md:w-12 md:h-12   lg:w-16 lg:h-16 rounded-full flex items-center justify-center bg-black text-white hover:bg-[#cc5f4d] hover:scale-110 transition-all shadow-xl disabled:opacity-50"
+            className="w-12 h-12 rounded-full flex items-center justify-center bg-white/80 backdrop-blur-md text-black hover:bg-black hover:text-white transition-all shadow-lg disabled:opacity-50"
           >
-            <MdOutlineKeyboardArrowLeft className="text-xl md:text-2xl ld:3xl" />
+            <MdOutlineKeyboardArrowLeft className="text-2xl" />
           </button>
 
           <button
             onClick={handleNext}
             disabled={isAnimating}
-            className="w-8 h-8 md:w-12 md:h-12   lg:w-16 lg:h-16 rounded-full flex items-center justify-center bg-black text-white hover:bg-[#cc5f4d] hover:scale-110 transition-all shadow-xl disabled:opacity-50"
+            className="w-12 h-12 rounded-full flex items-center justify-center bg-white/80 backdrop-blur-md text-black hover:bg-black hover:text-white transition-all shadow-lg disabled:opacity-50"
           >
-            <MdOutlineKeyboardArrowRight className="text-xl md:text-2xl ld:3xl" />
+            <MdOutlineKeyboardArrowRight className="text-2xl" />
           </button>
         </div>
 
       </div>
 
       <style jsx>{`
-        /* --- STACK LOGIC (Bottom Right) --- */
-        
         .item {
-          /* Default state (Hidden in queue) */
           right: -400px;
           bottom: 40px;
           width: 320px;
-          height: 200px; /* Landscape aspect ratio for mini-cards */
+          height: 200px;
           border-radius: 12px;
           opacity: 0;
           z-index: 0;
         }
 
-        /* 1. ACTIVE ITEM (Full Screen) */
-        /* Note: We use nth-child(2) as the active one usually, to allow nth-child(1) to animate out */
         .slide .item:nth-child(1),
         .slide .item:nth-child(2) {
           right: auto;
@@ -158,62 +168,25 @@ export default function CinematicCarousel() {
           transform: none;
         }
 
-        /* 2. THE STACK (Visible Queue) */
-        
-        /* First Card in Stack (Next Up) */
         .slide .item:nth-child(3) {
-          right: 40px;
-          bottom: 40px;
-          opacity: 1;
-          z-index: 20;
+          right: 40px; bottom: 40px;
+          opacity: 1; z-index: 20;
           transform: scale(1);
-          box-shadow: -10px -10px 30px rgba(0,0,0,0.1);
         }
 
-        /* Second Card in Stack */
         .slide .item:nth-child(4) {
-          right: 20px; 
-          bottom: 20px; /* Slightly behind and lower */
-          opacity: 1;
-          z-index: 15;
-          transform: scale(0.95); /* Slightly smaller */
-          filter: brightness(0.9);
-        }
-
-        /* Third Card in Stack */
-        .slide .item:nth-child(5) {
-          right: 0px; 
-          bottom: 0px;
-          opacity: 1;
-          z-index: 10;
+          right: 25px; bottom: 25px;
+          opacity: 0.8; z-index: 15;
           transform: scale(0.9);
-          filter: brightness(0.8);
         }
 
-        /* --- ANIMATIONS --- */
-
-        /* Animation: Slide Out Left (The active card leaving) */
         .next-transition .item:nth-child(1) {
-             animation: slideOutLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+          animation: slideOutLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
-
-        /* Animation: Expansion (Stack Item -> Active Item) */
-        /* This happens automatically because the class changes from nth-child(3) properties to nth-child(2) properties */
-        /* The transition-all on the class handles the smooth morphing */
 
         @keyframes slideOutLeft {
-          0% { transform: translateX(0) scale(1); opacity: 1; }
-          100% { transform: translateX(-100%) scale(0.9); opacity: 0; }
-        }
-
-        @keyframes slideInFromLeft {
-          0% { transform: translateX(-100%); opacity: 0; }
-          100% { transform: translateX(0); opacity: 1; }
-        }
-        
-        /* Prev Transition Specifics */
-        .prev-transition .item:nth-child(1) {
-            animation: slideOutRight 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+          0% { transform: translateX(0); opacity: 1; }
+          100% { transform: translateX(-100%); opacity: 0; }
         }
         
         @keyframes slideOutRight {
@@ -221,17 +194,14 @@ export default function CinematicCarousel() {
           100% { transform: translateX(100%); z-index: 30; }
         }
 
-        /* Responsive */
+        .prev-transition .item:nth-child(1) {
+           animation: slideOutRight 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
         @media (max-width: 768px) {
-           /* On mobile, hide the stack or make it very small */
-           .slide .item:nth-child(3),
-           .slide .item:nth-child(4),
-           .slide .item:nth-child(5) {
-              width: 150px;
-              height: 100px;
-              right: 20px;
-              bottom: 100px;
-           }
+          .slide .item:nth-child(3), .slide .item:nth-child(4) {
+            display: none; /* Hide stack on small mobile for performance */
+          }
         }
       `}</style>
     </section>
