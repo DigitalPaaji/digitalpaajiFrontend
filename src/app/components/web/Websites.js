@@ -57,7 +57,6 @@ export default function CinematicCarousel() {
     }, 800);
   };
 
-  // --- Smooth Autoplay Logic (3500ms) ---
   useEffect(() => {
     const timer = setInterval(() => {
       handleNext();
@@ -68,7 +67,7 @@ export default function CinematicCarousel() {
   const openInNewTab = (url) => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
-
+ 
   if (items.length === 0) return <div className="h-screen flex items-center justify-center">Loading...</div>;
 
   return (
