@@ -17,7 +17,7 @@ const fetchBlog= async()=>{
     }
     else{
       setBlog(null)
-    }
+    }      
   } catch (error) {
     setBlog(null)
     
