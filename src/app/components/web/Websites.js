@@ -1,10 +1,9 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from "react";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight, MdOpenInNew } from "react-icons/md";
-import { FaGlobe } from "react-icons/fa";
 
+// 1. Data Source
 const frames = [
   'https://hammerexperts.ca/',
   'https://cogan.life/',
@@ -16,257 +15,224 @@ const frames = [
   'https://workshop.digitalpaajiacademy.com/',
 ];
 
-export default function CinematicSwiper() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
+export default function CinematicCarousel() {
+  const [items, setItems] = useState([]);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [animationDirection, setAnimationDirection] = useState("next");
 
-  // --- 1. Robust Resize Handler ---
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    const formattedItems = frames.map((url, index) => ({
+      id: `frame-${index}-${Date.now()}`,
+      url: url
+    }));
+    setItems(formattedItems);
   }, []);
 
-  // --- 2. Keyboard Navigation ---
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'ArrowLeft') handlePrev();
-      if (e.key === 'ArrowRight') handleNext();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentIndex]); // Dependency ensures state is fresh
+  const handleNext = () => {
+    if (isAnimating || items.length === 0) return;
+    setIsAnimating(true);
+    setAnimationDirection("next");
 
-  // Helpers
-  const getIndex = (offset) => (currentIndex + offset + frames.length) % frames.length;
+    const nextItems = [...items];
+    const firstItem = nextItems.shift();
+    const updatedItems = [...nextItems, firstItem];
 
-  const handleNext = useCallback(() => {
-    setDirection(1);
-    setIsLoading(true);
-    setCurrentIndex((prev) => (prev + 1) % frames.length);
-  }, []);
-
-  const handlePrev = useCallback(() => {
-    setDirection(-1);
-    setIsLoading(true);
-    setCurrentIndex((prev) => (prev - 1 + frames.length) % frames.length);
-  }, []);
-
-  // --- 3. Animation Variants (The Core Logic) ---
-  const variants = {
-    // The Active Card (Center)
-    center: {
-      x: 0,
-      scale: 1,
-      opacity: 1,
-      zIndex: 30,
-      rotateY: 0,
-      transition: { type: "spring", stiffness: 300, damping: 30 }
-    },
-    // The Next Card (Right)
-    next: {
-      x: isMobile ? "100%" : "55%", // Percentage based spacing
-      scale: 0.85,
-      opacity: 0.6,
-      zIndex: 10,
-      rotateY: -15, // Subtle 3D turn
-      transition: { type: "spring", stiffness: 300, damping: 30 }
-    },
-    // The Previous Card (Left)
-    prev: {
-      x: isMobile ? "-100%" : "-55%",
-      scale: 0.85,
-      opacity: 0.6,
-      zIndex: 10,
-      rotateY: 15,
-      transition: { type: "spring", stiffness: 300, damping: 30 }
-    },
-    // Exit animations
-    enterNext: { x: "100%", opacity: 0, scale: 0.5 },
-    enterPrev: { x: "-100%", opacity: 0, scale: 0.5 }
+    // Animation duration must match CSS transition (0.8s)
+    setTimeout(() => {
+      setItems(updatedItems);
+      setIsAnimating(false);
+    }, 800); 
   };
 
+  const handlePrev = () => {
+    if (isAnimating || items.length === 0) return;
+    setIsAnimating(true);
+    setAnimationDirection("prev");
+
+    const prevItems = [...items];
+    const lastItem = prevItems.pop(); 
+    const updatedItems = [lastItem, ...prevItems]; 
+
+    setTimeout(() => {
+      setItems(updatedItems);
+      setIsAnimating(false);
+    }, 800);
+  };
+
+  if (items.length === 0) return <div className="h-screen flex items-center justify-center">Loading...</div>;
+
   return (
-    <section className="relative w-full min-h-screen bg-gray-50 flex flex-col justify-center py-20 overflow-hidden">
+    <section className="relative w-full min-h-screen bg-gray-50 flex flex-col justify-center overflow-hidden px-4 py-10 md:py-9 md:px-20 lg:px-40 lg:py-12">
       
-      {/* Header */}
-      <div className="container mx-auto px-4 text-center mb-12 z-20">
-        <h3 className="bungeeHead text-[#cc5f4d] text-3xl md:text-5xl font-bold mb-3 drop-shadow-sm">
-          Projects We&apos;ve Built
-        </h3>
-        <p className="text-gray-500 max-w-xl mx-auto text-lg">
-          Explore our interactive portfolio. Swipe, click, or use arrow keys.
-        </p>
-      </div>
-
-      {/* --- CAROUSEL STAGE --- */}
-      <div className="relative w-full max-w-[1400px] mx-auto h-[60vh] md:h-[70vh] flex items-center justify-center perspective-1000">
+      
+      <div className="relative w-full h-[38rem] overflow-hidden z-10 bg-gray-100">
         
-        {/* Navigation Buttons (Floating) */}
-        <NavButton direction="left" onClick={handlePrev} />
-        <NavButton direction="right" onClick={handleNext} />
+        {/* The container for all slides */}
+        <div className={`slide w-full h-full relative ${animationDirection}-transition`}>
+          {items.map((item, index) => {
+             // Logic: Index 0 is exiting, Index 1 is Active, Index 2+ are stack
+             const isStack = index >= 2;
+             
+             return (
+              <div
+                key={item.id}
+                className={`item absolute overflow-hidden bg-white shadow-2xl border border-gray-200 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]
+                `}
+              >
+                
 
-        {/* RENDER STRATEGY:
-            Instead of AnimatePresence for the whole list, we render the
-            Prev, Current, and Next cards explicitly. This is more stable for iframes.
-        */}
+                <div className="relative w-full h-full bg-white group">
+                    <div className={`absolute inset-0 z-30 transition-all duration-300  origin-bottom-right
+                      ${index === 1 ? 'pointer-events-none' : 'bg-white/10 hover:bg-white/0 cursor-pointer backdrop-blur-[0px]'}
+                    `} 
+                    onClick={() => index >= 2 && handleNext()} 
+                    />
+                    
+                   
+                    <iframe
+                      src={item.url}
+                      className={`border-none bg-white transition-all duration-700 origin-top-left
+                        ${isStack 
+                            ? 'w-[400%] h-[400%] scale-[0.25] pointer-events-none' 
+                            : 'w-full h-full scale-100   ' 
+                         }
+                      `}
+                      title={`Preview of ${item.url}`}
+                      loading="lazy"
+                    />
+                </div>
+              </div>
+            );
+          })}
+        </div>
 
-        {/* 1. PREVIOUS CARD (Left) */}
-        <motion.div
-          key={`prev-${getIndex(-1)}`}
-          variants={variants}
-          animate="prev"
-          initial="enterPrev"
-          className="absolute w-[85vw] md:w-[60vw] h-full cursor-pointer"
-          onClick={handlePrev}
-        >
-          <CardContent 
-            url={frames[getIndex(-1)]} 
-            type="preview" 
-            label="Previous" 
-            icon={<MdOutlineKeyboardArrowLeft />}
-            alignIcon="left"
-          />
-        </motion.div>
-
-        {/* 2. NEXT CARD (Right) */}
-        <motion.div
-          key={`next-${getIndex(1)}`}
-          variants={variants}
-          animate="next"
-          initial="enterNext"
-          className="absolute w-[85vw] md:w-[60vw] h-full cursor-pointer"
-          onClick={handleNext}
-        >
-          <CardContent 
-            url={frames[getIndex(1)]} 
-            type="preview" 
-            label="Next"
-            icon={<MdOutlineKeyboardArrowRight />}
-            alignIcon="right"
-          />
-        </motion.div>
-
-        {/* 3. CURRENT CARD (Center - Interactive) */}
-        {/* We use AnimatePresence here to smooth the swap of the CENTER card specifically */}
-        <motion.div
-            key={`current-${currentIndex}`}
-            variants={variants}
-            animate="center"
-            // We use a trick: initial is NOT set to allow it to "flow" from its previous position if we were tracking it,
-            // but for simplicity in this 3-card stack, we just animate to center.
-            className="absolute w-[90vw] md:w-[65vw] h-full z-30"
+        {/* --- Controls --- */}
+        <div className="absolute bottom-2 md:bottom-10  left-2 md:left-10 flex gap-4 z-50">
+          <button
+            onClick={handlePrev}
+            disabled={isAnimating}
+            className="w-8 h-8 md:w-12 md:h-12   lg:w-16 lg:h-16 rounded-full flex items-center justify-center bg-black text-white hover:bg-[#cc5f4d] hover:scale-110 transition-all shadow-xl disabled:opacity-50"
           >
-            <CardContent 
-              url={frames[currentIndex]} 
-              type="active" 
-              isLoading={isLoading} 
-              onLoad={() => setIsLoading(false)}
-            />
-        </motion.div>
+            <MdOutlineKeyboardArrowLeft className="text-xl md:text-2xl ld:3xl" />
+          </button>
+
+          <button
+            onClick={handleNext}
+            disabled={isAnimating}
+            className="w-8 h-8 md:w-12 md:h-12   lg:w-16 lg:h-16 rounded-full flex items-center justify-center bg-black text-white hover:bg-[#cc5f4d] hover:scale-110 transition-all shadow-xl disabled:opacity-50"
+          >
+            <MdOutlineKeyboardArrowRight className="text-xl md:text-2xl ld:3xl" />
+          </button>
+        </div>
 
       </div>
 
-      {/* Mobile Swipe Hint */}
-      {isMobile && (
-        <div className="text-center mt-12 text-gray-400 animate-pulse flex justify-center items-center gap-2">
-           <MdOutlineKeyboardArrowLeft /> Swipe to Navigate <MdOutlineKeyboardArrowRight />
-        </div>
-      )}
+      <style jsx>{`
+        /* --- STACK LOGIC (Bottom Right) --- */
+        
+        .item {
+          /* Default state (Hidden in queue) */
+          right: -400px;
+          bottom: 40px;
+          width: 320px;
+          height: 200px; /* Landscape aspect ratio for mini-cards */
+          border-radius: 12px;
+          opacity: 0;
+          z-index: 0;
+        }
+
+        /* 1. ACTIVE ITEM (Full Screen) */
+        /* Note: We use nth-child(2) as the active one usually, to allow nth-child(1) to animate out */
+        .slide .item:nth-child(1),
+        .slide .item:nth-child(2) {
+          right: auto;
+          bottom: auto;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 0;
+          opacity: 1;
+          z-index: 10;
+          transform: none;
+        }
+
+        /* 2. THE STACK (Visible Queue) */
+        
+        /* First Card in Stack (Next Up) */
+        .slide .item:nth-child(3) {
+          right: 40px;
+          bottom: 40px;
+          opacity: 1;
+          z-index: 20;
+          transform: scale(1);
+          box-shadow: -10px -10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Second Card in Stack */
+        .slide .item:nth-child(4) {
+          right: 20px; 
+          bottom: 20px; /* Slightly behind and lower */
+          opacity: 1;
+          z-index: 15;
+          transform: scale(0.95); /* Slightly smaller */
+          filter: brightness(0.9);
+        }
+
+        /* Third Card in Stack */
+        .slide .item:nth-child(5) {
+          right: 0px; 
+          bottom: 0px;
+          opacity: 1;
+          z-index: 10;
+          transform: scale(0.9);
+          filter: brightness(0.8);
+        }
+
+        /* --- ANIMATIONS --- */
+
+        /* Animation: Slide Out Left (The active card leaving) */
+        .next-transition .item:nth-child(1) {
+             animation: slideOutLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* Animation: Expansion (Stack Item -> Active Item) */
+        /* This happens automatically because the class changes from nth-child(3) properties to nth-child(2) properties */
+        /* The transition-all on the class handles the smooth morphing */
+
+        @keyframes slideOutLeft {
+          0% { transform: translateX(0) scale(1); opacity: 1; }
+          100% { transform: translateX(-100%) scale(0.9); opacity: 0; }
+        }
+
+        @keyframes slideInFromLeft {
+          0% { transform: translateX(-100%); opacity: 0; }
+          100% { transform: translateX(0); opacity: 1; }
+        }
+        
+        /* Prev Transition Specifics */
+        .prev-transition .item:nth-child(1) {
+            animation: slideOutRight 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        
+        @keyframes slideOutRight {
+          0% { transform: translateX(0); z-index: 30; }
+          100% { transform: translateX(100%); z-index: 30; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+           /* On mobile, hide the stack or make it very small */
+           .slide .item:nth-child(3),
+           .slide .item:nth-child(4),
+           .slide .item:nth-child(5) {
+              width: 150px;
+              height: 100px;
+              right: 20px;
+              bottom: 100px;
+           }
+        }
+      `}</style>
     </section>
   );
 }
-
-// --- SUB-COMPONENTS FOR CLEANER CODE ---
-
-const NavButton = ({ direction, onClick }) => (
-  <button
-    onClick={onClick}
-    className={`
-      absolute top-1/2 -translate-y-1/2 z-40 w-12 h-12 md:w-16 md:h-16 
-      bg-white/80 backdrop-blur-md rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.12)] 
-      flex items-center justify-center text-[#cc5f4d] 
-      hover:scale-110 hover:bg-white hover:shadow-[#cc5f4d]/20 hover:shadow-2xl 
-      transition-all duration-300
-      ${direction === 'left' ? 'left-4 md:left-8' : 'right-4 md:right-8'}
-    `}
-  >
-    {direction === 'left' ? <MdOutlineKeyboardArrowLeft size={30} /> : <MdOutlineKeyboardArrowRight size={30} />}
-  </button>
-);
-
-const CardContent = ({ url, type, label, icon, alignIcon, isLoading, onLoad }) => {
-  const isPreview = type === 'preview';
-
-  return (
-    <div className={`
-      w-full h-full bg-white rounded-2xl overflow-hidden border border-gray-200 
-      transition-all duration-500
-      ${isPreview ? 'shadow-xl hover:shadow-2xl' : 'shadow-[0_20px_50px_rgba(0,0,0,0.2)]'}
-    `}>
-      
-      {/* Browser Header */}
-      <div className="h-10 bg-gray-50 border-b border-gray-200 flex items-center px-4 justify-between">
-        <div className="flex gap-1.5">
-          <div className="w-3 h-3 rounded-full bg-[#ff5f57] border border-black/10" />
-          <div className="w-3 h-3 rounded-full bg-[#febc2e] border border-black/10" />
-          <div className="w-3 h-3 rounded-full bg-[#28c840] border border-black/10" />
-        </div>
-        
-        {!isPreview && (
-          <div className="flex items-center gap-2 text-gray-400 text-xs font-mono bg-white px-3 py-1 rounded border shadow-sm">
-            <FaGlobe size={10} /> {new URL(url).hostname}
-          </div>
-        )}
-
-        {/* Active: Visit Button | Preview: Label */}
-        {isPreview ? (
-          <div className="text-xs font-bold text-gray-400 uppercase tracking-wider">{label}</div>
-        ) : (
-          <a href={url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-[#cc5f4d] text-xs font-bold hover:underline">
-            Visit <MdOpenInNew />
-          </a>
-        )}
-      </div>
-
-      {/* Main Content Area */}
-      <div className="relative w-full h-[calc(100%-2.5rem)] bg-white group">
-        
-        {/* Loading State (Only for Active) */}
-        {!isPreview && isLoading && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 z-20">
-            <div className="w-10 h-10 border-4 border-gray-200 border-t-[#cc5f4d] rounded-full animate-spin mb-3"></div>
-            <span className="text-gray-400 text-xs font-medium animate-pulse">Loading Preview...</span>
-          </div>
-        )}
-
-        {/* PREVIEW OVERLAY (CRITICAL): 
-           This transparent div covers the iframe on preview cards.
-           It captures the click event so the user can "swap" slides 
-           instead of interacting with the website inside.
-        */}
-        {isPreview && (
-          <div className="absolute inset-0 z-50 bg-white/20 hover:bg-white/10 backdrop-blur-[1px] transition-all flex items-center justify-center">
-             <div className={`
-                flex items-center gap-2 px-6 py-3 rounded-full bg-white/90 shadow-lg text-[#cc5f4d] font-bold transform translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300
-                ${alignIcon === 'left' ? 'flex-row-reverse' : ''}
-             `}>
-                {label} {icon}
-             </div>
-          </div>
-        )}
-
-        <iframe
-          src={url}
-          onLoad={onLoad}
-          className={`w-full h-full border-none ${isPreview ? 'pointer-events-none opacity-80 grayscale-[0.3]' : 'opacity-100'}`}
-          title="Project Preview"
-          tabIndex={isPreview ? -1 : 0}
-        />
-      </div>
-    </div>
-  );
-};
