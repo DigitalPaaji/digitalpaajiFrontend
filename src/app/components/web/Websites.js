@@ -62,8 +62,9 @@ export default function CinematicCarousel() {
   if (items.length === 0) return <div className="h-screen flex items-center justify-center">Loading...</div>;
 
   return (
-    <section className="relative w-full min-h-screen bg-gray-50 flex flex-col justify-center overflow-hidden px-4 py-10 md:py-9 md:px-20 lg:px-40 lg:py-12">
+    <section className="relative w-full min-h-screen  flex flex-col justify-center overflow-hidden px-4   md:px-20 lg:px-40 ">
       
+ 
       
       <div className="relative w-full h-[38rem] overflow-hidden z-10 bg-gray-100">
         
