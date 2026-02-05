@@ -15,8 +15,25 @@ function Icons() {
 
   return (
     <div>
+       <div className="flex flex-col items-center justify-center gap-2 fixed top-[10%] right-2 lg:right-4 z-[99999999]">
+       <div
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToTop();
+          }}
+          className="cursor-pointer text-white flex items-center justify-center"
+        >
+          <Image width={40} height={40} src="/Images/bni.webp" alt="" className="w-full h-16 lg:h-20 object-cover" />
+        </div>
+        </div>
+
+
       {/* Floating Icons */}
       <div className="flex flex-col items-center justify-center gap-2 fixed bottom-4 right-4 z-[99999999]">
+            {/* Scroll to Top Icon */}
+       
+
+      
         {/* Scroll to Top Icon */}
         <div
           onClick={(e) => {

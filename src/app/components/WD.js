@@ -27,7 +27,7 @@ export default function About() {
    <div className="">
 
          <h3 className="bungeeHead font-bold text-[#cc5f4d] text-2xl md:text-3xl xl:text-4xl mt-4 text-center">
-          Websites We’ve Built for Our Clients
+          Websites We&apos;ve Built for Our Clients
         </h3>
         <Websites />
       </div>
