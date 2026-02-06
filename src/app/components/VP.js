@@ -21,7 +21,7 @@ import {
 const frames = [
   { type: "restaurants", url: "https://youtube.com/shorts/hleWBqF5F2M" },
   { type: "restaurants", url: "https://youtube.com/shorts/3CMHqcoftb0" },
-  { type: "shoots", url: "https://youtube.com/shorts/wrENWvcGpLM" },
+  // { type: "shoots", url: "https://youtube.com/shorts/wrENWvcGpLM" },
   { type: "product", url: "https://youtube.com/shorts/6jiW_UAvE38" },
   { type: "others", url: "https://youtube.com/shorts/i48hZ5dnu5Y" },
   { type: "others", url: "https://youtube.com/shorts/X0-zJ3hOV6Q" },

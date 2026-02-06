@@ -18,8 +18,51 @@ import "swiper/css/autoplay"; // Add this line
 import Image from "next/image";
 
 const cardsData = [
-  { type: "product", title: "product6", image: "/Images/work/product6.jpeg" },
-  { type: "product", title: "product3", image: "/Images/work/product3.jpeg" },
+  { type: "product", title: "product3", image: "/Images/work/ds1.jpeg" },
+  
+  {
+    type: "restaurants",
+    title: "Restaurants4",
+    image: "/Images/work/Restaurants4.jpeg",
+  },
+  {
+    type: "restaurants",
+    title: "Restaurants5",
+    image: "/Images/work/Restaurants5.jpeg",
+  },
+  { type: "product", title: "product3", image: "/Images/work/ds2.jpeg" },
+
+  {
+    type: "restaurants",
+    title: "Restaurants6",
+    image: "/Images/work/Restaurants6.jpeg",
+  },
+  {
+    type: "restaurants",
+    title: "Restaurants7",
+    image: "/Images/work/Restaurants7.jpeg",
+  },
+  {
+    type: "restaurants",
+    title: "Restaurants8",
+    image: "/Images/work/Restaurants8.jpeg",
+  },
+  {
+    type: "ecommerce",
+    title: "Creekside Car Wash",
+    image: "/Images/work/1.gif",
+  },
+  { type: "visa", title: "Hammer Experts", image: "/Images/work/4.webp" },
+  { type: "shoots", title: "The SMS World", image: "/Images/work/3.webp" },
+  
+
+  { type: "product", title: "product1", image: "/Images/work/product1.jpeg" },
+  { type: "product", title: "product5", image: "/Images/work/product5.jpeg" },
+  {
+    type: "restaurants",
+    title: "Restaurants9",
+    image: "/Images/work/Restaurants9.jpeg",
+  },
   { type: "hotels", title: "DigiMagnifiko", image: "/Images/work/5.webp" },
   {
     type: "restaurants",
@@ -48,48 +91,11 @@ const cardsData = [
     title: "Restaurants3",
     image: "/Images/work/Restaurants3.jpeg",
   },
+  { type: "product", title: "product6", image: "/Images/work/product6.jpeg" },
 
-  {
-    type: "ecommerce",
-    title: "Creekside Car Wash",
-    image: "/Images/work/1.gif",
-  },
-  { type: "visa", title: "Hammer Experts", image: "/Images/work/4.webp" },
-  { type: "shoots", title: "The SMS World", image: "/Images/work/3.webp" },
-  {
-    type: "restaurants",
-    title: "Restaurants4",
-    image: "/Images/work/Restaurants4.jpeg",
-  },
-  {
-    type: "restaurants",
-    title: "Restaurants5",
-    image: "/Images/work/Restaurants5.jpeg",
-  },
-  {
-    type: "restaurants",
-    title: "Restaurants6",
-    image: "/Images/work/Restaurants6.jpeg",
-  },
-  {
-    type: "restaurants",
-    title: "Restaurants7",
-    image: "/Images/work/Restaurants7.jpeg",
-  },
-  {
-    type: "restaurants",
-    title: "Restaurants8",
-    image: "/Images/work/Restaurants8.jpeg",
-  },
-  {
-    type: "restaurants",
-    title: "Restaurants9",
-    image: "/Images/work/Restaurants9.jpeg",
-  },
-
-  { type: "product", title: "product1", image: "/Images/work/product1.jpeg" },
-  { type: "product", title: "product5", image: "/Images/work/product5.jpeg" },
+  
   { type: "product", title: "product2", image: "/Images/work/product2.jpeg" },
+  { type: "product", title: "product3", image: "/Images/work/product3.jpeg" },
 
   { type: "others", title: "others2", image: "/Images/work/others2.jpeg" },
   { type: "others", title: "others3", image: "/Images/work/others3.jpeg" },
