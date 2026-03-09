@@ -7,8 +7,8 @@ export default function ProductGrid({ items, setFilter, isFiltered }) {
     if (patternIndex < 3) return 'lg:basis-[calc(33.333%-2rem)]'; // 3 in a row
     return 'lg:basis-[calc(50%-2rem)]'; // 2 in a row
   };
-
-  // LAYOUT A: The Dynamic Flex Grid for "All" Tab
+ 
+ 
   if (!isFiltered) {
     return (
       <div className="flex flex-wrap gap-8 lg:gap-12 justify-start">
@@ -43,7 +43,7 @@ export default function ProductGrid({ items, setFilter, isFiltered }) {
     );
   }
 
-  // LAYOUT B: Detailed Inner View (Flex Wrap with Auto Widths)
+
 
 return (
   <div className="flex flex-col gap-32 pb-20">
@@ -51,10 +51,10 @@ return (
       <div key={item.id} className="w-full">
 
 
-        {/* The 3-Column Grid */}
+  
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {item.gallery?.map((asset, index) => {
-            // Check if it's a website category for potential special handling
+   
             const isWebsite = item.category === 'Website Design UI/UX';
 
             return (
