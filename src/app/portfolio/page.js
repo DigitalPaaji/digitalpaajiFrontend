@@ -44,59 +44,15 @@ const serviceItems = [
        coverImg: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800',
 
     gallery: [
-      { type: 'image', url: '/Images/portfolio/website/fletx1.webp' }, // Main Full Page
-      { type: 'image', url: '/Images/portfolio/website/fletx1.webp' },
-      { type: 'image', url: '/Images/portfolio/website/fletx1.webp' },
-      { type: 'image', url: '/Images/portfolio/website/fletx2.webp' },
-      { type: 'image', url: '/Images/portfolio/website/fletx2.webp' },
-          { type: 'image', url: '/Images/portfolio/website/fletx2.webp' }, 
+      { type: 'image', url: '/Images/portfolio/website/1.webp' }, // Main Full Page
+      { type: 'image', url: '/Images/portfolio/website/2.webp' },
+      { type: 'image', url: '/Images/portfolio/website/3.webp' },
+      { type: 'image', url: '/Images/portfolio/website/4.webp' },
+      { type: 'image', url: '/Images/portfolio/website/5.webp' },
+          { type: 'image', url: '/Images/portfolio/website/6.webp' }, 
  
-      { type: 'image', url: '/Images/portfolio/website/fletx3.webp' },
-        { type: 'image', url: '/Images/portfolio/website/fletx3.webp' },
-          { type: 'image', url: '/Images/portfolio/website/fletx3.webp' }, 
- 
-      { type: 'image', url: '/Images/portfolio/website/fletx4.webp' },
-        { type: 'image', url: '/Images/portfolio/website/fletx4.webp' },
-          { type: 'image', url: '/Images/portfolio/website/fletx4.webp' }, 
- 
-      { type: 'image', url: '/Images/portfolio/website/fletx5.webp' },
-      
-      { type: 'image', url: '/Images/portfolio/website/fletx5.webp' },
-      
-      { type: 'image', url: '/Images/portfolio/website/fletx5.webp' },
-       { type: 'image', url: '/Images/portfolio/website/fletx6.webp' },
-      
-      { type: 'image', url: '/Images/portfolio/website/fletx6.webp' },
-      
-      { type: 'image', url: '/Images/portfolio/website/fletx6.webp' },
-
-       { type: 'image', url: '/Images/portfolio/website/fletx7.webp' },
-      
-      { type: 'image', url: '/Images/portfolio/website/fletx7.webp' },
-      
-      { type: 'image', url: '/Images/portfolio/website/fletx7.webp' },
-       { type: 'image', url: '/Images/portfolio/website/fletx8.webp' },
-      
-      { type: 'image', url: '/Images/portfolio/website/fletx8.webp' },
-      
-      { type: 'image', url: '/Images/portfolio/website/fletx8.webp' },
-       { type: 'image', url: '/Images/portfolio/website/fletx9.webp' },
-      
-      { type: 'image', url: '/Images/portfolio/website/fletx9.webp' },
-      
-      { type: 'image', url: '/Images/portfolio/website/fletx9.webp' },
-       { type: 'image', url: '/Images/portfolio/website/fletx10.webp' },
-      
-      { type: 'image', url: '/Images/portfolio/website/fletx10.webp' },
-      
-      { type: 'image', url: '/Images/portfolio/website/fletx10.webp' },
-       { type: 'image', url: '/Images/portfolio/website/fletx11.webp' },
-      
-      { type: 'image', url: '/Images/portfolio/website/fletx11.webp' },
-      
-      { type: 'image', url: '/Images/portfolio/website/fletx11.webp' },
-      
-          
+      { type: 'image', url: '/Images/portfolio/website/7.webp' },
+    
     ]
   },
   { 
