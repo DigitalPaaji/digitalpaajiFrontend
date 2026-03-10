@@ -56,9 +56,11 @@ const serviceItems = [
     category: 'Visiting Cards', 
     coverImg: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6?auto=format&fit=crop&q=80&w=800',
     gallery: [
-      { type: 'image', url: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6?auto=format&fit=crop&q=80&w=1200' },
-      { type: 'image', url: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=1200' }
-    ]
+      {type:"image",url:"/Images/visitingcard/1.webp"},
+         {type:"image",url:"/Images/visitingcard/2.webp"},
+          {type:"image",url:"/Images/visitingcard/3.webp"},
+         {type:"image",url:"/Images/visitingcard/4.webp"},
+       ]
   },
   { 
     id: 6, 
@@ -70,6 +72,10 @@ const serviceItems = [
       { type: 'image', url: '/Images/portfolio/packaging/3.webp' },
       { type: 'image', url: '/Images/portfolio/packaging/4.webp' },
       { type: 'image', url: '/Images/portfolio/packaging/5.webp' },
+      { type: 'image', url: '/Images/packaging/1.webp' },
+      { type: 'image', url: '/Images/packaging/2.webp' },
+      { type: 'image', url: '/Images/packaging/3.webp' },
+      { type: 'image', url: '/Images/packaging/4.webp' },
     ]
   },
 
@@ -78,6 +84,7 @@ const serviceItems = [
     category: 'Product Shoot', 
     coverImg: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=800',
      gallery: [
+     
       { type: 'image', url: '/Images/work/product1.jpeg' },
       { type: 'image', url: '/Images/work/product5.jpeg' },
       { type: 'image', url: '/Images/work/product2.jpeg' },
@@ -91,6 +98,9 @@ const serviceItems = [
     category: 'Restraunt Food Shoot', 
     coverImg: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800',
     gallery: [
+      { type: 'image', url: '/Images/work/2.webp' },
+       { type: 'image', url: '/Images/work/3.webp' },
+         { type: 'image', url: '/Images/work/6.webp' },
       { type: 'image', url: '/Images/work/Restaurants4.jpeg' },
       { type: 'image', url: '/Images/work/Restaurants5.jpeg' },
       { type: 'image', url: '/Images/work/Restaurants6.jpeg' },
@@ -137,9 +147,27 @@ const serviceItems = [
     category: 'Graphic', 
     coverImg: '/Images/work/others2.jpeg',
     gallery: [
+      { type: 'image', url: '/Images/work/4.webp' },
+          { type: 'image', url: '/Images/work/5.webp' },
       { type: 'image', url: '/Images/work/others2.jpeg' },
       { type: 'image', url: '/Images/work/others3.jpeg' },
       { type: 'image', url: '/Images/work/others4.jpeg' },
+        { type: 'image', url: '/Images/graphic/1.webp' },
+        { type: 'image', url: '/Images/graphic/2.webp' },
+         { type: 'image', url: '/Images/graphic/3.webp' },
+      
+
+        { type: 'image', url: '/Images/graphic/4.webp' },
+        { type: 'image', url: '/Images/graphic/5.webp' },
+         { type: 'image', url: '/Images/graphic/6.webp' },
+      
+
+
+                 { type: 'image', url: '/Images/graphic/7.webp' },
+        { type: 'image', url: '/Images/graphic/8.webp' },
+         { type: 'image', url: '/Images/graphic/9.webp' },
+      
+
       { type: 'image', url: '/Images/work/product6.jpeg' }
     ]
   },
