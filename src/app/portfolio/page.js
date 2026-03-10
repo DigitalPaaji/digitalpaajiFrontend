@@ -46,6 +46,7 @@ const serviceItems = [
       { type: 'image', url: '/Images/portfolio/website/4.webp' },
       { type: 'image', url: '/Images/portfolio/website/5.webp' },
           { type: 'image', url: '/Images/portfolio/website/6.webp' }, 
+          { type: 'image', url: '/Images/portfolio/website/royal-palm.webp' }, 
  
       { type: 'image', url: '/Images/portfolio/website/7.webp' },
     
@@ -152,23 +153,26 @@ const serviceItems = [
       { type: 'image', url: '/Images/work/others2.jpeg' },
       { type: 'image', url: '/Images/work/others3.jpeg' },
       { type: 'image', url: '/Images/work/others4.jpeg' },
+        { type: 'image', url: '/Images/work/product6.jpeg' },
+         { type: 'image', url: '/Images/graphic/5.webp' },
+
+
+                 { type: 'image', url: '/Images/graphic/7.webp' },
+        { type: 'image', url: '/Images/graphic/8.webp' },
         { type: 'image', url: '/Images/graphic/1.webp' },
         { type: 'image', url: '/Images/graphic/2.webp' },
          { type: 'image', url: '/Images/graphic/3.webp' },
       
 
         { type: 'image', url: '/Images/graphic/4.webp' },
-        { type: 'image', url: '/Images/graphic/5.webp' },
+         { type: 'image', url: '/Images/graphic/9.webp' },
+       
          { type: 'image', url: '/Images/graphic/6.webp' },
       
-
-
-                 { type: 'image', url: '/Images/graphic/7.webp' },
-        { type: 'image', url: '/Images/graphic/8.webp' },
-         { type: 'image', url: '/Images/graphic/9.webp' },
+        
       
 
-      { type: 'image', url: '/Images/work/product6.jpeg' }
+    
     ]
   },
 
