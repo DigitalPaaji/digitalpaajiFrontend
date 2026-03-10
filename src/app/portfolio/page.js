@@ -8,8 +8,7 @@ const serviceItems = [
   { 
     id: 1, 
     category: 'AI Videos', 
-    title: 'Neural Style Transfer Reel', 
-    coverImg: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
+    coverImg: '/Images/portfolio/ai/cover.gif',
     gallery: [
       { type: 'video', url: 'https://www.w3schools.com/html/mov_bbb.mp4' },
       { type: 'image', url: 'https://images.unsplash.com/photo-1677442135703-1787eea5cecc?auto=format&fit=crop&q=80&w=1200' }
@@ -18,7 +17,6 @@ const serviceItems = [
   { 
     id: 2, 
     category: 'Animation', 
-    title: '2D Explainer For FinTech', 
     coverImg: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800',
     gallery: [
       { type: 'image', url: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200' },
@@ -28,7 +26,6 @@ const serviceItems = [
   { 
     id: 3, 
     category: 'Reels Creation', 
-    title: 'Streetwear Cinematic Edit', 
     coverImg: 'https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?auto=format&fit=crop&q=80&w=800',
     gallery: [
       { type: 'video', url: '/videos/streetwear-edit.mp4' },
@@ -40,8 +37,7 @@ const serviceItems = [
   { 
     id: 4, 
     category: 'Website Design UI/UX', 
-    title: 'Fleetx Logistics Platform', 
-       coverImg: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800',
+       coverImg: '/Images/portfolio/website/cover.webp',
 
     gallery: [
       { type: 'image', url: '/Images/portfolio/website/1.webp' }, // Main Full Page
@@ -58,7 +54,6 @@ const serviceItems = [
   { 
     id: 5, 
     category: 'Visiting Cards', 
-    title: 'Minimalist Letterpress Cards', 
     coverImg: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6?auto=format&fit=crop&q=80&w=800',
     gallery: [
       { type: 'image', url: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6?auto=format&fit=crop&q=80&w=1200' },
@@ -68,7 +63,6 @@ const serviceItems = [
   { 
     id: 6, 
     category: 'Packaging Designs', 
-    title: 'Organic Skincare Line', 
     coverImg: 'https://images.unsplash.com/photo-1605615807251-1964f6916c60?auto=format&fit=crop&q=80&w=800',
     gallery: [
       { type: 'image', url: '/Images/portfolio/packaging/1.webp' },
@@ -82,7 +76,6 @@ const serviceItems = [
   { 
     id: 7, 
     category: 'Product Shoot', 
-    title: 'Technical Watch Macro', 
     coverImg: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=800',
      gallery: [
       { type: 'image', url: '/Images/work/product1.jpeg' },
@@ -96,7 +89,6 @@ const serviceItems = [
   { 
     id: 8, 
     category: 'Restraunt Food Shoot', 
-    title: 'Gourmet Plating Series', 
     coverImg: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800',
     gallery: [
       { type: 'image', url: '/Images/work/Restaurants4.jpeg' },
@@ -116,7 +108,6 @@ const serviceItems = [
   { 
     id: 9, 
     category: 'Ad Results(Marketing)', 
-    title: 'Meta Ads ROAS Showcase', 
     coverImg: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
     gallery: [
       { type: 'image', url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200' },
@@ -126,7 +117,6 @@ const serviceItems = [
   { 
     id: 10, 
     category: 'YouTube Thumbnails', 
-    title: 'Tech Review Click-Magnet', 
     coverImg: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800',
     gallery: [
       { type: 'image', url: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=1200' }
@@ -135,7 +125,6 @@ const serviceItems = [
   { 
     id: 11, 
     category: 'Insta Reel Designs', 
-    title: 'Dynamic Kinetic Typography', 
     coverImg: 'https://images.unsplash.com/photo-1611162618071-b39a2dd7d5ef?auto=format&fit=crop&q=80&w=800',
     gallery: [
       { type: 'video', url: '/videos/kinetic-typo.mp4' },
@@ -146,7 +135,6 @@ const serviceItems = [
   { 
     id: 12,    
     category: 'Graphic', 
-    title: 'High-End Editorial Layout', 
     coverImg: '/Images/work/others2.jpeg',
     gallery: [
       { type: 'image', url: '/Images/work/others2.jpeg' },

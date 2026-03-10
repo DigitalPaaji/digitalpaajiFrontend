@@ -18,22 +18,24 @@ export default function ProductGrid({ items, setFilter, isFiltered }) {
             className={`flex-grow flex-shrink-0 basis-full ${getFlexBasis(index)} group relative cursor-pointer mb-8`}
             onClick={() => setFilter(item.category)}
           >
-            <div className={`relative overflow-hidden bg-black/20 rounded-sm transition-all duration-500 ${
-              item.category === 'Website Design UI/UX' ? 'aspect-[16/10]' : 'aspect-[16/10]'
+            <div className={`relative overflow-hidden rounded-sm transition-all duration-500 ${
+              item.category === 'Website Design UI/UX' ? 'aspect-[16/10]  ' : 'aspect-[16/10] bg-black/20 '
             }`}>
               <img
                 src={item.coverImg}
                 alt={item.title}
-                className="w-full h-full object-cover object-top grayscale brightness-75 transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 group-hover:brightness-100"
+                className={`w-full h-full ${
+              item.category === 'Website Design UI/UX' ? ' object-contain ' : ' object-cover'
+            }`}
               />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity  backdrop-blur-[2px]">
                 <span className="text-white text-[10px] font-bold uppercase tracking-[0.2em] border border-white px-4 py-2">View Category</span>
               </div>
             </div>
             <div className="mt-6 flex justify-between items-start text-[#ede7db]">
               <div>
-                <p className="text-[9px] uppercase tracking-[0.2em] opacity-60 mb-1">{item.category}</p>
-                <h3 className="text-lg font-bold uppercase tracking-tight leading-none">{item.title}</h3>
+                <p className="text-lg font-bold uppercase tracking-[0.2em] op"></p>
+               <h3 className="text-lg font-bold uppercase tracking-tight leading-none">{item.category}</h3> 
               </div>
               <div className="h-[1px] w-8 bg-[#ede7db]/30 mt-3 group-hover:w-12 transition-all"></div>
             </div>
@@ -93,50 +95,3 @@ return (
   </div>
 );
 }
-// export default function ProductGrid({ items, setFilter }) {
-//   return (
-//     <div className="columns-1 md:columns-2 2xl:columns-3 gap-12 space-y-12">
-//       {items.map((item) => {
-//         // Logic to determine if it's a "Tall" content type
-//         const isTall = item.category === "Website Design UI/UX";
-
-//         return (
-//           <div 
-//             key={item.id} 
-//             className="break-inside-avoid group relative cursor-pointer"
-//             onClick={() => setFilter(item.category)}
-//           >
-//             {/* Image Container with Dynamic Aspect Ratio */}
-//             <div className={`relative overflow-hidden bg-black/20 rounded-sm transition-all duration-500
-//               ${isTall ? 'aspect-[3/5]' : 'aspect-[16/10]'}
-//             `}>
-//               <img
-//                 src={item.img}
-//                 alt={item.title}
-//                 className="w-full h-full object-cover object-top grayscale brightness-75 transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 group-hover:brightness-100"
-//               />
-              
-//               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
-//                  <span className="text-white text-[10px] font-bold uppercase tracking-[0.2em] border border-white px-4 py-2">
-//                    View {item.category}
-//                  </span>
-//               </div>
-//             </div>
-            
-//             <div className="mt-6 flex justify-between items-start">
-//               <div>
-//                 <p className="text-[9px] uppercase tracking-[0.2em] text-[#ede7db]/60 mb-1 group-hover:text-[#ede7db] transition-colors">
-//                   {item.category}
-//                 </p>
-//                 <h3 className="text-lg font-bold uppercase tracking-tight text-[#ede7db]">
-//                   {item.title}
-//                 </h3>
-//               </div>
-//               <div className="h-[1px] w-8 bg-[#ede7db]/30 mt-3 group-hover:w-12 group-hover:bg-[#ede7db] transition-all"></div>
-//             </div>
-//           </div>
-//         );
-//       })}
-//     </div>
-//   );
-// }
