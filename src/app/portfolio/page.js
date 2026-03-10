@@ -4,7 +4,6 @@ import Sidebar from '../components/portfolio/Sidebar';
 import ProductGrid from '../components/portfolio/ProductGrid';
 
 const serviceItems = [
-
   { 
     id: 1, 
     category: 'AI Videos', 
@@ -17,7 +16,7 @@ const serviceItems = [
   { 
     id: 2, 
     category: 'Animation', 
-    coverImg: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800',
+    coverImg: '/Images/portfolio/animation/cover.gif',
     gallery: [
       { type: 'image', url: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200' },
       { type: 'image', url: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200' }
@@ -26,16 +25,40 @@ const serviceItems = [
   { 
     id: 3, 
     category: 'Reels Creation', 
-    coverImg: 'https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?auto=format&fit=crop&q=80&w=800',
+    coverImg: '/Images/portfolio/reels/cover.gif',
     gallery: [
       { type: 'video', url: '/videos/streetwear-edit.mp4' },
       { type: 'image', url: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=1200' }
     ]
   },
-  
-  
-  { 
+
+   { 
     id: 4, 
+    category: 'Product Shoot', 
+    coverImg: '/Images/work/ds2.jpeg',
+     gallery: [
+     
+      { type: 'image', url: '/Images/work/product1.jpeg' },
+      { type: 'image', url: '/Images/work/product5.jpeg' },
+      { type: 'image', url: '/Images/work/product2.jpeg' },
+      { type: 'image', url: '/Images/work/product3.jpeg' },
+      { type: 'image', url: '/Images/work/ds1.jpeg' },
+      { type: 'image', url: '/Images/work/ds2.jpeg' }
+    ]
+  },
+  { 
+    id: 5, 
+    category: 'Visiting Cards', 
+    coverImg: '/Images/portfolio/visitingcard/3.webp',
+    gallery: [
+      {type:"image",url:"/Images/portfolio/visitingcard/1.webp"},
+         {type:"image",url:"/Images/portfolio/visitingcard/2.webp"},
+          {type:"image",url:"/Images/portfolio/visitingcard/3.webp"},
+         {type:"image",url:"/Images/portfolio/visitingcard/4.webp"},
+       ]
+  },
+    { 
+    id: 6, 
     category: 'Website Design UI/UX', 
        coverImg: '/Images/portfolio/website/cover.webp',
 
@@ -53,20 +76,9 @@ const serviceItems = [
     ]
   },
   { 
-    id: 5, 
-    category: 'Visiting Cards', 
-    coverImg: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6?auto=format&fit=crop&q=80&w=800',
-    gallery: [
-      {type:"image",url:"/Images/visitingcard/1.webp"},
-         {type:"image",url:"/Images/visitingcard/2.webp"},
-          {type:"image",url:"/Images/visitingcard/3.webp"},
-         {type:"image",url:"/Images/visitingcard/4.webp"},
-       ]
-  },
-  { 
-    id: 6, 
+    id: 7, 
     category: 'Packaging Designs', 
-    coverImg: 'https://images.unsplash.com/photo-1605615807251-1964f6916c60?auto=format&fit=crop&q=80&w=800',
+    coverImg: '/Images/portfolio/packaging/3.webp',
     gallery: [
       { type: 'image', url: '/Images/portfolio/packaging/1.webp' },
       { type: 'image', url: '/Images/portfolio/packaging/2.webp' },
@@ -81,23 +93,9 @@ const serviceItems = [
   },
 
   { 
-    id: 7, 
-    category: 'Product Shoot', 
-    coverImg: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=800',
-     gallery: [
-     
-      { type: 'image', url: '/Images/work/product1.jpeg' },
-      { type: 'image', url: '/Images/work/product5.jpeg' },
-      { type: 'image', url: '/Images/work/product2.jpeg' },
-      { type: 'image', url: '/Images/work/product3.jpeg' },
-      { type: 'image', url: '/Images/work/ds1.jpeg' },
-      { type: 'image', url: '/Images/work/ds2.jpeg' }
-    ]
-  },
-  { 
     id: 8, 
     category: 'Restraunt Food Shoot', 
-    coverImg: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800',
+    coverImg: '/Images/work/Restaurants4.jpeg',
     gallery: [
       { type: 'image', url: '/Images/work/2.webp' },
        { type: 'image', url: '/Images/work/3.webp' },
@@ -114,8 +112,6 @@ const serviceItems = [
       { type: 'image', url: '/Images/work/2.webp' }
     ]
   },
-  
-  // --- MARKETING & SOCIAL ---
   { 
     id: 9, 
     category: 'Ad Results(Marketing)', 
@@ -128,23 +124,14 @@ const serviceItems = [
   { 
     id: 10, 
     category: 'YouTube Thumbnails', 
-    coverImg: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800',
+    coverImg: '/Images/work/Restaurants5.jpeg',
     gallery: [
       { type: 'image', url: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=1200' }
     ]
   },
+  
   { 
-    id: 11, 
-    category: 'Insta Reel Designs', 
-    coverImg: 'https://images.unsplash.com/photo-1611162618071-b39a2dd7d5ef?auto=format&fit=crop&q=80&w=800',
-    gallery: [
-      { type: 'video', url: '/videos/kinetic-typo.mp4' },
-      { type: 'image', url: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200' }
-    ]
-  },
-
-  { 
-    id: 12,    
+    id: 11,    
     category: 'Graphic', 
     coverImg: '/Images/work/others2.jpeg',
     gallery: [
@@ -175,7 +162,6 @@ const serviceItems = [
     
     ]
   },
-
 ];
 
 const categories = [
@@ -191,7 +177,7 @@ const categories = [
   'YouTube Thumbnails', 
   'Visiting Cards', 
   'Packaging Designs', 
-  'Insta Reel Designs'
+
 ];
 export default function AdminDashboard() {
   const [filter, setFilter] = useState('All');

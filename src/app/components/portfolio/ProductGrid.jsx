@@ -19,13 +19,13 @@ export default function ProductGrid({ items, setFilter, isFiltered }) {
             onClick={() => setFilter(item.category)}
           >
             <div className={`relative overflow-hidden rounded-sm transition-all duration-500 ${
-              item.category === 'Website Design UI/UX' ? 'aspect-[16/10]  ' : 'aspect-[16/10] bg-black/20 '
+              item.category === 'Website Design UI/UX' ? 'aspect-[16/10]  ' : 'w-full h-fit '
             }`}>
               <img
                 src={item.coverImg}
                 alt={item.title}
                 className={`w-full h-full ${
-              item.category === 'Website Design UI/UX' ? ' object-contain ' : ' object-cover'
+              item.category === 'Website Design UI/UX' ? ' object-contain ' : ' object-contain'
             }`}
               />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity  backdrop-blur-[2px]">
