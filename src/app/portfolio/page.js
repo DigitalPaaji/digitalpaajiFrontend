@@ -9,9 +9,11 @@ const serviceItems = [
     category: "AI Videos",
     coverImg: "/Images/portfolio/ai/cover.gif",
     gallery: [
-    {type:"video",url:"https://www.youtube.com/embed/TpmoYQyJ2CQ"},
-    {type:"video",url:"https://www.youtube.com/embed/EUvXb7a6en8"},
-
+      { type: "video", url: "https://www.w3schools.com/html/mov_bbb.mp4" },
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1677442135703-1787eea5cecc?auto=format&fit=crop&q=80&w=1200",
+      },
     ],
   },
   {
@@ -19,11 +21,14 @@ const serviceItems = [
     category: "Animation",
     coverImg: "/Images/portfolio/animation/cover.gif",
     gallery: [
-      {type:"video",url:"https://www.youtube.com/embed/JUKXs1v7Y7E"},
-      {type:"video",url:"https://www.youtube.com/embed/t1Cb5dSz8-s"},
-      {type:"video",url:"https://www.youtube.com/embed/zzl9yiB2qqQ"},
-      {type:"video",url:"https://www.youtube.com/embed/3iuLOyu6SFk"},
-      {type:"video",url:"https://www.youtube.com/embed/wrENWvcGpLM"},
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
+      },
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200",
+      },
     ],
   },
   {
@@ -31,17 +36,11 @@ const serviceItems = [
     category: "Reels Creation",
     coverImg: "/Images/portfolio/reels/cover.gif",
     gallery: [
-
-  
-       
-       {type:"video",url:"https://www.youtube.com/embed/uuxJIG1BdlQ"},
-       {type:"video",url:"https://www.youtube.com/embed/WHcWzNiP40o"},
-       {type:"video",url:"https://www.youtube.com/embed/6jiW_UAvE38"},
-       {type:"video",url:"https://www.youtube.com/embed/3CMHqcoftb0"},
-       {type:"video",url:"https://www.youtube.com/embed/hleWBqF5F2M"},
-
-      
-   
+      { type: "video", url: "/videos/streetwear-edit.mp4" },
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=1200",
+      },
     ],
   },
 
@@ -50,12 +49,12 @@ const serviceItems = [
     category: "Product Shoot",
     coverImg: "/Images/work/ds2.jpeg",
     gallery: [
-      { type: "image", url: "/Images/work/product1.jpeg"},
-      { type: "image", url: "/Images/work/product5.jpeg"},
-      { type: "image", url: "/Images/work/product2.jpeg"},
-      { type: "image", url: "/Images/work/product3.jpeg"},
-      { type: "image", url: "/Images/work/ds1.jpeg"},
-      { type: "image", url: "/Images/work/ds2.jpeg"},
+      { type: "image", url: "/Images/work/product1.jpeg" },
+      { type: "image", url: "/Images/work/product5.jpeg" },
+      { type: "image", url: "/Images/work/product2.jpeg" },
+      { type: "image", url: "/Images/work/product3.jpeg" },
+      { type: "image", url: "/Images/work/ds1.jpeg" },
+      { type: "image", url: "/Images/work/ds2.jpeg" },
     ],
   },
   {
@@ -128,24 +127,20 @@ const serviceItems = [
     category: "Restraunt Food Shoot",
     coverImg: "/Images/work/Restaurants4.jpeg",
     gallery: [
-
-      { type: 'image', url: '/Images/work/2.webp' },
-      { type: 'image', url: '/Images/work/3.webp' },
-      { type: 'image', url: '/Images/work/6.webp' },
-      { type: 'image', url: '/Images/work/Restaurants4.jpeg' },
-      { type: 'image', url: '/Images/work/Restaurants5.jpeg' },
-      { type: 'image', url: '/Images/work/Restaurants6.jpeg' },
-      { type: 'image', url: '/Images/work/Restaurants7.jpeg' },
-      { type: 'image', url: '/Images/work/Restaurants8.jpeg' },
-      { type: 'image', url: '/Images/work/Restaurants9.jpeg' },
-      { type: 'image', url: '/Images/work/Restaurants1.jpeg' },
-      { type: 'image', url: '/Images/work/Restaurants2.jpeg' },
-      { type: 'image', url: '/Images/work/Restaurants3.jpeg' },
-      { type: 'image', url: '/Images/work/2.webp' },
-     
-    ]
-
-   
+      { type: "image", url: "/Images/work/2.webp" },
+      { type: "image", url: "/Images/work/3.webp" },
+      { type: "image", url: "/Images/work/6.webp" },
+      { type: "image", url: "/Images/work/Restaurants4.jpeg" },
+      { type: "image", url: "/Images/work/Restaurants5.jpeg" },
+      { type: "image", url: "/Images/work/Restaurants6.jpeg" },
+      { type: "image", url: "/Images/work/Restaurants7.jpeg" },
+      { type: "image", url: "/Images/work/Restaurants8.jpeg" },
+      { type: "image", url: "/Images/work/Restaurants9.jpeg" },
+      { type: "image", url: "/Images/work/Restaurants1.jpeg" },
+      { type: "image", url: "/Images/work/Restaurants2.jpeg" },
+      { type: "image", url: "/Images/work/Restaurants3.jpeg" },
+      { type: "image", url: "/Images/work/2.webp" },
+    ],
   },
   {
     id: 10,
