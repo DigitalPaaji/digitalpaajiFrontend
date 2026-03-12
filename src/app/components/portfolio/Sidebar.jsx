@@ -36,7 +36,7 @@ export default function Sidebar({ categories, activeFilter, setFilter, onLogout 
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`text-[11px] lg:text-xs transition-all uppercase tracking-widest leading-relaxed whitespace-nowrap ${
+                className={`text-[12px] lg:text-xs transition-all uppercase tracking-widest leading-relaxed whitespace-nowrap ${
                   activeFilter === cat 
                     ? 'text-[#ede7db] font-bold border-b border-[#ede7db]' 
                     : 'text-[#ede7db]/80 hover:text-[#eee2c9] lg:hover:translate-x-2'

@@ -4,16 +4,14 @@ import Sidebar from "../components/portfolio/Sidebar";
 import ProductGrid from "../components/portfolio/ProductGrid";
 
 const serviceItems = [
-  {
+ {
     id: 1,
     category: "AI Videos",
     coverImg: "/Images/portfolio/ai/cover.gif",
     gallery: [
-      { type: "video", url: "https://www.w3schools.com/html/mov_bbb.mp4" },
-      {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1677442135703-1787eea5cecc?auto=format&fit=crop&q=80&w=1200",
-      },
+    {type:"video",url:"https://www.youtube.com/embed/TpmoYQyJ2CQ"},
+    {type:"video",url:"https://www.youtube.com/embed/EUvXb7a6en8"},
+
     ],
   },
   {
@@ -21,14 +19,11 @@ const serviceItems = [
     category: "Animation",
     coverImg: "/Images/portfolio/animation/cover.gif",
     gallery: [
-      {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
-      },
-      {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200",
-      },
+      {type:"video",url:"https://www.youtube.com/embed/JUKXs1v7Y7E"},
+      {type:"video",url:"https://www.youtube.com/embed/t1Cb5dSz8-s"},
+      {type:"video",url:"https://www.youtube.com/embed/zzl9yiB2qqQ"},
+      {type:"video",url:"https://www.youtube.com/embed/3iuLOyu6SFk"},
+      {type:"video",url:"https://www.youtube.com/embed/wrENWvcGpLM"},
     ],
   },
   {
@@ -36,11 +31,17 @@ const serviceItems = [
     category: "Reels Creation",
     coverImg: "/Images/portfolio/reels/cover.gif",
     gallery: [
-      { type: "video", url: "/videos/streetwear-edit.mp4" },
-      {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=1200",
-      },
+
+  
+       
+       {type:"video",url:"https://www.youtube.com/embed/uuxJIG1BdlQ"},
+       {type:"video",url:"https://www.youtube.com/embed/WHcWzNiP40o"},
+       {type:"video",url:"https://www.youtube.com/embed/6jiW_UAvE38"},
+       {type:"video",url:"https://www.youtube.com/embed/3CMHqcoftb0"},
+       {type:"video",url:"https://www.youtube.com/embed/hleWBqF5F2M"},
+
+      
+   
     ],
   },
 
@@ -184,13 +185,9 @@ const categories = [
   "AI Videos",
   "Reels Creation",
   "Animation",
-  "Graphic",
-  "Restraunt Food Shoot",
+  "Graphic", // This now contains the other 5 sub-categories
   "Website Design UI/UX",
   "Ad Results(Marketing)",
-  "YouTube Thumbnails",
-  "Visiting Cards",
-  "Packaging Designs",
 ];
 export default function AdminDashboard() {
   const [filter, setFilter] = useState("All");
@@ -238,11 +235,12 @@ export default function AdminDashboard() {
           </div>
         </header>
 
-        <ProductGrid
-          items={filteredItems}
-          setFilter={setFilter}
-          isFiltered={filter !== "All"}
-        />
+      <ProductGrid
+  items={filteredItems}
+  allServiceItems={serviceItems} // Pass the raw data here
+  setFilter={setFilter}
+  isFiltered={filter}
+/>
       </main>
     </div>
   );

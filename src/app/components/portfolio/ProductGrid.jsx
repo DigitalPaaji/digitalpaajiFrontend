@@ -1,16 +1,29 @@
+// ProductGrid.jsx
+import CategoryView from "./CategoryView";
+import GraphicGallery from "./GraphicGallery";
+import GalleryView from "./GalleryView";
 
-import CategoryView from './CategoryView';
-import GalleryView from './GalleryView';
+export default function ProductGrid({ items, setFilter, isFiltered, allServiceItems }) { // Add allServiceItems
 
-export default function ProductGrid({ items, setFilter, isFiltered }) {
-  // If not filtered, show the custom "All" layout
-  if (!isFiltered) {
+  const graphicSubCategories = [
+    "Graphic",
+    "Product Shoot",
+    "Restraunt Food Shoot",
+    "YouTube Thumbnails",
+    "Visiting Cards",
+    "Packaging Designs"
+  ];
+
+  if (!isFiltered || isFiltered === "All") {
     return <CategoryView setFilter={setFilter} />;
   }
 
-  // Find the specific item data for the active category
-  const activeItem = items.find(item => item.category === isFiltered) || items[0];
+  // FIX: Pass the WHOLE array (allServiceItems) so the sub-tabs can find data
+  if (graphicSubCategories.includes(isFiltered)) {
+    return <GraphicGallery allItems={allServiceItems} initialTab={isFiltered} setFilter={setFilter} />;
+  }
 
+  const activeItem = items.find((item) => item.category === isFiltered);
   return <GalleryView item={activeItem} />;
 }
 // import { useState, useEffect } from 'react';
