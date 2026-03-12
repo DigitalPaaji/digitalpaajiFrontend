@@ -15,7 +15,7 @@ export default function GalleryView({ item }) {
       <div className="w-full pb-20">
 
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {item.gallery?.map((asset, index) => {
             const isWebsite = item.category === 'Website Design UI/UX';
             
@@ -30,7 +30,7 @@ export default function GalleryView({ item }) {
                   <div className={`w-full ${isWebsite ? 'h-auto' : 'h-auto'}`}>
                     <img 
                       src={asset.url} 
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                      className="w-full h-full grayscale hover:grayscale-0 object-cover" 
                       alt="" 
                     />
                   </div>

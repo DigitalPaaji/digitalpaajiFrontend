@@ -185,7 +185,6 @@ const categories = [
   "Reels Creation",
   "Animation",
   "Graphic",
-  "Product Shoot",
   "Restraunt Food Shoot",
   "Website Design UI/UX",
   "Ad Results(Marketing)",
