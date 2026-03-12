@@ -11,22 +11,18 @@ export default function ProductGrid({ items, setFilter, isFiltered }) {
  
   if (!isFiltered) {
     return (
-      <div className="flex flex-wrap gap-8 lg:gap-12 justify-start">
+      <div className="flex flex-wrap gap-8 lg:gap-12 justify-start ">
         {items.map((item, index) => (
           <div 
             key={item.id} 
-            className={`flex-grow flex-shrink-0 basis-full ${getFlexBasis(index)} group relative cursor-pointer mb-8`}
+            className={`flex-grow flex-shrink-0 basis-full  ${getFlexBasis(index)} group relative cursor-pointer mb-8`}
             onClick={() => setFilter(item.category)}
           >
-            <div className={`relative overflow-hidden rounded-sm transition-all duration-500 ${
-              item.category === 'Website Design UI/UX' ? 'aspect-[16/10]  ' : 'w-full h-fit '
-            }`}>
+            <div className={`relative overflow-hidden h-full rounded-sm transition-all duration-500 `}>
               <img
                 src={item.coverImg}
                 alt={item.title}
-                className={`w-full h-full ${
-              item.category === 'Website Design UI/UX' ? ' object-contain ' : ' object-contain'
-            }`}
+                className={`w-full h-full bg-contain  `}
               />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity  backdrop-blur-[2px]">
                 <span className="text-white text-[10px] font-bold uppercase tracking-[0.2em] border border-white px-4 py-2">View Category</span>
@@ -67,7 +63,7 @@ return (
                 {asset.type === 'image' ? (
                   <div className={`relative w-full 
                   ${isWebsite ? 'h-auto' : ''}`}>
-                    {/* item.category === 'Website Design UI/UX' ? 'aspect-[3/5]' : 'aspect-[16/10]' */}
+                    {/* item.category  ===  'Website Design UI/UX' ? 'aspect-[3/5]' : 'aspect-[16/10]' */}
                   
                     <img 
                       src={asset.url} 
@@ -93,5 +89,7 @@ return (
       </div>
     ))}
   </div>
+
+
 );
 }
