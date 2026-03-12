@@ -27,8 +27,15 @@ const serviceItems = [
     category: 'Reels Creation', 
     coverImg: '/Images/portfolio/reels/cover.gif',
     gallery: [
-      { type: 'video', url: '/videos/streetwear-edit.mp4' },
-      { type: 'image', url: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=1200' }
+      // { type: 'video', url: '/videos/streetwear-edit.mp4' },
+       {type:"video",url:"https://www.youtube.com/embed/JUKXs1v7Y7E"},
+       {type:"video",url:"https://www.youtube.com/embed/TpmoYQyJ2CQ"},
+       {type:"video",url:"https://www.youtube.com/embed/uuxJIG1BdlQ"},
+       {type:"video",url:"https://www.youtube.com/embed/WHcWzNiP40o"},
+       {type:"video",url:"https://www.youtube.com/embed/EUvXb7a6en8"},
+       {type:"video",url:"https://www.youtube.com/embed/3iuLOyu6SFk"},
+       {type:"video",url:"https://www.youtube.com/embed/t1Cb5dSz8-s"},
+       {type:"video",url:"https://www.youtube.com/embed/zzl9yiB2qqQ"},
     ]
   },
 
@@ -119,7 +126,8 @@ const serviceItems = [
       { type: 'image', url: '/Images/work/Restaurants1.jpeg' },
       { type: 'image', url: '/Images/work/Restaurants2.jpeg' },
       { type: 'image', url: '/Images/work/Restaurants3.jpeg' },
-      { type: 'image', url: '/Images/work/2.webp' }
+      { type: 'image', url: '/Images/work/2.webp' },
+     
     ]
   },
   { 
