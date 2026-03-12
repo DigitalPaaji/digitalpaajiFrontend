@@ -150,7 +150,21 @@ const serviceItems = [
     gallery: [
       {
         type: "image",
-        url: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=1200",
+        url: "/Images/portfolio/thumbnails/1.webp",
+      },
+         {
+        type: "image",
+        url: "/Images/portfolio/thumbnails/2.webp",
+      },  {
+        type: "image",
+        url: "/Images/portfolio/thumbnails/3.webp",
+      },  {
+        type: "image",
+        url: "/Images/portfolio/thumbnails/4.webp",
+      },
+      {
+        type: "image",
+        url: "/Images/portfolio/thumbnails/5.webp",
       },
     ],
   },
