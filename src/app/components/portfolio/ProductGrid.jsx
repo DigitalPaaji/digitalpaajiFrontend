@@ -75,7 +75,7 @@ return (
                   </div>
                 ) : (
                  <div className="relative aspect-video lg:aspect-[4/3] bg-black">
-                   {asset.url.includes("www.youtube.com") ? <iframe src={asset.url} className="w-full h-full" allowfullscreen > </iframe>
+                   {asset.url.includes("www.youtube.com") || asset.url.includes("www.instagram.com") ? <iframe src={asset.url} className="w-full h-full" allowfullscreen > </iframe>
                     :  <video src={asset.url} controls  type="video/mp4" className="w-full h-full object-cover" />} </div>
                 )}
               </div>
