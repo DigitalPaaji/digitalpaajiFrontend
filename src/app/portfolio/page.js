@@ -36,9 +36,8 @@ const serviceItems = [
     category: "Reels Creation",
     coverImg: "/Images/portfolio/reels/cover.gif",
     gallery: [
-<<<<<<< HEAD
-      // { type: 'video', url: '/videos/streetwear-edit.mp4' },
-       {type:"video",url:"https://www.youtube.com/embed/JUKXs1v7Y7E"},
+
+      {type:"video",url:"https://www.youtube.com/embed/JUKXs1v7Y7E"},
        {type:"video",url:"https://www.youtube.com/embed/TpmoYQyJ2CQ"},
        {type:"video",url:"https://www.youtube.com/embed/uuxJIG1BdlQ"},
        {type:"video",url:"https://www.youtube.com/embed/WHcWzNiP40o"},
@@ -46,15 +45,7 @@ const serviceItems = [
        {type:"video",url:"https://www.youtube.com/embed/3iuLOyu6SFk"},
        {type:"video",url:"https://www.youtube.com/embed/t1Cb5dSz8-s"},
        {type:"video",url:"https://www.youtube.com/embed/zzl9yiB2qqQ"},
-    ]
-=======
-      { type: "video", url: "/videos/streetwear-edit.mp4" },
-      {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=1200",
-      },
     ],
->>>>>>> ce39ed658d236339f9a1d4e431e7639783a63e96
   },
 
   {
@@ -140,7 +131,7 @@ const serviceItems = [
     category: "Restraunt Food Shoot",
     coverImg: "/Images/work/Restaurants4.jpeg",
     gallery: [
-<<<<<<< HEAD
+
       { type: 'image', url: '/Images/work/2.webp' },
       { type: 'image', url: '/Images/work/3.webp' },
       { type: 'image', url: '/Images/work/6.webp' },
@@ -156,22 +147,8 @@ const serviceItems = [
       { type: 'image', url: '/Images/work/2.webp' },
      
     ]
-=======
-      { type: "image", url: "/Images/work/2.webp" },
-      { type: "image", url: "/Images/work/3.webp" },
-      { type: "image", url: "/Images/work/6.webp" },
-      { type: "image", url: "/Images/work/Restaurants4.jpeg" },
-      { type: "image", url: "/Images/work/Restaurants5.jpeg" },
-      { type: "image", url: "/Images/work/Restaurants6.jpeg" },
-      { type: "image", url: "/Images/work/Restaurants7.jpeg" },
-      { type: "image", url: "/Images/work/Restaurants8.jpeg" },
-      { type: "image", url: "/Images/work/Restaurants9.jpeg" },
-      { type: "image", url: "/Images/work/Restaurants1.jpeg" },
-      { type: "image", url: "/Images/work/Restaurants2.jpeg" },
-      { type: "image", url: "/Images/work/Restaurants3.jpeg" },
-      { type: "image", url: "/Images/work/2.webp" },
-    ],
->>>>>>> ce39ed658d236339f9a1d4e431e7639783a63e96
+
+   
   },
   {
     id: 10,

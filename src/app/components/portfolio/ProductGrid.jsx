@@ -74,13 +74,9 @@ return (
                     <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                   </div>
                 ) : (
-                  <div className="relative aspect-video lg:aspect-[4/3] bg-black">
-                    <video 
-                      src={asset.url} 
-                      controls 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                 <div className="relative aspect-video lg:aspect-[4/3] bg-black">
+                   {asset.url.includes("www.youtube.com") ? <iframe src={asset.url} className="w-full h-full" allowfullscreen > </iframe>
+                    :  <video src={asset.url} controls  type="video/mp4" className="w-full h-full object-cover" />} </div>
                 )}
               </div>
             );
