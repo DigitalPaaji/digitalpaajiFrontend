@@ -61,7 +61,7 @@ export default function GraphicGallery({ allItems, initialTab, setFilter }) {
             onClick={() => setSelectedAsset(asset)}
           >
             {asset.type === 'image' ? (
-              <div className="w-full  ">
+              <div className="w-full aspect-square md:aspect-[4/5] ">
                 <img 
                   src={asset.url} 
                   className="w-full h-full grayscale hover:grayscale-0 transition-all duration-700 object-contain object-top" 
@@ -82,7 +82,7 @@ export default function GraphicGallery({ allItems, initialTab, setFilter }) {
         ))}
       </div>
 
-      {/* */}
+      {/* MODAL (LIGHTBOX) */}
       {selectedAsset && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center backdrop-blur-xl p-6 bg-black/60 animate-in fade-in duration-300" onClick={() => setSelectedAsset(null)}>
           <button className="absolute top-6 right-6 text-white/40 hover:text-white transition-colors z-[110] bg-white/10 p-2 rounded-full">
