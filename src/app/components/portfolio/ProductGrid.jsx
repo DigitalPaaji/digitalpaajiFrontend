@@ -46,6 +46,7 @@ export default function ProductGrid({ items, setFilter, isFiltered, allServiceIt
 //     return 'lg:basis-[calc(50%-2rem)]';
 //   };
 
+
 //   if (!isFiltered) {
 //     return (
 //       <div className="flex flex-wrap gap-8 lg:gap-12 justify-start animate-in fade-in duration-700">
