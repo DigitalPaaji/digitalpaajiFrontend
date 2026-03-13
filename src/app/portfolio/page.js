@@ -70,12 +70,13 @@ const serviceItems = [
     category: "Visiting Cards",
     coverImg: "/Images/portfolio/visitingcard/3.webp",
     gallery: [
+      { type: "image", url: "/Images/portfolio/graphic/label/11.webp" },
+    
       { type: "image", url: "/Images/portfolio/graphic/visitingcard/1.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/visitingcard/2.webp" },
       { type: "image", url: "/Images/portfolio/graphic/visitingcard/5.webp" },
 
-      { type: "image", url: "/Images/portfolio/graphic/visitingcard/2.webp" },
       { type: "image", url: "/Images/portfolio/graphic/visitingcard/4.webp" },
-      { type: "image", url: "/Images/portfolio/graphic/visitingcard/cover.webp" },
 
     ],
   },
@@ -105,6 +106,15 @@ const serviceItems = [
     category: "Packaging Designs",
     coverImg: "/Images/portfolio/packaging/3.webp",
     gallery: [
+      { type: "image", url: "/Images/portfolio/graphic/label/9.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/label/10.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/label/12.webp" },
+        { type: "image", url: "/Images/portfolio/graphic/label/13.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/label/14.webp" },
+      
+      
+      
+      
       { type: "image", url: "/Images/portfolio/graphic/packaging/1.webp" },
       { type: "image", url: "/Images/portfolio/graphic/packaging/2.webp" },
       { type: "image", url: "/Images/portfolio/graphic/packaging/3.webp" },
@@ -152,14 +162,16 @@ const serviceItems = [
     coverImg: "/Images/work/Restaurants4.jpeg",
     gallery: [
       { type: "image", url: "/Images/portfolio/graphic/restraurant/0.webp" },
-      { type: "image", url: "/Images/portfolio/graphic/restraurant/1.gif" },
-      { type: "image", url: "/Images/portfolio/graphic/restraurant/6.webp" },
-
-      { type: "image", url: "/Images/portfolio/graphic/restraurant/18.webp" },
+       { type: "image", url: "/Images/portfolio/graphic/restraurant/18.webp" },
       { type: "image", url: "/Images/portfolio/graphic/restraurant/19.webp" },
-      { type: "image", url: "/Images/portfolio/graphic/restraurant/20.webp" },
-      { type: "image", url: "/Images/portfolio/graphic/restraurant/Restaurants9.jpeg" },
+     
+ 
+     { type: "image", url: "/Images/portfolio/graphic/restraurant/20.webp" },
+    
+     { type: "image", url: "/Images/portfolio/graphic/restraurant/Restaurants9.jpeg" },
       { type: "image", url: "/Images/portfolio/graphic/restraurant/Restaurants8.jpeg" },
+     { type: "image", url: "/Images/portfolio/graphic/restraurant/1.gif" },
+      { type: "image", url: "/Images/portfolio/graphic/restraurant/6.webp" },
 
     ],
   },
@@ -196,23 +208,33 @@ const serviceItems = [
     gallery: [
       { type: "image", url: "/Images/portfolio/graphic/food/3.webp" },
       { type: "image", url: "/Images/portfolio/graphic/food/Restaurants4.jpeg" },
-      { type: "image", url: "/Images/portfolio/graphic/restraurant/19.webp" },
-      { type: "image", url: "/Images/portfolio/graphic/restraurant/0.webp" },
-
+   
       { type: "image", url: "/Images/portfolio/graphic/restraurant/1.gif" },
       { type: "image", url: "/Images/portfolio/graphic/food/Restaurants3.jpeg" },
+     
+
+
+          { type: "image", url: "/Images/portfolio/graphic/restraurant/0.webp" },
+       { type: "image", url: "/Images/portfolio/graphic/restraurant/18.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/restraurant/19.webp" },
+     { type: "image", url: "/Images/portfolio/graphic/restraurant/20.webp" },
+    
+
+
       { type: "image", url: "/Images/portfolio/graphic/restraurant/6.webp" },
       { type: "image", url: "/Images/portfolio/graphic/restraurant/Restaurants8.jpeg" },
 
-      { type: "image", url: "/Images/portfolio/graphic/6.webp" },
       { type: "image", url: "/Images/portfolio/graphic/10.webp" },
       { type: "image", url: "/Images/portfolio/graphic/21.webp" },
       { type: "image", url: "/Images/portfolio/graphic/15.webp" },
       { type: "image", url: "/Images/portfolio/graphic/14.webp" },
-      { type: "image", url: "/Images/portfolio/graphic/22.webp" },
+ 
+ { type: "image", url: "/Images/portfolio/graphic/22.webp" },
       { type: "image", url: "/Images/portfolio/graphic/16.webp" },
       { type: "image", url: "/Images/portfolio/graphic/13.webp" },
          { type: "image", url: "/Images/portfolio/graphic/9.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/6.webp" },
+
     ],
   },
 ];

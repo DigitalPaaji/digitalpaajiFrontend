@@ -61,7 +61,7 @@ export default function GraphicGallery({ allItems, initialTab, setFilter }) {
             onClick={() => setSelectedAsset(asset)}
           >
             {asset.type === 'image' ? (
-              <div className="w-full aspect-square md:aspect-[4/5] ">
+              <div className="w-full ">
                 <img 
                   src={asset.url} 
                   className="w-full h-full grayscale hover:grayscale-0 transition-all duration-700 object-contain object-top" 
