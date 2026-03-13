@@ -32,7 +32,7 @@ export default function CategoryView({ setFilter }) {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <Tile title="Graphic Design" category="Graphic" img="/Images/work/1.gif" />
         <Tile title="UI/UX Design" category="Website Design UI/UX" img="/Images/portfolio/website/cover2.webp" />
-         <Tile title="Visiting Cards" category="Visiting Cards" img="/Images/portfolio/visitingcard/cover.webp" />
+         <Tile title="Visiting Cards" category="Visiting Cards" img="/Images/portfolio/graphic/visitingcard/cover.webp" />
          <Tile title="Restraunt Food Shoot" category="Restraunt Food Shoot" img="/Images/work/Restaurants4.jpeg" />
 
       </div>
@@ -42,8 +42,8 @@ export default function CategoryView({ setFilter }) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <Tile title="Marketing" category="Ad Results(Marketing)" img="/Images/portfolio/ad/cover.webp" />
         
-         <Tile title="Thumbnails" category="YouTube Thumbnails" img="/Images/portfolio/thumbnails/cover.webp" />
-              <Tile title="Packaging" category="Packaging Designs" img="/Images/portfolio/packaging/cover.webp" />
+         <Tile title="Thumbnails" category="YouTube Thumbnails" img="/Images/portfolio/graphic/thumbnails/cover.webp" />
+              <Tile title="Packaging" category="Packaging Designs" img="/Images/portfolio/graphic/label/cover.webp" />
       </div>
       
     

@@ -64,7 +64,7 @@ export default function GraphicGallery({ allItems, initialTab, setFilter }) {
               <div className="w-full aspect-square md:aspect-[4/5] ">
                 <img 
                   src={asset.url} 
-                  className="w-full h-full grayscale hover:grayscale-0 transition-all duration-700 object-contain" 
+                  className="w-full h-full grayscale hover:grayscale-0 transition-all duration-700 object-contain object-top" 
                   alt="" 
                 />
               </div>

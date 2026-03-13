@@ -79,7 +79,7 @@ export default function GalleryView({ item }) {
             {selectedAsset.type === 'image' ? (
               <img
                 src={selectedAsset.url}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 alt="Enlarged"
               />
             ) : (
@@ -97,7 +97,7 @@ export default function GalleryView({ item }) {
                     controls 
                     autoPlay 
                     loop 
-                    className="w-full h-full object-cover" 
+                    className="w-full h-full object-contain" 
                   />
                 )}
               </div>
