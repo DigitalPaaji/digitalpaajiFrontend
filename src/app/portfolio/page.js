@@ -168,8 +168,8 @@ const serviceItems = [
  
      { type: "image", url: "/Images/portfolio/graphic/restraurant/20.webp" },
     
-     { type: "image", url: "/Images/portfolio/graphic/restraurant/Restaurants9.jpeg" },
-      { type: "image", url: "/Images/portfolio/graphic/restraurant/Restaurants8.jpeg" },
+     { type: "image", url: "/Images/portfolio/graphic/restraurant/Restaurants9.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/restraurant/Restaurants8.webp" },
      { type: "image", url: "/Images/portfolio/graphic/restraurant/1.gif" },
       { type: "image", url: "/Images/portfolio/graphic/restraurant/6.webp" },
 
@@ -207,10 +207,10 @@ const serviceItems = [
     coverImg: "/Images/work/1.gif",
     gallery: [
       { type: "image", url: "/Images/portfolio/graphic/food/3.webp" },
-      { type: "image", url: "/Images/portfolio/graphic/food/Restaurants4.jpeg" },
+      { type: "image", url: "/Images/portfolio/graphic/food/Restaurants4.webp" },
    
       { type: "image", url: "/Images/portfolio/graphic/restraurant/1.gif" },
-      { type: "image", url: "/Images/portfolio/graphic/food/Restaurants3.jpeg" },
+      { type: "image", url: "/Images/portfolio/graphic/food/Restaurants3.webp" },
      
 
 
@@ -222,7 +222,7 @@ const serviceItems = [
 
 
       { type: "image", url: "/Images/portfolio/graphic/restraurant/6.webp" },
-      { type: "image", url: "/Images/portfolio/graphic/restraurant/Restaurants8.jpeg" },
+      { type: "image", url: "/Images/portfolio/graphic/restraurant/Restaurants8.webp" },
 
       { type: "image", url: "/Images/portfolio/graphic/10.webp" },
       { type: "image", url: "/Images/portfolio/graphic/21.webp" },
