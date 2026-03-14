@@ -10,7 +10,13 @@ const serviceItems = [
     coverImg: "/Images/portfolio/ai/cover.gif",
     gallery: [
     {type:"video",url:"https://www.youtube.com/embed/TpmoYQyJ2CQ"},
-
+    {type:"video",url:"https://www.youtube.com/embed/viqP3dH1uUY"},
+    {type:"video",url:"https://www.youtube.com/embed/3DqIN3n3CO0", client:"ibanta"},
+    {type:"video",url:"https://www.youtube.com/embed/tFGKkq4qOik", client:"ibanta"},
+    {type:"video",url:"https://www.youtube.com/embed/JEh70PImLOM", client:"ibanta"},
+    {type:"video",url:"https://www.youtube.com/embed/mHYycNYN954", client:"ibanta"},
+    {type:"video",url:"https://www.youtube.com/embed/k5dYhWZDWiU", client:"fleetx"},
+    {type:"video",url:"https://www.youtube.com/embed/YQ7cuNJwCQI", client:"fleetx"},
     ],
   },
   {
@@ -18,12 +24,14 @@ const serviceItems = [
     category: "Animation",
     coverImg: "/Images/portfolio/animation/cover.gif",
     gallery: [
-    {type:"video",url:"https://www.youtube.com/embed/EUvXb7a6en8"},
+      {type:"video",url:"https://www.youtube.com/embed/EUvXb7a6en8", thumbnail:""},
       {type:"video",url:"https://www.youtube.com/embed/JUKXs1v7Y7E"},
       {type:"video",url:"https://www.youtube.com/embed/t1Cb5dSz8-s"},
       {type:"video",url:"https://www.youtube.com/embed/zzl9yiB2qqQ"},
       {type:"video",url:"https://www.youtube.com/embed/3iuLOyu6SFk"},
       {type:"video",url:"https://www.youtube.com/embed/wrENWvcGpLM"},
+             {type:"video",url:"https://www.youtube.com/embed/WHcWzNiP40o"},
+
     ],
   },
   {
@@ -31,17 +39,14 @@ const serviceItems = [
     category: "Reels Creation",
     coverImg: "/Images/portfolio/reels/cover.gif",
     gallery: [
-
-  
+      //  {type:"video",url:"https://www.youtube.com/embed/uuxJIG1BdlQ"},
+       {type:"video",url:"https://www.youtube.com/embed/wkzZgrQTddc"},
+       {type:"video",url:"https://www.youtube.com/embed/cNCMM5vc_0k"},
        
-       {type:"video",url:"https://www.youtube.com/embed/uuxJIG1BdlQ"},
-       {type:"video",url:"https://www.youtube.com/embed/WHcWzNiP40o"},
        {type:"video",url:"https://www.youtube.com/embed/6jiW_UAvE38"},
-       {type:"video",url:"https://www.youtube.com/embed/3CMHqcoftb0"},
+      //  {type:"video",url:"https://www.youtube.com/embed/3CMHqcoftb0"},
        {type:"video",url:"https://www.youtube.com/embed/hleWBqF5F2M"},
 
-      
-   
     ],
   },
 
@@ -51,17 +56,16 @@ const serviceItems = [
     coverImg: "/Images/work/ds2.jpeg",
     gallery: [
       { type: "image", url: "/Images/portfolio/graphic/product/ds2.jpeg" },
-         { type: "image", url: "/Images/portfolio/graphic/product/25.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/product/25.webp" },
       { type: "image", url: "/Images/portfolio/graphic/product/11.webp" },
-
-         { type: "image", url: "/Images/portfolio/graphic/product/5.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/product/5.webp" },
       { type: "image", url: "/Images/portfolio/graphic/product/12.webp" },
       { type: "image", url: "/Images/portfolio/graphic/product/23.webp" },
       { type: "image", url: "/Images/portfolio/graphic/product/24.webp" },
       { type: "image", url: "/Images/portfolio/graphic/product/product5.jpeg" },
       { type: "image", url: "/Images/portfolio/graphic/product/product4.jpeg" },
       { type: "image", url: "/Images/portfolio/graphic/product/product6.jpeg" },
-         { type: "image", url: "/Images/portfolio/graphic/product/26.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/product/26.webp" },
       { type: "image", url: "/Images/portfolio/graphic/product/ds1.jpeg" },
     ],
   },
@@ -71,13 +75,10 @@ const serviceItems = [
     coverImg: "/Images/portfolio/visitingcard/3.webp",
     gallery: [
       { type: "image", url: "/Images/portfolio/graphic/label/11.webp" },
-    
       { type: "image", url: "/Images/portfolio/graphic/visitingcard/1.webp" },
       { type: "image", url: "/Images/portfolio/graphic/visitingcard/2.webp" },
       { type: "image", url: "/Images/portfolio/graphic/visitingcard/5.webp" },
-
       { type: "image", url: "/Images/portfolio/graphic/visitingcard/4.webp" },
-
     ],
   },
   {
@@ -109,12 +110,8 @@ const serviceItems = [
       { type: "image", url: "/Images/portfolio/graphic/label/9.webp" },
       { type: "image", url: "/Images/portfolio/graphic/label/10.webp" },
       { type: "image", url: "/Images/portfolio/graphic/label/12.webp" },
-        { type: "image", url: "/Images/portfolio/graphic/label/13.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/label/13.webp" },
       { type: "image", url: "/Images/portfolio/graphic/label/14.webp" },
-      
-      
-      
-      
       { type: "image", url: "/Images/portfolio/graphic/packaging/1.webp" },
       { type: "image", url: "/Images/portfolio/graphic/packaging/2.webp" },
       { type: "image", url: "/Images/portfolio/graphic/packaging/3.webp" },
@@ -122,14 +119,13 @@ const serviceItems = [
       { type: "image", url: "/Images/portfolio/graphic/label/1.webp" },
       { type: "image", url: "/Images/portfolio/graphic/label/2.webp" },
       { type: "image", url: "/Images/portfolio/graphic/label/3.webp" },
-
       { type: "image", url: "/Images/portfolio/graphic/label/4.webp" },
       { type: "image", url: "/Images/portfolio/graphic/label/5.webp" },
       { type: "image", url: "/Images/portfolio/graphic/label/8.webp" },
-        { type: "image", url: "/Images/portfolio/graphic/label/cover.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/label/cover.webp" },
       { type: "image", url: "/Images/portfolio/graphic/label/label1.webp" },
       { type: "image", url: "/Images/portfolio/graphic/label/label2.webp" },
-        { type: "image", url: "/Images/portfolio/graphic/label/label4.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/label/label4.webp" },
       { type: "image", url: "/Images/portfolio/graphic/label/label5.webp" },
       { type: "image", url: "/Images/portfolio/graphic/label/label6.webp" },
     ],
@@ -145,11 +141,11 @@ const serviceItems = [
         type: "image",
         url: "/Images/portfolio/ad/1.webp",
       },
-            {
+      {
         type: "image",
         url: "/Images/portfolio/ad/2.webp",
       },
-            {
+      {
         type: "image",
         url: "/Images/portfolio/ad/3.webp",
       },
@@ -162,15 +158,12 @@ const serviceItems = [
     coverImg: "/Images/work/Restaurants4.jpeg",
     gallery: [
       { type: "image", url: "/Images/portfolio/graphic/restraurant/0.webp" },
-       { type: "image", url: "/Images/portfolio/graphic/restraurant/18.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/restraurant/18.webp" },
       { type: "image", url: "/Images/portfolio/graphic/restraurant/19.webp" },
-     
- 
-     { type: "image", url: "/Images/portfolio/graphic/restraurant/20.webp" },
-    
-     { type: "image", url: "/Images/portfolio/graphic/restraurant/Restaurants9.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/restraurant/20.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/restraurant/Restaurants9.webp" },
       { type: "image", url: "/Images/portfolio/graphic/restraurant/Restaurants8.webp" },
-     { type: "image", url: "/Images/portfolio/graphic/restraurant/1.gif" },
+      { type: "image", url: "/Images/portfolio/graphic/restraurant/1.gif" },
       { type: "image", url: "/Images/portfolio/graphic/restraurant/6.webp" },
 
     ],
@@ -184,13 +177,15 @@ const serviceItems = [
         type: "image",
         url: "/Images/portfolio/graphic/thumbnails/1.webp",
       },
-         {
+      {
         type: "image",
         url: "/Images/portfolio/graphic/thumbnails/2.webp",
-      },  {
+      },  
+      {
         type: "image",
         url: "/Images/portfolio/graphic/thumbnails/3.webp",
-      },  {
+      },
+      {
         type: "image",
         url: "/Images/portfolio/graphic/thumbnails/4.webp",
       },
@@ -208,33 +203,23 @@ const serviceItems = [
     gallery: [
       { type: "image", url: "/Images/portfolio/graphic/food/3.webp" },
       { type: "image", url: "/Images/portfolio/graphic/food/Restaurants4.webp" },
-   
       { type: "image", url: "/Images/portfolio/graphic/restraurant/1.gif" },
       { type: "image", url: "/Images/portfolio/graphic/food/Restaurants3.webp" },
-     
-
-
-          { type: "image", url: "/Images/portfolio/graphic/restraurant/0.webp" },
-       { type: "image", url: "/Images/portfolio/graphic/restraurant/18.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/restraurant/0.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/restraurant/18.webp" },
       { type: "image", url: "/Images/portfolio/graphic/restraurant/19.webp" },
-     { type: "image", url: "/Images/portfolio/graphic/restraurant/20.webp" },
-    
-
-
+      { type: "image", url: "/Images/portfolio/graphic/restraurant/20.webp" },
       { type: "image", url: "/Images/portfolio/graphic/restraurant/6.webp" },
       { type: "image", url: "/Images/portfolio/graphic/restraurant/Restaurants8.webp" },
-
       { type: "image", url: "/Images/portfolio/graphic/10.webp" },
       { type: "image", url: "/Images/portfolio/graphic/21.webp" },
       { type: "image", url: "/Images/portfolio/graphic/15.webp" },
       { type: "image", url: "/Images/portfolio/graphic/14.webp" },
- 
- { type: "image", url: "/Images/portfolio/graphic/22.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/22.webp" },
       { type: "image", url: "/Images/portfolio/graphic/16.webp" },
       { type: "image", url: "/Images/portfolio/graphic/13.webp" },
-         { type: "image", url: "/Images/portfolio/graphic/9.webp" },
+      { type: "image", url: "/Images/portfolio/graphic/9.webp" },
       { type: "image", url: "/Images/portfolio/graphic/6.webp" },
-
     ],
   },
 ];
@@ -244,7 +229,7 @@ const categories = [
   "AI Videos",
   "Reels Creation",
   "Animation",
-  "Graphic", // This now contains the other 5 sub-categories
+  "Graphic", 
   "Website Design UI/UX",
   "Ad Results(Marketing)",
 ];
@@ -296,7 +281,7 @@ export default function AdminDashboard() {
 
       <ProductGrid
   items={filteredItems}
-  allServiceItems={serviceItems} // Pass the raw data here
+  allServiceItems={serviceItems} 
   setFilter={setFilter}
   isFiltered={filter}
 />

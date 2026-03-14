@@ -46,11 +46,26 @@ export default function GalleryView({ item }) {
                 ) : (
                   /* REEL SIZE FOR GRID */
                   <div className="relative aspect-[9/16] ">
-                    {asset.url.includes("youtube.com") || asset.url.includes("instagram.com") ? (
-                      <iframe src={asset.url} className="w-full h-full pointer-events-none scale-[1.02]" tabIndex="-1" />
-                    ) : (
-                      <video src={asset.url} className="w-full h-full object-cover" muted playsInline />
-                    )}
+                   {asset.url.includes("youtube.com") || asset.url.includes("instagram.com") ? (
+      <iframe
+        // Added 'controls=0' and 'showinfo=0' to help hide UI elements
+        src={`${asset.url.replace("watch?v=", "embed/")}?modestbranding=1&rel=0&controls=0&showinfo=0&iv_load_policy=3`}
+        className="w-full h-full pointer-events-none scale-[1.05]" 
+        tabIndex="-1"
+        title="Video content"
+        frameBorder="0"
+        // allow="autoplay; fullscreen"
+      />
+    ) : (
+      <video 
+        src={asset.url} 
+        className="w-full h-full object-cover" 
+        autoPlay 
+        muted 
+        loop 
+        playsInline 
+      />
+    )}
 
                   
                   </div>
@@ -64,7 +79,7 @@ export default function GalleryView({ item }) {
       {/* MODAL (VERTICAL REEL LIGHTBOX) */}
       {selectedAsset && (
         <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center  backdrop-blur-xl p-6 animate-in fade-in duration-300"
+          className="fixed inset-0 z-[100] flex items-center justify-center  backdrop-blur-xl px-6 animate-in fade-in duration-300"
           onClick={() => setSelectedAsset(null)}
         >
           <button className="absolute top-6 right-6 md:top-10 md:right-10 text-white/40 hover:text-white transition-colors z-[110] bg-white/10 p-2 rounded-full">
@@ -73,7 +88,7 @@ export default function GalleryView({ item }) {
 
           {/* REEL CONTAINER IN MODAL */}
           <div 
-            className="relative h-full max-h-[85vh] p-4 md:px-6 lg:p-24 animate-in zoom-in-95 duration-300 overflow-hidden"
+            className="relative h-[100vh] p-4  animate-in zoom-in-95 duration-300 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {selectedAsset.type === 'image' ? (
@@ -83,11 +98,11 @@ export default function GalleryView({ item }) {
                 alt="Enlarged"
               />
             ) : (
-              <div className="w-full h-full">
+              <div className="w-full h-[90vh]">
                 {selectedAsset.url.includes("youtube.com") || selectedAsset.url.includes("instagram.com") ? (
                   <iframe 
                     src={getModalVideoUrl(selectedAsset.url)} 
-                    className="w-full h-full" 
+                    className="w-full h-[90vh]" 
                     allow="autoplay; fullscreen; picture-in-picture"
                     allowFullScreen 
                   />
