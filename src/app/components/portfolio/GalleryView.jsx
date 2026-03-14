@@ -49,7 +49,7 @@ export default function GalleryView({ item }) {
 
                     {   asset.url.includes("youtube.com") || asset.url.includes("instagram.com") ? 
                     asset.thumb ?<div className='relative '>
-                      <img src={`/images/thumbnail/${asset.thumb}`} alt="" />
+                      <img src={`/Images/thumbnail/${asset.thumb}`} alt="" />
                    <div className='absolute top-0 left-0 w-full h-full flex justify-center items-center'>
                        <Play  strokeWidth={2.75}  className=' bg-black p-2 rounded-full' width={35} height={35} color='#cc5f4d' />
                    </div>
