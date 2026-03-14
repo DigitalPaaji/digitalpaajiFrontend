@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { Play, X } from 'lucide-react';
 
 export default function GalleryView({ item }) {
   const [selectedAsset, setSelectedAsset] = useState(null);
@@ -46,17 +46,23 @@ export default function GalleryView({ item }) {
                 ) : (
                   /* REEL SIZE FOR GRID */
                   <div className="relative aspect-[9/16] ">
-                   {asset.url.includes("youtube.com") || asset.url.includes("instagram.com") ? (
-      <iframe
-        // Added 'controls=0' and 'showinfo=0' to help hide UI elements
+
+                    {   asset.url.includes("youtube.com") || asset.url.includes("instagram.com") ? 
+                    asset.thumb ?<div className='relative '>
+                      <img src={`/images/thumbnail/${asset.thumb}`} alt="" />
+                   <div className='absolute top-0 left-0 w-full h-full flex justify-center items-center'>
+                       <Play  strokeWidth={2.75}  className=' bg-black p-2 rounded-full' width={35} height={35} color='#cc5f4d' />
+                   </div>
+                       </div> :
+                    
+        <iframe
+    
         src={`${asset.url.replace("watch?v=", "embed/")}?modestbranding=1&rel=0&controls=0&showinfo=0&iv_load_policy=3`}
         className="w-full h-full pointer-events-none scale-[1.05]" 
         tabIndex="-1"
         title="Video content"
-        frameBorder="0"
-        // allow="autoplay; fullscreen"
-      />
-    ) : (
+ />
+     : (
       <video 
         src={asset.url} 
         className="w-full h-full object-cover" 
