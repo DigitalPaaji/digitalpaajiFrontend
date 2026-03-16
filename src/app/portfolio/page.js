@@ -12,11 +12,18 @@ const serviceItems = [
     {type:"video",url:"https://www.youtube.com/embed/TpmoYQyJ2CQ",thumb:"ai1.webp"},
     // {type:"video",url:"https://www.youtube.com/embed/viqP3dH1uUY"},
     {type:"video",url:"https://www.youtube.com/embed/3DqIN3n3CO0", client:"ibanta",thumb:"ibnta1.webp"},
+    
     {type:"video",url:"https://www.youtube.com/embed/tFGKkq4qOik", client:"ibanta",thumb:"ibnta2.webp"},
+         {type:"video",url:"https://www.youtube.com/embed/JIvu3LY-xfk",thumb:"ai2.webp"},
+    {type:"video",url:"https://www.youtube.com/embed/YQ7cuNJwCQI", client:"fleetx",thumb:"fleetx2.webp"},
     {type:"video",url:"https://www.youtube.com/embed/JEh70PImLOM", client:"ibanta",thumb:"ibnta3.webp"},
     {type:"video",url:"https://www.youtube.com/embed/mHYycNYN954", client:"ibanta",thumb:"ibnta4.webp"},
     {type:"video",url:"https://www.youtube.com/embed/k5dYhWZDWiU", client:"fleetx",thumb:"fleetx1.webp"},
-    {type:"video",url:"https://www.youtube.com/embed/YQ7cuNJwCQI", client:"fleetx",thumb:"fleetx2.webp"},
+         {type:"video",url:"https://www.youtube.com/embed/ag_jFaBbAlM",thumb:"spd.webp"},
+                {type:"video",url:"https://www.youtube.com/embed/RwuK_SGYljU",thumb:"ai3.webp"},
+       {type:"video",url:"https://www.youtube.com/embed/WXy49BMkS0U",thumb:"muraga1.webp"},
+       {type:"video",url:"https://www.youtube.com/embed/mARWXpzxcHI",thumb:"fleetx3.webp"},
+        {type:"video",url:"https://www.youtube.com/embed/A67jLML8c6Y",thumb:"saajriwaj2.webp"},
     ],
   },
   {
@@ -31,6 +38,14 @@ const serviceItems = [
       {type:"video",url:"https://www.youtube.com/embed/3iuLOyu6SFk",thumb:"shangz1.webp"},
       {type:"video",url:"https://www.youtube.com/embed/wrENWvcGpLM",thumb:"wedding1.webp"},
        {type:"video",url:"https://www.youtube.com/embed/WHcWzNiP40o",thumb:"ibnta6.webp"},
+    
+       
+       
+      
+       
+  
+  
+
 
     ],
   },
@@ -46,6 +61,8 @@ const serviceItems = [
        {type:"video",url:"https://www.youtube.com/embed/6jiW_UAvE38",thumb:"saajriwaj1.webp"},
       //  {type:"video",url:"https://www.youtube.com/embed/3CMHqcoftb0"},
        {type:"video",url:"https://www.youtube.com/embed/hleWBqF5F2M",thumb:"amber1.webp"},
+       {type:"video",url:"https://www.youtube.com/embed/kAsUuGOfO6Q",thumb:"murgi1.webp"},
+       {type:"video",url:"https://www.youtube.com/embed/7xCRhzA8ICc",thumb:"saajriwaj3.webp"},
 
     ],
   },
