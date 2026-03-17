@@ -55,7 +55,7 @@ const serviceItems = [
     coverImg: "/Images/portfolio/reels/cover.gif",
     gallery: [
       //  {type:"video",url:"https://www.youtube.com/embed/uuxJIG1BdlQ"},
-       {type:"video",url:"https://www.youtube.com/embed/wkzZgrQTddc"},
+       {type:"video",url:"https://www.youtube.com/embed/wkzZgrQTddc", },
        {type:"video",url:"https://www.youtube.com/embed/cNCMM5vc_0k"},
        
        {type:"video",url:"https://www.youtube.com/embed/6jiW_UAvE38",thumb:"saajriwaj1.webp"},
@@ -106,7 +106,7 @@ const serviceItems = [
     gallery: [
       { type: "image", url: "/Images/portfolio/website/1.webp" },
       { type: "image", url: "/Images/portfolio/website/7.webp" },
-      { type: "image", url: "/Images/portfolio/website/8.webp" },
+      // { type: "image", url: "/Images/portfolio/website/8.webp" },
       { type: "image", url: "/Images/portfolio/website/9.webp" },
       { type: "image", url: "/Images/portfolio/website/10.webp" },
       { type: "image", url: "/Images/portfolio/website/11.webp" },

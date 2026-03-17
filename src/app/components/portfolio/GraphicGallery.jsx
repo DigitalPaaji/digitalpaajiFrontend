@@ -9,7 +9,8 @@ export default function GraphicGallery({ allItems, initialTab, setFilter }) {
     "Restraunt Food Shoot",
     "YouTube Thumbnails",
     "Visiting Cards",
-    "Packaging Designs"
+    "Packaging Designs",
+    // "Logo Designs"
   ];
 
   const [selectedAsset, setSelectedAsset] = useState(null);
