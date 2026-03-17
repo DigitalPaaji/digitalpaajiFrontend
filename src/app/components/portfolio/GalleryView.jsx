@@ -58,7 +58,7 @@ export default function GalleryView({ item }) {
         <iframe
     
         src={`${asset.url.replace("watch?v=", "embed/")}?modestbranding=1&rel=0&controls=0&showinfo=0&iv_load_policy=3`}
-        className="w-full h-full pointer-events-none scale-[1.05]" 
+        className="w-full h-full pointer-events-none" 
         tabIndex="-1"
         title="Video content"
  />
@@ -94,7 +94,7 @@ export default function GalleryView({ item }) {
 
           {/* REEL CONTAINER IN MODAL */}
           <div 
-            className="relative h-[100vh] p-4  animate-in zoom-in-95 duration-300 overflow-hidden"
+            className="relative w-full h-[100vh] p-4  animate-in zoom-in-95 duration-300 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {selectedAsset.type === 'image' ? (
