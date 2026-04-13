@@ -18,7 +18,6 @@ import {
   FaUtensils,
 } from "react-icons/fa";
 
-
 const frames = [
   { type: "restaurants", url: "https://youtube.com/shorts/hleWBqF5F2M" },
   { type: "restaurants", url: "https://youtube.com/shorts/3CMHqcoftb0" },
