@@ -1,0 +1,883 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bungee+Inline&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ede7db;
+}
+
+.heading{
+  color: #cc5f4d;
+  font-weight: 800;
+}
+
+
+.stroke{
+  font-family:  Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  font-weight: bolder;
+  -webkit-text-stroke: 1.5px black;
+  -webkit-animation-fill-color: transparent;
+  
+  text-shadow: none;
+  color: transparent;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/* Marquee Container */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  /* position: relative; */
+}
+
+/* Marquee Content */
+.marquee-content {
+  display: flex;
+  animation: marquee 50s linear infinite;
+
+
+}
+
+/* Image Styling */
+.marquee-content img {
+  flex-shrink: 0;
+  width: auto;
+  height: auto;
+}
+/* .animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: bolder;
+  -webkit-text-stroke: 0px black;
+  animation: marquee 50s linear infinite;
+
+} */
+
+@keyframes noise-flicker {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: bolder;
+  -webkit-text-stroke: 0px black;
+  animation: marquee 50s linear infinite, noise-flicker 0.1s infinite; /* Add noise flicker effect */
+  
+  /* Add black background with flickering red noise effect */
+  background-color: black;
+  background-image: 
+    linear-gradient(90deg, rgba(255, 0, 0, 0.61) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 0, 0, 0.61) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(255, 0, 0, 0.61) 1px, transparent 1px),
+    linear-gradient(70deg, rgba(255, 0, 0, 0.61) 1px, transparent 1px);
+  background-size: 8px 2px; /* Controls the "grain" of the noise */
+  background-blend-mode:screen; /* Blend noise with background */
+  -webkit-background-clip: text; 
+  color: transparent; /* Make the text itself transparent to show the noise */
+}
+
+.image {
+  position: absolute; /* Ensure the element can be moved */
+ 
+  animation: img 300ms ease-in-out 1; /* Infinite animation */
+  transform-origin: center; /* Rotate around the center */
+}
+
+@keyframes img {
+  0% {
+    transform: rotate(-8deg) translate(-10%, 0%);
+  }
+
+  100% {
+    transform: rotate(0deg) translate(0%, -0%);
+  }
+}
+
+
+@keyframes logo2 {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+    width: 30px;
+  }
+  100% {
+    width: 240px; /* Adjust based on your Tailwind w-60 equivalent */
+    opacity: 1;
+  }
+}
+
+
+.logo2{
+  display:block; 
+  position: absolute;
+  transform: scaleX(1.1);
+
+  animation: logoExpand 3s ease-in 1;
+}
+.logoHide{
+  display: none;
+}
+
+.merriHead {
+  font-weight: 600; 
+  /* font-style: italic;  */
+  font-family: 'Merriweather', serif; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.servicePara{
+  line-break: strict;
+  /* font-style: italic; */
+  font-family: 'Merriweather', serif; 
+  text-align: justify;
+}
+
+.bungeeHead{
+  /* color: #cc5f4d; */
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-family: "Bungee Inline", serif;
+
+
+}
+
+
+.bungeeHead-400{
+  /* color: #cc5f4d; */
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: "Bungee Inline", serif;
+
+
+}
+
+
+.services{
+  font-size:18px;
+  text-align: center;
+  font-weight: 900;
+  font-family: 'Bungee Inline',sans-serif;
+}
+
+.zoom{
+  transition: transform 400ms ease-in;
+  /* width:100%; */
+  /* height: auto; */
+}
+.zoom:hover{
+  transform: scale(1.1);
+}
+
+.Scroll-zoom{
+  transition: transform 0.4s ease;
+}
+
+.zoomLeft{
+  width: 100%;
+  transition: transform 100ms ease-in-out;
+  height: auto;
+}
+.zoomLeft:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+
+}
+
+.Numbers {
+  font-family: "Bevan", serif;
+  font-weight: 400;
+  font-size: xx-large;
+  background-color: white;
+
+  color: black;
+  font-style: italic;
+}
+
+/* Custom Swiper Navigation Arrows */
+.custom-swiper {
+  position: absolute;
+  padding: 0 60px; /* Add space for arrows outside */
+}
+
+.custom-swiper .swiper-button-prev,
+.custom-swiper .swiper-button-next {
+  color: black; 
+  border-radius: 50%;
+  font-weight: bolder;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+  top:20px; 
+
+}
+
+.custom-swiper .swiper-button-prev {
+  left: -13px;
+}
+
+.custom-swiper .swiper-button-next {
+  right: -13px;
+}
+
+.custom-swiper .swiper-button-prev::after,
+.custom-swiper .swiper-button-next::after {
+  font-size: 20px; /* Adjust arrow icon size */
+  font-weight: bolder;
+}
+
+
+
+.testimonial-container {
+
+  height: 100%; /* Take full height of the container */
+  position: relative;
+}
+
+/* Style each individual letter */
+.flip-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: rotateX(90deg); /* Start with the letter rotated */
+  animation: flipIn 1s forwards;
+}
+
+@keyframes flipIn {
+  0% {
+    opacity: 0;
+    transform: rotateX(90deg);
+  }
+  50% {
+    opacity: 1;
+    transform: rotateX(0deg); /* Flip the letter into place */
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg); /* End with the letter upright */
+  }
+}
+
+/* Trigger flipping effect when changing words */
+.flipping {
+  animation: flipOut 1s forwards;
+}
+
+@keyframes flipOut {
+  0% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+  50% {
+    opacity: 0;
+    transform: rotateX(-90deg); /* Flip out the letter */
+  }
+  100% {
+    opacity: 0;
+    transform: rotateX(90deg); /* Hide the letter after it flips out */
+  }
+}
+
+.transform.rotate-6 {
+  transform: rotate(8deg); /* Adjust the degree as needed */
+}
+
+.transform.-rotate-6 {
+  transform: rotate(-8deg); /* Adjust the degree as needed */
+}
+
+.dense-zigzag {
+  width: 100%; /* Full width of the screen */
+  height: 220px; /* Increased height for a prominent zigzag */
+  background-color: #cc5f4d; /* Background color */
+  clip-path: polygon(
+    0% 100%, 1% 15%, 2% 100%, 3% 15%, 4% 100%, 5% 15%, 6% 100%, 7% 15%, 
+    8% 100%, 9% 15%, 10% 100%, 11% 15%, 12% 100%, 13% 15%, 14% 100%, 15% 15%, 
+    16% 100%, 17% 15%, 18% 100%, 19% 15%, 20% 100%, 21% 15%, 22% 100%, 23% 15%, 
+    24% 100%, 25% 15%, 26% 100%, 27% 15%, 28% 100%, 29% 15%, 30% 100%, 31% 15%, 
+    32% 100%, 33% 15%, 34% 100%, 35% 15%, 36% 100%, 37% 15%, 38% 100%, 39% 15%, 
+    40% 100%, 41% 15%, 42% 100%, 43% 15%, 44% 100%, 45% 15%, 46% 100%, 47% 15%, 
+    48% 100%, 49% 15%, 50% 100%, 51% 15%, 52% 100%, 53% 15%, 54% 100%, 55% 15%, 
+    56% 100%, 57% 15%, 58% 100%, 59% 15%, 60% 100%, 61% 15%, 62% 100%, 63% 15%, 
+    64% 100%, 65% 15%, 66% 100%, 67% 15%, 68% 100%, 69% 15%, 70% 100%, 71% 15%, 
+    72% 100%, 73% 15%, 74% 100%, 75% 15%, 76% 100%, 77% 15%, 78% 100%, 79% 15%, 
+    80% 100%, 81% 15%, 82% 100%, 83% 15%, 84% 100%, 85% 15%, 86% 100%, 87% 15%, 
+    88% 100%, 89% 15%, 90% 100%, 91% 15%, 92% 100%, 93% 15%, 94% 100%, 95% 15%, 
+    96% 100%, 97% 15%, 98% 100%, 99% 15%, 100% 100%
+  );
+}
+@media (max-width: 1024px) { /* For tablets and smaller desktops */
+  .dense-zigzag {
+    clip-path: polygon(
+      0% 100%, 2.5% 20%, 5% 100%, 7.5% 20%, 10% 100%, 12.5% 20%, 
+      15% 100%, 17.5% 20%, 20% 100%, 22.5% 20%, 25% 100%, 27.5% 20%, 
+      30% 100%, 32.5% 20%, 35% 100%, 37.5% 20%, 40% 100%, 42.5% 20%, 
+      45% 100%, 47.5% 20%, 50% 100%, 52.5% 20%, 55% 100%, 57.5% 20%, 
+      60% 100%, 62.5% 20%, 65% 100%, 67.5% 20%, 70% 100%, 72.5% 20%, 
+      75% 100%, 77.5% 20%, 80% 100%, 82.5% 20%, 85% 100%, 87.5% 20%, 
+      90% 100%, 92.5% 20%, 95% 100%, 97.5% 20%, 100% 100%
+    ); /* Denser zigzag for small screens */
+  }
+}
+
+.zigzag-down {
+  width: 100%; /* Full width of the screen */
+  height: 44px; /* Set the height of the box */
+  background-color: #cc5f4d; /* Background color */
+  margin-top: -2px;
+  clip-path: polygon(
+    0% 0%, 2% 85%, 4% 0%, 6% 85%, 8% 0%, 10% 85%, 12% 0%, 14% 85%, 
+    16% 0%, 18% 85%, 20% 0%, 22% 85%, 24% 0%, 26% 85%, 28% 0%, 30% 85%, 
+    32% 0%, 34% 85%, 36% 0%, 38% 85%, 40% 0%, 42% 85%, 44% 0%, 46% 85%, 
+    48% 0%, 50% 85%, 52% 0%, 54% 85%, 56% 0%, 58% 85%, 60% 0%, 62% 85%, 
+    64% 0%, 66% 85%, 68% 0%, 70% 85%, 72% 0%, 74% 85%, 76% 0%, 78% 85%, 
+    80% 0%, 82% 85%, 84% 0%, 86% 85%, 88% 0%, 90% 85%, 92% 0%, 94% 85%, 
+    96% 0%, 98% 85%, 100% 0%
+  ); /* More populated upward-facing zigzag shape for larger screens */
+}  
+@media (max-width: 1024px) { /* For tablets and smaller desktops */
+  .zigzag-down {
+    clip-path: polygon(
+      0% 0%, 8% 90%, 16% 0%, 24% 90%, 32% 0%, 40% 90%, 48% 0%, 56% 90%, 
+      64% 0%, 72% 90%, 80% 0%, 88% 90%, 100% 0%
+    ); /* More populated upward-facing zigzag shape */
+  }
+}
+
+
+/* Styling for the div with a more populated zigzag shape on top */
+.zigzag-box {
+  width: 100%; /* Full width of the screen */
+  height: 44px; /* Set the height of the box */
+  background-color: #cc5f4d; /* Background color */
+  margin-bottom: -2px;
+
+  clip-path: polygon(
+    0% 100%, 2% 15%, 4% 100%, 6% 15%, 8% 100%, 10% 15%, 12% 100%, 14% 15%, 
+    16% 100%, 18% 15%, 20% 100%, 22% 15%, 24% 100%, 26% 15%, 28% 100%, 30% 15%, 
+    32% 100%, 34% 15%, 36% 100%, 38% 15%, 40% 100%, 42% 15%, 44% 100%, 46% 15%, 
+    48% 100%, 50% 15%, 52% 100%, 54% 15%, 56% 100%, 58% 15%, 60% 100%, 62% 15%, 
+    64% 100%, 66% 15%, 68% 100%, 70% 15%, 72% 100%, 74% 15%, 76% 100%, 78% 15%, 
+    80% 100%, 82% 15%, 84% 100%, 86% 15%, 88% 100%, 90% 15%, 92% 100%, 94% 15%, 
+    96% 100%, 98% 15%, 100% 100%
+  ); /* Adjusted to create a downward-facing zigzag */
+}
+
+
+/* More populated zigzag shape for smaller screens */
+@media (max-width: 1024px) { /* For tablets and smaller desktops */
+  .zigzag-box {
+
+    clip-path: polygon(
+      0% 100%, 8% 10%, 16% 100%, 24% 10%, 32% 100%, 40% 10%, 48% 100%, 56% 10%, 
+      64% 100%, 72% 10%, 80% 100%, 88% 10%, 100% 100%
+    ); /* Adjusted to create an upward-facing zigzag shape */
+  }
+}
+
+.flip {
+  display: inline-block;
+  /* transform-origin: bottom; */
+  animation: flipIn 0.9s ease-in-out forwards;
+  /* transition: transform 0.5s ease-in-out; */
+  /* transform: rotateX(90deg); */
+
+}
+
+@keyframes flipIn {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: rotateX(90deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* styles.css */
+.header-background {
+  background-image: url(/Images/services/webBg.webp);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 768px) {
+  .header-background {
+    background-attachment: scroll; /* Prevents fixed issues on small devices */
+  }
+}
+
+@media (max-width: 480px) {
+  .header-background {
+    background-size: cover; /* Adjust for smaller screens */
+  }
+}
+
+
+
+
+
+
+.swiper-slide {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.6; /* Dim non-active slides */
+}
+
+.swiper-slide-active {
+  transform: rotate(-5deg) scale(1.05); /* Tilt from the right inward */
+  opacity: 1; /* Active slide is fully visible */
+}
+
+.prev-slide {
+  transform: rotate(10deg) scale(0.95); /* Tilt towards the left */
+  opacity: 0.8; /* Slightly dim */
+}
+
+.next-slide {
+  transform: rotate(-10deg) scale(0.95); /* Tilt towards the right */
+  opacity: 0.8; /* Slightly dim */
+}
+
+/* Optional: Add a slight 3D effect by adjusting perspective for smaller screens */
+@media (max-width: 640px) {
+  .swiper-slide {
+    opacity: 1; /* Full opacity for all slides */
+    transform: rotate(0deg) scale(1); /* No rotation or scaling on small screens */
+  }
+}
+
+
+.vibrate{
+  animation: vibrate 2s linear infinite;
+}
+
+
+@keyframes vibrate {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(4px, -4px);
+  }
+  50% {
+    transform: translate(8px, 0);
+  }
+  75% {
+    transform: translate(4px, 4px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+
+
+
+
+/* Container setup */
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Initially hide the text */
+.text-container {
+  position: absolute;
+  top: 100%; /* Place the text below the logo */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none; /* Prevent interaction when hidden */
+  display: flex;
+  gap: 2px;
+}
+
+/* Show text on hover */
+.logo-container:hover .text-container {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Letter animation */
+.letter {
+  display: inline-block;
+  transform: translateX(-100%);
+  opacity: 0;
+  animation: showText 0.5s forwards;
+}
+
+/* Trigger reverse animation on hover-out */
+.logo-container:not(:hover) .letter {
+  animation: hideText 0.5s forwards;
+}
+
+/* Animation for showing text */
+@keyframes showText {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation for hiding text */
+@keyframes hideText {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.bg-flow {
+  animation: diagonalFlow 2s linear infinite; /* Speed: 8s */
+  background-size: 150% 150%; /* Reduce zoom */
+  background-position: 100% 100%; /* Starting point */
+}
+@keyframes diagonalFlow {
+  0% {
+    background-position: 0% 0%; /* Start from bottom-right */
+  }
+  100% {
+    background-position: 100% 100%; /* Move to top-left */
+  }
+}
+
+/* banner */
+.slide-container{
+  position: relative;
+  /* background-color: rgb(89, 86, 84); */
+  /* overflow: hidden; */
+}
+.slide-container .slide{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateY(-100%);
+  overflow:hidden;
+}
+.slide-container .slide:first-of-type.active{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateY(-100%);
+  overflow:hidden;
+  transform: translateY(0);
+  animation: slideDown 1s forwards ease-in;
+
+}
+.slide.active{
+  animation: slideDown 1s forwards ease-in;
+
+}
+.slide.bg-flow{
+  animation: diagonalFlow 6s linear infinite; /* Speed: 8s */
+  background-size: 120% 150%; /* Reduce zoom */
+  background-position: 100% 100%; /* Starting point */
+}
+
+.slide-2{
+  background-color: #6db19b;
+}
+.slide-3{
+  background-color: #000000;
+}
+@keyframes slideDown {
+  from{
+    transform: translateY(-100%);
+  }
+  to{
+    transform: translateY(0);
+  }
+}
+
+@keyframes growDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px; /* Adjust to a value larger than the content height */
+    opacity: 1;
+  }
+}
+
+.text-slide-grow {
+  animation: growDown 1s ease-in-out forwards;
+  animation-delay: 1s; /* Delay the animation by 1 second */
+  overflow: hidden; /* Ensure content is hidden while growing */
+  max-height: 0; /* Initial height */
+}
+
+
+
+
+
+
+
+.text-button-grow{
+  animation: growDown 1s ease-in forwards;
+  animation-delay: 2s; /* Delay the animation by 1 second */
+  overflow: hidden; /* Ensure content is hidden while growing */
+  max-height: 0; /* Initial height */
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+
+  }
+  100% {
+    transform: scale(1); /* Adjust the scale value as needed */
+    opacity: 1;
+  }
+}
+
+.zoomInEffect {
+  animation: zoomIn 1s ease-out forwards;
+  /* animation-delay: 1s; */
+}
+
+.zoomInEffectSlide3 {
+  animation: zoomIn 1s ease-in forwards;
+  animation-delay: 1s;
+}
+
+.zoomInEffectSlide2 {
+  animation: zoomIn 1s ease-in forwards;
+  /* animation-delay: 500ms; */
+}
+
+@keyframes moveIphone {
+  0% {
+    transform: translateX(200px); /* Initial position */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px); /* Move slightly to the right */
+    opacity: 1;
+  }
+}
+
+.arrow-iphone {
+  animation: moveIphone 2s  ease-in; /* Smooth looping animation */
+  /* animation-delay: 1s; */
+}
+
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.5;
+  }
+  22%, 57% {
+    opacity: 0.8;
+  }
+}
+
+.flicker {
+  animation: flicker 0.8s infinite;
+}
+
+
+
+@keyframes moveArrow {
+  0%, 100% {
+    transform: translateX(0); /* Initial position */
+  }
+  50% {
+    transform: translateX(10px); /* Move slightly to the right */
+  }
+}
+
+
+
+
+@keyframes moveArrowRight {
+  0% {
+    transform: translateX(0) rotate(180deg);
+  }
+  50% {
+    transform: translateX(-10px) rotate(180deg);
+  }
+  100% {
+    transform: translateX(0) rotate(180deg);
+  }
+}
+
+.arrow-move {
+  animation: moveArrow 1.5s infinite ease-in-out; /* Smooth looping animation */
+}
+
+.arrow-move-right {
+  transform: rotate(180deg);
+  animation: moveArrowRight 1.5s infinite ease-in-out; /* Smooth looping animation */
+}
+
+@keyframes growWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+
+
+
+
+.card-wrap {
+  perspective: 800px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+
+  transition: transform 0.5s ease;
+}
+
+.card {
+  position: relative;
+
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow:
+    rgba(255, 255, 255, 0.2) 0 0 40px 5px,
+    rgba(255, 255, 255, 1) 0 0 0 1px,
+    rgba(0, 0, 0, 0.40) 0 30px 60px 0,
+    inset #333 0 0 0 5px,
+    inset white 0 0 0 6px;
+  transition: all 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.card-bg {
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: calc(100% );
+  height: calc(100% );
+  background-repeat: no-repeat;
+  background-position: start;
+  background-size: cover;
+  transition: all 1s cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    opacity 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  pointer-events: none;
+}
+
+.card-info {
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  color: white;
+  transform: translateY(40%);
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+  transition: transform 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.card-info h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  text-shadow: rgb(95, 94, 94)  2px 2px;
+}
+
+.card-info p {
+  opacity: 0;
+  margin-top: 10px;
+  line-height: 1.5em;
+  font-size: 14px;
+  text-shadow: rgba(0, 0, 0, 1) 0 2px 3px;
+  transition: opacity 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.card-info::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.card-wrap:hover .card-info {
+  transform: translateY(0);
+  transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-wrap:hover .card-info p {
+  opacity: 1;
+  transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-wrap:hover .card-info::after {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-wrap:hover .card-bg {
+  opacity: 0.8;
+  transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-wrap:hover .card {
+  box-shadow:
+    rgba(255, 255, 255, 0.2) 0 0 40px 5px,
+    rgba(255, 255, 255, 1) 0 0 0 1px,
+    rgba(0, 0, 0, 0.66) 0 30px 60px 0,
+    inset #333 0 0 0 5px,
+    inset white 0 0 0 6px;
+  transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+
+
+
+
