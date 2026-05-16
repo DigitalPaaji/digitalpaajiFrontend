@@ -8,7 +8,7 @@ import Banner from "./Banner";
 import BannerBottom from "./BannerBottom";
 import Services from "./Services";
 import KhetKiMuli from "./KhetKiMuli";
-import AddOn from "./AddOn";
+// import Clients from "./Clients.jsx";
 import Growth from "./Growth";
 import Offer from "./Offer";
 import Testimonials from "./Testimonials";
@@ -41,7 +41,7 @@ export default function Home() {
       <KhetKiMuli />
     </div>
     {/* <div className="my-16" data-aos="fade-up">
-      <AddOn />
+      <Clients />
     </div> */}
      <div className="my-16" data-aos="fade-up">
       <Offer />

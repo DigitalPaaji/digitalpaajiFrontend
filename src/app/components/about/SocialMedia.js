@@ -17,7 +17,7 @@ function FollowUs() {
     { name: "Facebook", icon: <FaFacebook />, link: "https://www.facebook.com/digital.paajii" },
     { name: "Instagram", icon: <FaInstagram />, link: "https://www.instagram.com/digital.paajii/" },
     { name: "YouTube", icon: <FaYoutube />, link: "https://www.youtube.com/@digital.paajii" },
-    { name: "x.com", icon: <FaTwitter />, link: "https://x.com/i/flow/login?redirect_after_login=%2Fdigitalpaajii" },
+    { name: "Twitter", icon: <FaTwitter />, link: "https://x.com/i/flow/login?redirect_after_login=%2Fdigitalpaajii" },
     { name: "Pintrest", icon: <FaPinterest />, link: "https://www.pinterest.com/digitalpaaji/" },
   ];
 

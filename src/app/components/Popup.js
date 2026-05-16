@@ -13,7 +13,7 @@ function Popup({ handleMenu }) {
     Home: "/Images/popup/2.webp", // Replace with your image URL for Home
     About: "/Images/popup/3.webp", // Replace with your image URL for About
     Services: "/Images/popup/1.webp", // Replace with your image URL for Services
-    "Our Work": "/Images/popup/4.webp", // Replace with your image URL for Our Work
+    "Portfolio": "/Images/popup/4.webp", // Replace with your image URL for Portfolio
     Contact: "/Images/popup/5.webp", // Replace with your image URL for Contact
   };
 
@@ -195,10 +195,20 @@ function Popup({ handleMenu }) {
 
           <div className="hidden xl:block">
             <ul className="text-[20px] xl:text-[60px] gap-4 flex flex-col overflow-x-hidden ">
-              {["Home", "About", "Services", "Our Work", "Contact"].map(
+              {["Home", "About", "Services", "Portfolio", "Contact"].map(
                 (item, index) => (
                   <Link 
-                  href={`/${item.toLocaleLowerCase() === 'home' ? '' : item.toLocaleLowerCase() === 'our work' ? 'work' : item.toLocaleLowerCase()}`} 
+             href={
+  item.toLowerCase() === "home"
+    ? "/"
+    : item.toLowerCase() === "our work"
+    ? "/work"
+    : item.toLowerCase() === "portfolio"
+    ? "https://portfolio.digitalpaaji.com/"
+    : `/${item.toLowerCase()}`
+}
+  target={item.toLowerCase() === "portfolio" ? "_blank" : "_self"}
+  rel={item.toLowerCase() === "portfolio" ? "noopener noreferrer" : ""}
                   key={index} 
                   onClick={handleMenu}
                   className=""

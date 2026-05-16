@@ -17,7 +17,7 @@ export default function About() {
 
   return (
     <main>
-        <Header title="Welcome to Digital Paaji" content="Your Gateway to Online Success"/>
+        <Header title="Everything Your Brand Needs" content="Your Gateway to Online Success"/>
         <div className="my-16">
         <Content />
       </div>

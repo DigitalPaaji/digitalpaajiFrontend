@@ -10,9 +10,9 @@ function Services() {
   const handleMouseLeave = () => setShow(null);
   return (
     <div className="mx-12 lg:mx-32 xl:mx-60 ">
-      <div className="text-center">
+      {/* <div className="text-center">
         <h3 className="merriHead text-black text-xl xl:text-2xl">Services</h3>
-      </div>
+      </div> */}
       <div className=" text-center">
         <h3 className="bungeeHead my-12 text-[#cc5f4d]  text-[30px] xl:text-[40px]">
           Crafting Compelling Content
@@ -80,7 +80,7 @@ function Services() {
               </div>
               <div className=" flex items-center justify-center mt-8">
                 <Link
-                  href={"/digital-marketing"}
+                  href={"/contact"}
                   className="px-6 py-2 border-l-2 rounded-l-full text-white font-semibold hover:bg-[#f8cb2e] hover:text-black bg-[#006E7F]  text-lg "
                 >
                   Get Service
@@ -157,7 +157,7 @@ function Services() {
               </div>
               <div className=" flex items-center justify-center mt-8">
                 <Link
-                  href={"/social-media-marketing"}
+                  href={"/contact"}
                   className="px-6 py-2 border-l-2 rounded-l-full text-white font-semibold hover:bg-[#f8cb2e] hover:text-black bg-[#006E7F]  text-lg "
                 >
                   Get Service
@@ -232,7 +232,7 @@ function Services() {
               </div>
               <div className=" flex items-center justify-center mt-8">
                 <Link
-                  href={"/graphic-designing"}
+                  href={"/contact"}
                   className="px-6 py-2 border-l-2 rounded-l-full text-white font-semibold hover:bg-[#f8cb2e] hover:text-black bg-[#006E7F]  text-lg "
                 >
                   Get Service
@@ -307,7 +307,7 @@ function Services() {
               </div>
               <div className=" flex items-center justify-center mt-8">
                 <Link
-                  href={"/search-engine-optimization"}
+                  href={"/contact"}
                   className="px-6 py-2 border-l-2 rounded-l-full text-white font-semibold hover:bg-[#f8cb2e] hover:text-black bg-[#006E7F]  text-lg "
                 >
                   Get Service
@@ -382,7 +382,7 @@ function Services() {
               </div>
               <div className=" flex items-center justify-center mt-8">
                 <Link
-                  href={"/video-production"}
+                  href={"/contact"}
                   className="px-6 py-2 border-l-2 rounded-l-full text-white font-semibold hover:bg-[#f8cb2e] hover:text-black bg-[#006E7F]  text-lg "
                 >
                   Get Service
@@ -457,7 +457,7 @@ function Services() {
               </div>
               <div className=" flex items-center justify-center mt-8">
                 <Link
-                  href={"/web-development"}
+                  href={"/contact"}
                   className="px-6 py-2 border-l-2 rounded-l-full text-white font-semibold hover:bg-[#f8cb2e] hover:text-black bg-[#006E7F]  text-lg "
                 >
                   Get Service
@@ -533,12 +533,12 @@ function Services() {
                 </p>
               </div>
               <div className=" flex items-center justify-center mt-8">
-                <div
+                 <Link href={'/contact'}
                   
                   className="px-6 py-2 border-l-2 rounded-l-full text-white font-semibold hover:bg-[#f8cb2e] hover:text-black bg-[#006E7F]  text-lg "
                 >
                   Get Service
-                </div>
+                </Link>
                 <div
                   
                   className="px-6 py-2 border-r-2 rounded-r-full text-white font-semibold hover:bg-[#f8cb2e] hover:text-black bg-[#cc5f4d]  text-lg "
@@ -608,12 +608,12 @@ function Services() {
                 </p>
               </div>
               <div className=" flex items-center justify-center mt-8">
-                <div
+                <Link href={'/contact'}
                   
                   className="px-6 py-2 border-l-2 rounded-l-full text-white font-semibold hover:bg-[#f8cb2e] hover:text-black bg-[#006E7F]  text-lg "
                 >
                   Get Service
-                </div>
+                </Link>
                 <div
                   
                   className="px-6 py-2 border-r-2 rounded-r-full text-white font-semibold hover:bg-[#f8cb2e] hover:text-black bg-[#cc5f4d]  text-lg "
@@ -682,12 +682,11 @@ function Services() {
                 </p>
               </div>
               <div className=" flex items-center justify-center mt-8">
-                <div
-                  
+                <Link href={'/contact'}
                   className="px-6 py-2 border-l-2 rounded-l-full text-white font-semibold hover:bg-[#f8cb2e] hover:text-black bg-[#006E7F]  text-lg "
                 >
                   Get Service
-                </div>
+                </Link>
                 <div
                   
                   className="px-6 py-2 border-r-2 rounded-r-full text-white font-semibold hover:bg-[#f8cb2e] hover:text-black bg-[#cc5f4d]  text-lg "

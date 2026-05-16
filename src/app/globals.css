@@ -881,3 +881,125 @@ body {
 
 
 
+
+
+
+
+
+
+
+.portfolio-btn {
+  /* DIGITAL PAAJI COLORS */
+  --main-color: #ede7db; /* DARK TEXT */
+  --main-bg-color: rgb(17, 17, 17);
+  --pattern-color: #ede7db;
+
+
+
+
+
+  border-image:
+    radial-gradient(
+      circle,
+      rgba(237, 231, 219, 0.7) 0%,
+      rgba(0, 0, 0, 0) 100%
+    )
+    1;
+
+
+
+  color: var(--main-color);
+
+  background:
+    radial-gradient(
+      circle,
+      var(--main-bg-color) 0%,
+      rgba(0, 0, 0, 0.938) 95%
+    ),
+    linear-gradient(var(--pattern-color) 1px, transparent 1px),
+    linear-gradient(to right, var(--pattern-color) 1px, transparent 1px);
+
+  background-size:
+    cover,
+    15px 15px,
+    15px 15px;
+
+  background-position:
+    center center,
+    center center,
+    center center;
+
+  box-shadow:
+    -8px 0px 30px rgba(204, 95, 77, 0.25),
+    inset 0 0 20px rgba(255, 255, 255, 0.02);
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    background-size 0.25s ease,
+    box-shadow 0.3s ease;
+
+  cursor: pointer;
+}
+
+.portfolio-btn:hover {
+  background-size:
+    cover,
+    10px 10px,
+    10px 10px;
+
+  box-shadow:
+    -10px 0px 40px rgba(204, 95, 77, 0.35),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.portfolio-btn:active {
+  opacity: 0.95;
+}
+
+.portfolio-btn-text {
+  position: relative;
+  z-index: 3;
+  font-weight: 500;
+}
+
+.portfolio-btn-line {
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  right: 4px;
+
+  width: 1px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(62, 42, 38, 0.5),
+    transparent
+  );
+
+  z-index: 2;
+}
+
+.portfolio-btn-shine {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.08) 50%,
+      transparent 80%
+    );
+
+  transform: translateX(-120%);
+
+  transition: transform 0.8s ease;
+
+  z-index: 1;
+}
+
+.portfolio-btn:hover .portfolio-btn-shine {
+  transform: translateX(120%);
+}

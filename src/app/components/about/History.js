@@ -48,7 +48,7 @@ function History() {
             </p>
           </div>
           <div className="border border-black p-6 w-full lg:w-[350px] ">
-            <h3 className="bungeeHead text-4xl font-bold text-black">2025</h3>
+            <h3 className="bungeeHead text-4xl font-bold text-black">2026</h3>
             <h4 className="bungeeHead text-xl text-[#cc5f4d] font-bold mt-4">
               Always On
             </h4>

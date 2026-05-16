@@ -19,7 +19,7 @@ const LayoutCompo = ({ children }) => {
 
       {!hideLayout && <Footer />}
       {!hideLayout && <Icons />}
-      {!hideLayout && <ViewPorfolio />}
+      {/* {!hideLayout && <ViewPorfolio />} */}
     </div>
   )
 }
